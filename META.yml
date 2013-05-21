@@ -5,7 +5,9 @@ author:
 build_requires:
   File::Find: 0
   File::Temp: 0
+  FindBin: 0
   Module::Build: 0.4005
+  Path::Tiny: 0
   Test::More: 0.98
 configure_requires:
   Module::Build: 0.4005
@@ -20,27 +22,42 @@ provides:
   MetaPOD:
     file: lib/MetaPOD.pm
     version: v0.1.0
+  MetaPOD::Extractor:
+    file: lib/MetaPOD/Extractor.pm
+    version: v0.1.0
   MetaPOD::Spec:
     file: lib/MetaPOD/Spec.pm
     version: v0.1.0
 requires:
+  Data::Dump: 0
+  Pod::Eventual: 0
+  parent: 0
   perl: v5.10.0
   strict: 0
   warnings: 0
+resources:
+  bugtracker: https://github.com/kentfredric/MetaPOD/issues
+  homepage: https://github.com/kentfredric/MetaPOD
+  repository: https://github.com/kentfredric/MetaPOD.git
 version: 0.1.0
 x_BuiltWith:
   modules:
+    Data::Dump: 1.22
     Dist::Zilla::PluginBundle::Author::KENTNL: 1.7.3
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 'NA(possibly not installed)'
     File::Find: 1.23
     File::Temp: 0.2301
+    FindBin: 1.51
     Module::Build: 0.4005
+    Path::Tiny: 0.021
     Pod::Coverage::TrustPod: 0.100002
+    Pod::Eventual: 0.093330
     Test::CPAN::Changes: 0.20
     Test::CPAN::Meta: 0.23
     Test::More: 0.98
     Test::Pod: 1.48
     Test::Pod::Coverage: 1.08
+    parent: 0.225
     perl: 'NA(skipped: perl)'
     strict: 1.07
     version: 0.9902
