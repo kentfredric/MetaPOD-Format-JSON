@@ -13,20 +13,24 @@ my ($expected) = {
   '01_format_basic.pm' => {
     format => 'Test::Basic',
     data   => qq{Test Data\n},
+    start_line => 4,
   },
   '02_format_basic_version.pm' => {
     format  => 'Test::Basic',
     data    => qq{Test Data\n},
     version => 'v0.1',
+    start_line => 4,
   },
   '03_format_basic_for.pm' => {
     format => 'Test::Basic',
     data   => qq{Test Data\n},
+    start_line => 4,
   },
   '04_format_basic_for_version.pm' => {
     format  => 'Test::Basic',
     data    => qq{Test Data\n},
     version => 'v0.1',
+    start_line => 4,
   },
 };
 

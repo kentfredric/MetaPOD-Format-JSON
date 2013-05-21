@@ -51,8 +51,8 @@ sub regexp_for {
 
 
 sub begin_segment {
-  my ( $self, $format, $version ) = @_;
-  $self->{segment_cache} = { format => $format };
+  my ( $self, $format, $version , $start_line ) = @_;
+  $self->{segment_cache} = { format => $format, start_line => $start_line };
   $self->{segment_cache}->{version} = $version if defined $version;
   $self->{in_segment} = 1;
 }
@@ -80,11 +80,12 @@ sub in_segment {
 }
 
 sub add_segment {
-  my ( $self, $format, $version, $data ) = @_;
+  my ( $self, $format, $version, $data , $start_line ) = @_;
   my $segment = {};
   $segment->{format}  = $format;
   $segment->{version} = $version if defined $version;
   $segment->{data}    = $data;
+  $segment->{start_line} = $start_line if defined $start_line;
 
   push @{ $self->segments }, $segment;
 }
@@ -95,10 +96,10 @@ sub handle_begin {
     die "=begin MetaPOD:: cannot occur inside =begin MetaPOD:: at line " . $event->{start_line};
   }
   if ( $event->{content} =~ $self->regexp_begin_with_version ) {
-    return $self->begin_segment( $1, $2 );
+    return $self->begin_segment( $1, $2 , $event->{start_line} );
   }
   if ( $event->{content} =~ $self->regexp_begin ) {
-    return $self->begin_segment( $1, undef );
+    return $self->begin_segment( $1, undef, $event->{start_line});
   }
   return $self->handle_ignored($event);
 }
@@ -129,10 +130,10 @@ sub handle_end {
 sub handle_for {
   my ( $self, $event ) = @_;
   if ( $event->{content} =~ $self->regexp_for_with_version ) {
-    return $self->add_segment( $1, $2, $3 );
+    return $self->add_segment( $1, $2, $3, $event->{start_line} );
   }
   if ( $event->{content} =~ $self->regexp_for ) {
-    return $self->add_segment( $1, undef, $2 );
+    return $self->add_segment( $1, undef, $2 , $event->{start_line} );
   }
   return $self->handle_ignored($event);
 }
