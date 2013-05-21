@@ -23,7 +23,7 @@ ie:
 
     { JSON DATA }
 
-    =end
+    =end MetaPOD::JSON
 
 These may, or may not, correspond to real world parser names, but the actual code loaded
 may be determined by the parser, and this declaration is more an indication of a I<specification>
@@ -65,7 +65,7 @@ A MetaPod specification can be added to a POD document via one of the following 
 
     FORMATDATA
     
-    =end
+    =end MetaPOD::FORMAT
 
 And
 
@@ -73,7 +73,7 @@ And
 
     FORMATDATA
 
-    =end
+    =end MetaPOD::FORMAT
 
 =head3 OneLine Segments
 
