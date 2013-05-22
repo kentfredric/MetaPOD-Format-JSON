@@ -4,87 +4,114 @@ use warnings;
 package MetaPOD::Extractor;
 
 # ABSTRACT: Extract MetaPOD declarations from a file.
-
-use parent 'Pod::Eventual';
+use Moo;
+extends 'Pod::Eventual';
 
 use Data::Dump qw(pp);
 
-sub new {
-  my ( $class, %args ) = @_;
-  return bless {      %args  }, $class;
-}
+has formatter_regexp => (
+  is      => ro  =>,
+  lazy    => 1,
+  builder => sub { qr/MetaPOD::([^\s]+)/ },
+);
 
-sub formatter_regexp {
-    return $_[0]->{formatter_regexp} ||= qr/MetaPOD::([^\s]+)/;
-}
-sub version_regexp {
-    return $_[0]->{version_regexp} ||= qr/(v[\d.]+)/,
-}
+has version_regexp => (
+  is      => ro  =>,
+  lazy    => 1,
+  builder => sub { qr/(v[\d.]+)/ },
+);
 
-sub regexp_begin_with_version { 
-    return $_[0]->{regexp_begin_with_version} ||= do { 
-        my $formatter_regexp = $_[0]->formatter_regexp;
-        my $version_regexp = $_[0]->version_regexp;
-        qr/^${formatter_regexp}\s+${version_regexp}\s*$/sm;
-    };
-}
-sub regexp_begin { 
-    return $_[0]->{regexp_begin} ||= do { 
-        my $formatter_regexp = $_[0]->formatter_regexp;
-        qr/^${formatter_regexp}\s*$/sm;
-    };
-}
-sub regexp_for_with_version {    
-    return $_[0]->{regexp_for_with_version} ||= do { 
-        my $formatter_regexp = $_[0]->formatter_regexp;
-        my $version_regexp = $_[0]->version_regexp;
-        qr/^${formatter_regexp}\s+${version_regexp}\s+(.*$)/sm;
-    };
-}
-sub regexp_for { 
-    return $_[0]->{regexp_for} ||= do { 
-        my $formatter_regexp = $_[0]->formatter_regexp;
-        qr/^${formatter_regexp}\s+(.*$)$/sm;
-    };
-}
+has regexp_begin_with_version => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    my $version_regexp   = $_[0]->version_regexp;
+    qr/^${formatter_regexp}\s+${version_regexp}\s*$/sm;
+  }
+);
 
+has regexp_begin => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    qr/^${formatter_regexp}\s*$/sm;
+  }
+);
 
+has regexp_for_with_version => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    my $version_regexp   = $_[0]->version_regexp;
+    qr/^${formatter_regexp}\s+${version_regexp}\s+(.*$)/sm;
+  }
+);
+
+has regexp_for => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    qr/^${formatter_regexp}\s+(.*$)$/sm;
+  }
+);
+
+has segment_cache => (
+  is      => ro  =>,
+  lazy    => 1,
+  writer  => 'set_segment_cache',
+  builder => sub { {} },
+);
+
+has segments => (
+  is      => ro  =>,
+  lazy    => 1,
+  writer  => 'set_segments',
+  builder => sub { [] },
+);
+
+has in_segment => (
+  is      => ro  =>,
+  lazy    => 1,
+  writer  => 'set_in_segment',
+  clearer => 'unset_in_segment',
+  builder => sub { undef },
+);
 
 sub begin_segment {
-  my ( $self, $format, $version , $start_line ) = @_;
-  $self->{segment_cache} = { format => $format, start_line => $start_line };
-  $self->{segment_cache}->{version} = $version if defined $version;
-  $self->{in_segment} = 1;
+  my ( $self, $format, $version, $start_line ) = @_;
+  $self->set_segment_cache(
+    {
+      format     => $format,
+      start_line => $start_line,
+      ( defined $version ? ( version => $version ) : () ),
+    }
+  );
+  $self->set_in_segment(1);
 }
 
 sub end_segment {
   my ($self) = @_;
-  push @{ $self->segments }, $self->{segment_cache};
-  delete $self->{segment_cache};
-  undef $self->{in_segment};
+  push @{ $self->segments }, $self->segment_cache;
+  $self->set_segment_cache( {} );
+  $self->unset_in_segment();
 }
 
 sub append_segment_data {
   my ( $self, $data ) = @_;
-  $self->{segment_cache}->{data} ||= '';
-  $self->{segment_cache}->{data} .= $data;
-}
-
-sub segments {
-  my $self = shift;
-  return ( $self->{segments} ||= [] );
-}
-sub in_segment {
-   my $self = shift;
-   return exists $self->{in_segment} and defined $self->{in_segment} and $self->{in_segment};
+  $self->segment_cache->{data} ||= '';
+  $self->segment_cache->{data} .= $data;
 }
 
 sub add_segment {
-  my ( $self, $format, $version, $data , $start_line ) = @_;
+  my ( $self, $format, $version, $data, $start_line ) = @_;
   my $segment = {};
-  $segment->{format}  = $format;
-  $segment->{version} = $version if defined $version;
-  $segment->{data}    = $data;
+  $segment->{format}     = $format;
+  $segment->{version}    = $version if defined $version;
+  $segment->{data}       = $data;
   $segment->{start_line} = $start_line if defined $start_line;
 
   push @{ $self->segments }, $segment;
@@ -92,14 +119,14 @@ sub add_segment {
 
 sub handle_begin {
   my ( $self, $event ) = @_;
-  if ( $self->in_segment ) { 
+  if ( $self->in_segment ) {
     die "=begin MetaPOD:: cannot occur inside =begin MetaPOD:: at line " . $event->{start_line};
   }
   if ( $event->{content} =~ $self->regexp_begin_with_version ) {
-    return $self->begin_segment( $1, $2 , $event->{start_line} );
+    return $self->begin_segment( $1, $2, $event->{start_line} );
   }
   if ( $event->{content} =~ $self->regexp_begin ) {
-    return $self->begin_segment( $1, undef, $event->{start_line});
+    return $self->begin_segment( $1, undef, $event->{start_line} );
   }
   return $self->handle_ignored($event);
 }
@@ -107,22 +134,21 @@ sub handle_begin {
 sub handle_end {
   my ( $self, $event ) = @_;
   chomp $event->{content};
-  my $statement = '=' . $event->{command} . ' '. $event->{content};
+  my $statement = '=' . $event->{command} . ' ' . $event->{content};
 
-  if ( not $self->{in_segment} and not $event->{content} =~ $self->regexp_begin ) {
+  if ( not $self->in_segment and not $event->{content} =~ $self->regexp_begin ) {
     return $self->handle_ignored($event);
   }
- 
-  if ( $self->{in_segment} ) { 
-      my $expected_end = '=end MetaPOD::' . $self->{segment_cache}->{format};
-      if ( $statement ne $expected_end ) {
-          die "$statement seen but expected $expected_end at line " . $event->{start_line};
-      }
-      return $self->end_segment();
-  }
 
-  if ( $self->{content} =~ $self->regexp_begin ) {
-      die "unexpected $statement without =begin MetaPOD::$1 at line" . $event->{start_line} ;
+  if ( $self->in_segment ) {
+    my $expected_end = '=end MetaPOD::' . $self->segment_cache->{format};
+    if ( $statement ne $expected_end ) {
+      die "$statement seen but expected $expected_end at line " . $event->{start_line};
+    }
+    return $self->end_segment();
+  }
+  if ( $event->{content} =~ $self->regexp_begin ) {
+    die "unexpected $statement without =begin MetaPOD::$1 at line" . $event->{start_line};
   }
   return $self->handle_ignored($event);
 }
@@ -133,33 +159,33 @@ sub handle_for {
     return $self->add_segment( $1, $2, $3, $event->{start_line} );
   }
   if ( $event->{content} =~ $self->regexp_for ) {
-    return $self->add_segment( $1, undef, $2 , $event->{start_line} );
+    return $self->add_segment( $1, undef, $2, $event->{start_line} );
   }
   return $self->handle_ignored($event);
 }
 
-sub handle_cut {}
+sub handle_cut { }
 
 sub handle_text {
   my ( $self, $element ) = @_;
-  return $self->handle_ignored($element) unless $self->{in_segment};
+  return $self->handle_ignored($element) unless $self->in_segment;
   return $self->append_segment_data( $element->{content} );
 }
 
 sub handle_ignored {
   my ( $self, $element ) = @_;
-  if ( $self->{in_segment} ) { 
-      die "Unexpected type " . $element->{type} . " inside segment " . pp($element) . " at line" . $element->{start_line};
+  if ( $self->in_segment ) {
+    die "Unexpected type " . $element->{type} . " inside segment " . pp($element) . " at line" . $element->{start_line};
   }
 }
 
 sub handle_event {
   my ( $self, $event ) = @_;
-  for my $command ( qw( begin end for cut )) { 
-      last unless $event->{type} eq 'command';
-      next unless $event->{command} eq $command;
-      my $method = $self->can('handle_' . $command );
-      return $self->$method( $event );
+  for my $command (qw( begin end for cut )) {
+    last unless $event->{type} eq 'command';
+    next unless $event->{command} eq $command;
+    my $method = $self->can( 'handle_' . $command );
+    return $self->$method($event);
   }
   if ( $event->{type} eq 'text' ) {
     return $self->handle_text($event);
