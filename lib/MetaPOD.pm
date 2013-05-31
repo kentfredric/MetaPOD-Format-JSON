@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::VERSION = '0.1.0';
+  $MetaPOD::VERSION = '0.1.1';
 }
 
 # ABSTRACT: An evolution of POD
@@ -27,7 +27,7 @@ MetaPOD - An evolution of POD
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =begin MetaPOD::JSON v1.0.0
 

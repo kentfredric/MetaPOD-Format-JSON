@@ -33,6 +33,7 @@ t/02-role-formatter/01-supported.t
 t/03-result/01-basic.t
 t/04-assembler/01-basic.t
 t/05-format-json/01-basic.t
+t/self-extract.t
 weaver.ini
 xt/author/critic.t
 xt/release/cpan-changes.t
