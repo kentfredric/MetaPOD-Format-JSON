@@ -44,7 +44,7 @@ MetaPOD is a system intended to express the relationships between different docu
 
 =head2 2. Documentation about Meta
 
-MetaPOD also is a system by which one can express relationships about code, code which has documentation, but how the documentation is related to other documentation requires you to normally understand the meta-level information within the code works, so, this system aims to make the "metalevel" more visible from the surface, so the meta-level information can be more easily used to 
+MetaPOD also is a system by which one can express relationships about code, code which has documentation, but how the documentation is related to other documentation requires you to normally understand the meta-level information within the code works, so, this system aims to make the "metalevel" more visible from the surface, so the meta-level information can be more easily used to
 
 =over 4
 
