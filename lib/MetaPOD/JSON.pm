@@ -122,7 +122,7 @@ C<inherits> can be in one of 2 forms.
     { "inherits" : $string }
     { "inherits" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is de-duplicated.
 
 So that
 
@@ -149,7 +149,7 @@ C<does> can be in one of 2 forms.
     { "does" : $string }
     { "does" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is de-duplicated.
 
 So that
 
