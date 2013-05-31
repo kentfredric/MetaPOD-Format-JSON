@@ -9,7 +9,8 @@ package MetaPOD::Format::JSON;
 
 {
     "namespace":"MetaPOD::Format::JSON",
-    "inherits":"Moo::Object"
+    "inherits":"Moo::Object",
+    "does":"MetaPOD::Role::Format"
 }
 
 =end MetaPOD::JSON
@@ -53,7 +54,6 @@ sub _do_for_key {
   return $code->($_);
 }
 
-
 sub _add_namespace_v1 {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);
@@ -70,6 +70,17 @@ sub _add_inherits_v1 {
   croak 'Unsupported reftype ' . ref $inherits;
 }
 
+sub _add_does_v1 {
+  my ( $self, $does, $result ) = @_;
+  if ( defined $does and not ref $does ) {
+    return $result->add_does($does);
+  }
+  if ( defined $does and ref $does eq 'ARRAY' ) {
+    return $result->add_does( @{$does} );
+  }
+  croak 'Unsupported reftype ' . ref $does;
+}
+
 sub _add_segment_v1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
@@ -84,6 +95,12 @@ sub _add_segment_v1 {
       $self->_add_inherits_v1( $_, $result );
     }
   );
+  _do_for_key(
+    $data_decoded => 'does' => sub {
+      $self->_add_does_v1( $_, $result );
+    }
+  );
+
   if ( keys %{$data_decoded} ) {
     croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data_decoded} ) . '>';
   }

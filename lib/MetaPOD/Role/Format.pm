@@ -13,7 +13,7 @@ use version 0.77;
 =begin MetaPOD::JSON v1.0.0
 
 {
-    "namespace": "MetaPOD::Role::Format",
+    "namespace": "MetaPOD::Role::Format"
 }
 
 =end MetaPOD::JSON

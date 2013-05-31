@@ -10,7 +10,7 @@ package MetaPOD::Result;
 
 {
     "namespace": "MetaPOD::Result",
-    "inherits" : "Moo::Object",
+    "inherits" : "Moo::Object"
 }
 
 =end MetaPOD::JSON
@@ -25,7 +25,6 @@ use List::AllUtils qw( uniq );
     $result->set_namespace( $namespace )
 
 =cut
-
 
 has namespace => (
   is       => ro            =>,
@@ -43,6 +42,14 @@ has inherits => (
   builder  => sub           { [] },
   writer   => _set_inherits =>,
   reader   => _inherits     =>,
+);
+has does => (
+  is       => ro        =>,
+  required => 0,
+  lazy     => 1,
+  builder  => sub       { [] },
+  writer   => _set_does =>,
+  reader   => _does     =>,
 );
 
 =method inherits
@@ -77,6 +84,41 @@ sub set_inherits {
 sub add_inherits {
   my ( $self, @items ) = @_;
   $self->_set_inherits( [ uniq @{ $self->_inherits }, @items ] );
+  return $self;
+}
+
+=method does
+
+    my @does = $result->does;
+
+=cut
+
+sub does {
+  my $self = shift;
+  return @{ $self->_does };
+}
+
+=method set_does
+
+    $result->set_does( @does )
+
+=cut
+
+sub set_does {
+  my ( $self, @does ) = @_;
+  $self->_set_does( [ uniq @does ] );
+  return $self;
+}
+
+=method add_does
+
+    $result->add_does( @does );
+
+=cut
+
+sub add_does {
+  my ( $self, @items ) = @_;
+  $self->_set_does( [ uniq @{ $self->_does }, @items ] );
   return $self;
 }
 
