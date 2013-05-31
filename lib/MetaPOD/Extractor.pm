@@ -184,7 +184,7 @@ version 0.1.0
 
     $extractor->set_segments([])
 
-=head2 set_in_segment 
+=head2 set_in_segment
 
     $extractor->set_in_segment(1)
 
@@ -238,9 +238,9 @@ version 0.1.0
 
 =begin MetaPOD::JSON v1.0.0
 
-{ 
+{
     "namespace": "MetaPOD::Extractor",
-    "inherits" : "Pod::Eventual",
+    "inherits" : "Pod::Eventual"
 }
 
 
