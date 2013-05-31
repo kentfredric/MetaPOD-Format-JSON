@@ -14,6 +14,9 @@ corpus/json/01_format_basic.pm
 corpus/json/02_format_inherit_array.pm
 corpus/json/03_format_inherit_multi.pm
 dist.ini
+examples/self_structure.dot
+examples/self_structure.pl
+examples/self_structure.png
 lib/MetaPOD.pm
 lib/MetaPOD/Assembler.pm
 lib/MetaPOD/Extractor.pm

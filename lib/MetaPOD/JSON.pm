@@ -138,6 +138,33 @@ Have the same effect, the result being the same as if you had specified
 
     { "inherits" : [ $a, $b ] }
 
+=head3 does
+
+Any C<MetaPOD::JSON> containing document that is known to "do" another role, B<SHOULD> document their inheritance as such:
+
+    { "does": [ "Some::Role" ]}
+
+C<does> can be in one of 2 forms.
+
+    { "does" : $string }
+    { "does" : [ $string, $string, $string ] }
+
+Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplciated.
+
+So that
+
+    { "does" : [ $a ]}
+    { "does" : [ $b ]}
+
+And
+
+    { "does" : $a }
+    { "does" : $b }
+
+Have the same effect, the result being the same as if you had specified
+
+    { "does" : [ $a, $b ] }
+
 =head1 AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>

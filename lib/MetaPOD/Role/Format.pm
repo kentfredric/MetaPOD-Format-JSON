@@ -94,7 +94,7 @@ The default implementation just wraps L</supported_versions> with C<< version->p
 =begin MetaPOD::JSON v1.0.0
 
 {
-    "namespace": "MetaPOD::Role::Format",
+    "namespace": "MetaPOD::Role::Format"
 }
 
 

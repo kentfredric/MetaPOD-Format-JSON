@@ -17,7 +17,6 @@ use Moo;
 use List::AllUtils qw( uniq );
 
 
-
 has namespace => (
   is       => ro            =>,
   required => 0,
@@ -34,6 +33,14 @@ has inherits => (
   builder  => sub           { [] },
   writer   => _set_inherits =>,
   reader   => _inherits     =>,
+);
+has does => (
+  is       => ro        =>,
+  required => 0,
+  lazy     => 1,
+  builder  => sub       { [] },
+  writer   => _set_does =>,
+  reader   => _does     =>,
 );
 
 
@@ -53,6 +60,26 @@ sub set_inherits {
 sub add_inherits {
   my ( $self, @items ) = @_;
   $self->_set_inherits( [ uniq @{ $self->_inherits }, @items ] );
+  return $self;
+}
+
+
+sub does {
+  my $self = shift;
+  return @{ $self->_does };
+}
+
+
+sub set_does {
+  my ( $self, @does ) = @_;
+  $self->_set_does( [ uniq @does ] );
+  return $self;
+}
+
+
+sub add_does {
+  my ( $self, @items ) = @_;
+  $self->_set_does( [ uniq @{ $self->_does }, @items ] );
   return $self;
 }
 
@@ -90,11 +117,23 @@ version 0.1.0
 
     $result->add_inherits( @inherits );
 
+=head2 does
+
+    my @does = $result->does;
+
+=head2 set_does
+
+    $result->set_does( @does )
+
+=head2 add_does
+
+    $result->add_does( @does );
+
 =begin MetaPOD::JSON v1.0.0
 
 {
     "namespace": "MetaPOD::Result",
-    "inherits" : "Moo::Object",
+    "inherits" : "Moo::Object"
 }
 
 
