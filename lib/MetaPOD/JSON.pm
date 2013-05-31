@@ -11,6 +11,7 @@ BEGIN {
   $MetaPOD::JSON::VERSION = '0.1.0';
 }
 
+
 sub implementation_class { return 'MetaPod::Format::JSON' }
 
 1;
@@ -34,6 +35,8 @@ version 0.1.0
 This is mostly a documentation stub, documenting the JSON Formatted version of MetaPOD
 
 The Actual Implementation is stored in L<< C<::Format::JSON>|MetaPOD::Format::JSON >>
+
+=for POD::Coverage implementation_class
 
 =head1 Using MetaPOD::JSON in your documentation
 
