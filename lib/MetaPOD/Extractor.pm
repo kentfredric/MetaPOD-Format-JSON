@@ -14,6 +14,7 @@ use Moo;
 extends 'Pod::Eventual';
 
 use Data::Dump qw(pp);
+use Carp qw(croak);
 
 has formatter_regexp => (
   is      => ro  =>,
@@ -110,7 +111,7 @@ sub end_segment {
 
 sub append_segment_data {
   my ( $self, $data ) = @_;
-  $self->segment_cache->{data} ||= '';
+  $self->segment_cache->{data} ||= q{};
   $self->segment_cache->{data} .= $data;
   return $self;
 }
@@ -130,7 +131,7 @@ sub add_segment {
 sub handle_begin {
   my ( $self, $event ) = @_;
   if ( $self->in_segment ) {
-    die "=begin MetaPOD:: cannot occur inside =begin MetaPOD:: at line " . $event->{start_line};
+    croak "=begin MetaPOD:: cannot occur inside =begin MetaPOD:: at line " . $event->{start_line};
   }
   if ( $event->{content} =~ $self->regexp_begin_with_version ) {
     return $self->begin_segment( $1, $2, $event->{start_line} );
@@ -153,12 +154,12 @@ sub handle_end {
   if ( $self->in_segment ) {
     my $expected_end = '=end MetaPOD::' . $self->segment_cache->{format};
     if ( $statement ne $expected_end ) {
-      die "$statement seen but expected $expected_end at line " . $event->{start_line};
+      croak "$statement seen but expected $expected_end at line " . $event->{start_line};
     }
     return $self->end_segment();
   }
   if ( $event->{content} =~ $self->regexp_begin ) {
-    die "unexpected $statement without =begin MetaPOD::$1 at line" . $event->{start_line};
+    croak "unexpected $statement without =begin MetaPOD::$1 at line" . $event->{start_line};
   }
   return $self->handle_ignored($event);
 }

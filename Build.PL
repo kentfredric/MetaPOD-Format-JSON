@@ -23,6 +23,7 @@ my %module_build_args = (
   "recommends" => {},
   "recursive_test_files" => 1,
   "requires" => {
+    "Carp" => 0,
     "Data::Dump" => 0,
     "Moo" => 0,
     "Moo::Role" => 0,
