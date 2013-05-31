@@ -103,7 +103,7 @@ This is mostly a practical consideration, as without this consideration, all dec
 
 =head2 KEYS
 
-=head3 namespace
+=head3 C<namespace>
 
 All C<MetaPOD::JSON> containing documents B<SHOULD> contain at least one C<namespace> declaration.
 
@@ -111,7 +111,7 @@ Example:
 
     { "namespace": "My::Library" }
 
-=head3 inherits
+=head3 C<inherits>
 
 Any C<MetaPOD::JSON> containing document that is known to inherit from another class, B<SHOULD> document their inheritance as such:
 
@@ -138,7 +138,7 @@ Have the same effect, the result being the same as if you had specified
 
     { "inherits" : [ $a, $b ] }
 
-=head3 does
+=head3 C<does>
 
 Any C<MetaPOD::JSON> containing document that is known to "do" another role, B<SHOULD> document their inheritance as such:
 
