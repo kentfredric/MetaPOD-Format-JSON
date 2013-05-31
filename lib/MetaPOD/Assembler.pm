@@ -16,6 +16,7 @@ use Moo;
 use Carp qw( croak );
 use Module::Runtime qw( use_module );
 
+
 has 'result' => (
   is       => ro =>,
   required => 0,
@@ -26,6 +27,7 @@ has 'result' => (
   },
   clearer => 'clear_result',
 );
+
 
 has extractor => (
   is       => ro =>,
@@ -43,6 +45,7 @@ has extractor => (
   },
 );
 
+
 has format_map => (
   is       => ro =>,
   required => 1,
@@ -52,12 +55,14 @@ has format_map => (
   },
 );
 
+
 sub assemble_handle {
   my ( $self, $handle ) = @_;
   $self->clear_result;
   $self->extractor->read_handle($handle);
   return $self->result;
 }
+
 
 sub assemble_file {
   my ( $self, $file ) = @_;
@@ -66,12 +71,14 @@ sub assemble_file {
   return $self->result;
 }
 
+
 sub assemble_string {
   my ( $self, $string ) = @_;
   $self->clear_result;
   $self->extractor->read_string($string);
   return $self->result;
 }
+
 
 sub get_class_for_format {
   my ( $self, $format ) = @_;
@@ -80,6 +87,7 @@ sub get_class_for_format {
   }
   return $self->format_map->{$format};
 }
+
 
 sub handle_segment {
   my ( $self, $segment ) = @_;
@@ -94,6 +102,7 @@ sub handle_segment {
 
   $class->add_segment( $segment, $self->result );
 
+  return $self;
 }
 
 1;
@@ -111,6 +120,42 @@ MetaPOD::Assembler - Glue layer that dispatches segments to a constructed Result
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 assemble_handle
+
+Wraps L<Pod::Eventual/assemble_handle> and returns a L<MetaPOD::Result> for each passed filehandle
+
+=head2 assemble_file
+
+Wraps L<Pod::Eventual/assemble_file> and returns a L<MetaPOD::Result> for each passed file
+
+=head2 assemble_string
+
+Wraps L<Pod::Eventual/assemble_string> and returns a L<MetaPOD::Result> for each passed string
+
+=head2 get_class_for_format
+
+Gets the class to load for the specified format from the internal map, L</format_map>
+
+=head2 handle_segment
+
+    $assembler->handle_segment( $segment_hash )
+
+This is the callback point of entry that dispatches calls from the L<MetaPOD::Extractor>,
+loads and calls the relevant C<Format> ( via L</get_class_for_format>, validates
+that version specifications are supported ( via C<< Format->supports_version($v) >> )
+and then asks the given formatter to modify the current L<MetaPOD::Result> object
+by parsing the given C<$segment_hash>
+
+=head1 ATTRIBUTES
+
+=head2 result
+
+=head2 extractor
+
+=head2 format_map
 
 =begin MetaPOD::JSON v1.0.0
 
