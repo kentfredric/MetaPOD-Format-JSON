@@ -18,6 +18,7 @@ package MetaPOD::Result;
 =cut
 
 use Moo;
+use List::AllUtils qw( uniq );
 
 has namespace => (
   is       => ro            =>,
@@ -39,16 +40,19 @@ has inherits => (
 
 sub inherits {
   my $self = shift;
-  return @{ $self->inherits };
+  return @{ $self->_inherits };
 }
 
 sub set_inherits {
   my ( $self, @inherits ) = @_;
-  $self->_set_inherits( \@inherits );
+  $self->_set_inherits( [ uniq @inherits ] );
+  return $self;
 }
 
 sub add_inherits {
   my ( $self, @items ) = @_;
-  push $self->inherits, @items;
+  $self->_set_inherits( [ uniq @{ $self->_inherits }, @items ] );
+  return $self;
 }
 
+1;
