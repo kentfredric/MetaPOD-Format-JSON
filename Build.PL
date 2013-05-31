@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "MetaPOD",
-  "dist_version" => "0.1.0",
+  "dist_version" => "0.1.1",
   "license" => "perl",
   "module_name" => "MetaPOD",
   "recommends" => {},
@@ -41,6 +41,7 @@ my %module_build_args = (
     "File::Find" => 0,
     "File::Temp" => 0,
     "FindBin" => 0,
+    "Path::Iterator::Rule" => 0,
     "Path::Tiny" => 0,
     "Test::Fatal" => 0,
     "Test::More" => "0.98"

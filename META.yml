@@ -7,6 +7,7 @@ build_requires:
   File::Temp: 0
   FindBin: 0
   Module::Build: 0.4005
+  Path::Iterator::Rule: 0
   Path::Tiny: 0
   Test::Fatal: 0
   Test::More: 0.98
@@ -22,28 +23,28 @@ name: MetaPOD
 provides:
   MetaPOD:
     file: lib/MetaPOD.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::Assembler:
     file: lib/MetaPOD/Assembler.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::Extractor:
     file: lib/MetaPOD/Extractor.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::Format::JSON:
     file: lib/MetaPOD/Format/JSON.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::JSON:
     file: lib/MetaPOD/JSON.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::Result:
     file: lib/MetaPOD/Result.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::Role::Format:
     file: lib/MetaPOD/Role/Format.pm
-    version: v0.1.0
+    version: v0.1.1
   MetaPOD::Spec:
     file: lib/MetaPOD/Spec.pm
-    version: v0.1.0
+    version: v0.1.1
 requires:
   Carp: 0
   Data::Dump: 0
@@ -61,7 +62,7 @@ resources:
   bugtracker: https://github.com/kentfredric/MetaPOD/issues
   homepage: https://github.com/kentfredric/MetaPOD
   repository: https://github.com/kentfredric/MetaPOD.git
-version: 0.1.0
+version: 0.1.1
 x_BuiltWith:
   modules:
     Carp: 1.29
@@ -77,6 +78,7 @@ x_BuiltWith:
     Module::Runtime: 0.013
     Moo: 1.002
     Moo::Role: NA(undef)
+    Path::Iterator::Rule: 1.005
     Path::Tiny: 0.021
     Pod::Coverage::TrustPod: 0.100002
     Pod::Eventual: 0.093330

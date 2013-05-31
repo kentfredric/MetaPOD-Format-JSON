@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Role::Format::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Role::Format::VERSION = '0.1.0';
+  $MetaPOD::Role::Format::VERSION = '0.1.1';
 }
 
 # ABSTRACT: Base role for common format routines
@@ -55,7 +55,7 @@ MetaPOD::Role::Format - Base role for common format routines
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 METHODS
 
@@ -65,7 +65,7 @@ Returns a list of string versions supported by this class, or the consuming role
 
     my ( @versions ) = $role->supported_versions
 
-Each B<SHOULD> be in C<dotted decimal> format, and each B<SHOULD> be preceeded with a C<v>
+Each B<SHOULD> be in C<dotted decimal> format, and each B<SHOULD> be preceded with a C<v>
 
 By default, returns
 
@@ -77,7 +77,7 @@ Determine if the class supports the given version or not
 
     $class->supports_version('v1.0.0');
 
-C<version> B<MUST> be preceeded with a C<v> and B<MUST> be in dotted decimal form.
+C<version> B<MUST> be preceded with a C<v> and B<MUST> be in dotted decimal form.
 
 Default implementation compares values given verses the results from C<< $class->_supported_versions >>
 

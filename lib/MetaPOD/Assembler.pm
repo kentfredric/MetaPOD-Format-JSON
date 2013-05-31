@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Assembler::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Assembler::VERSION = '0.1.0';
+  $MetaPOD::Assembler::VERSION = '0.1.1';
 }
 
 # ABSTRACT: Glue layer that dispatches segments to a constructed Result
@@ -119,13 +119,33 @@ MetaPOD::Assembler - Glue layer that dispatches segments to a constructed Result
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
+
+=head1 SYNOPSIS
+
+    use MetaPOD::Assembler;
+
+    my $assembler = MetaPOD::Assembler->new();
+
+    for my $file ( @files ) {
+        my $object = $assembler->assemble_file( $file );
+    }
+
+This, should be enough for the majority of use-cases.
+
+At present, C<MetaPOD::Assembler> only supports C<JSON> specification out-of-the-box,
+but you can extend it to support any other defined specifications by replacing the format map
+
+    my $assembler = MetaPOD::Assembler->new( format_map => {
+        JSON => 'MetaPOD::Format::JSON',
+        YAML => 'MyProject::Format::YAML',
+    });
 
 =head1 METHODS
 
 =head2 assemble_handle
 
-Wraps L<Pod::Eventual/assemble_handle> and returns a C<MetaPOD::Result> for each passed filehandle
+Wraps L<Pod::Eventual/assemble_handle> and returns a C<MetaPOD::Result> for each passed file handle
 
 =head2 assemble_file
 
@@ -146,7 +166,7 @@ Gets the class to load for the specified format from the internal map, L</format
 This is the callback point of entry that dispatches calls from the C<MetaPOD::Extractor>,
 loads and calls the relevant C<Format> ( via L</get_class_for_format>, validates
 that version specifications are supported ( via C<< Format->supports_version($v) >> )
-and then asks the given formatter to modify the current C<MetaPOD::Result> object
+and then asks the given format to modify the current C<MetaPOD::Result> object
 by parsing the given C<$segment_hash>
 
 =head1 ATTRIBUTES
