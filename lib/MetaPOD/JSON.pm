@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-# ABSTRACT: The JSON Formatted MetaPOD Spec
+# ABSTRACT: The C<JSON> Formatted MetaPOD Spec
 
 package MetaPOD::JSON;
 BEGIN {
@@ -24,7 +24,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::JSON - The JSON Formatted MetaPOD Spec
+MetaPOD::JSON - The C<JSON> Formatted MetaPOD Spec
 
 =head1 VERSION
 
@@ -32,7 +32,7 @@ version 0.1.1
 
 =head1 SYNOPSIS
 
-This is mostly a documentation stub, documenting the JSON Formatted version of MetaPOD
+This is mostly a documentation stub, documenting the C<JSON> Formatted version of MetaPOD
 
 The Actual Implementation is stored in L<< C<::Format::JSON>|MetaPOD::Format::JSON >>
 
@@ -59,7 +59,7 @@ or
 
     =cut
 
-You can also declare a version for which semantics to embue into the declaration.
+You can also declare a version for which semantics to imbue into the declaration.
 
     =begin MetaPOD::JSON v1.0.0
 
@@ -73,9 +73,9 @@ It is B<ENCOURAGED> that wherever possible to support the B<WIDEST> variety of v
 
 =head2 Data collection
 
-Spec version 1.0.0 is such that mutliple declarations should be merged to form an aggregate,
+Spec version 1.0.0 is such that multiple declarations should be merged to form an aggregate,
 
-ie:
+e.g.:
 
     =for MetaPOD::JSON v1.0.0 { "a":"b" }
 
@@ -92,11 +92,11 @@ this should be the same  as if one had done
 
     =end MetaPOD::JSON
 
-With the observation that latter keys may clobber preceeding keys.
+With the observation that latter keys may clobber preceding keys.
 
 =head2 Scope
 
-Because of the Data Collection design, it is not supported to declare multiple namespaces
+Because of the Data Collection design, it is not supported to declare multiple name-spaces
 within the same file at present.
 
 This is mostly a practical consideration, as without this consideration, all declarations of class members would require re-stating the class, and that would quickly become tiresome.
@@ -122,7 +122,7 @@ C<inherits> can be in one of 2 forms.
     { "inherits" : $string }
     { "inherits" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplciated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is de-duplciated.
 
 So that
 
