@@ -5,6 +5,26 @@ package MetaPOD::Assembler;
 
 # ABSTRACT: Glue layer that dispatches segments to a constructed Result
 
+=head1 SYNOPSIS
+
+    use MetaPOD::Assembler;
+
+    my $assembler = MetaPOD::Assembler->new();
+
+    for my $file ( @files ) {
+        my $object = $assembler->assemble_file( $file );
+    }
+
+This, should be enough for the majority of usecases.
+
+At present, C<MetaPOD::Assembler> only supports C<JSON> specification out-of-the-box,
+but you can extend it to support any other defined specifications by replacing the format map
+
+    my $assembler = MetaPOD::Assembler->new( format_map => {
+        JSON => 'MetaPOD::Format::JSON',
+        YAML => 'MyProject::Format::YAML',
+    });
+
 =begin MetaPOD::JSON v1.0.0
 
 {
