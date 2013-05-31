@@ -186,7 +186,7 @@ sub handle_for {
 
 sub handle_cut {
     my ( $self, $element ) = @_;
-    $self->handle_ignored( $element );
+    return $self->handle_ignored( $element );
 }
 
 
