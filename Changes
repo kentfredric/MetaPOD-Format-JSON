@@ -1,11 +1,12 @@
 Release history for MetaPOD
 
-0.1.1 2013-05-31T16:00:54Z
+0.1.1 2013-05-31T16:02:34Z
  [Dependencies::Added / test requires]
  - Path::Iterator::Rule
 
  [Documentation]
  - Improve surface docs on MetaPOD::Assembler
+ - Various spelling mistakes
 
  [Tests]
  - Automatic self-validation test
