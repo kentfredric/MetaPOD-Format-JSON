@@ -11,9 +11,10 @@ BEGIN {
 }
 
 use Moo::Role;
+use Carp qw( croak );
 use version 0.77;
 
-sub supported_versions { qw( v1.0.0 ) }
+sub supported_versions { return qw( v1.0.0 ) }
 
 sub _supported_versions {
     my $class = shift;
@@ -23,13 +24,13 @@ sub _supported_versions {
 sub supports_version {
     my ( $class, $version ) = @_;
     if ( $version !~ /^v/ ){
-        die "Version specification does not begin with a 'v'";
+        croak q{Version specification does not begin with a 'v'};
     }
     my $v = version->parse($version);
     for my $supported ( $class->supported_versions ) {
         return $supported if $supported == $v;
     }
-    die "Version $v not supported. Supported versions: " . join(q{,}, $class->supported_versions) ;
+    croak "Version $v not supported. Supported versions: " . join(q{,}, $class->supported_versions) ;
 }
 
 requires 'new_collector';
