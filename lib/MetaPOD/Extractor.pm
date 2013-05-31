@@ -97,6 +97,7 @@ sub begin_segment {
     }
   );
   $self->set_in_segment(1);
+  return $self;
 }
 
 sub end_segment {
@@ -104,12 +105,14 @@ sub end_segment {
   push @{ $self->segments }, $self->segment_cache;
   $self->set_segment_cache( {} );
   $self->unset_in_segment();
+  return $self;
 }
 
 sub append_segment_data {
   my ( $self, $data ) = @_;
   $self->segment_cache->{data} ||= '';
   $self->segment_cache->{data} .= $data;
+  return $self;
 }
 
 sub add_segment {
@@ -121,6 +124,7 @@ sub add_segment {
   $segment->{start_line} = $start_line if defined $start_line;
 
   push @{ $self->segments }, $segment;
+  return $self;
 }
 
 sub handle_begin {
