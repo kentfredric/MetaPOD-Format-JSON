@@ -25,6 +25,7 @@ my %module_build_args = (
   "requires" => {
     "Carp" => 0,
     "Data::Dump" => 0,
+    "JSON" => 0,
     "List::AllUtils" => 0,
     "Module::Runtime" => 0,
     "Moo" => 0,

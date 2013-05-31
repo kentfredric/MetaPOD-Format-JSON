@@ -10,10 +10,14 @@ corpus/basic/01_format_basic.pm
 corpus/basic/02_format_basic_version.pm
 corpus/basic/03_format_basic_for.pm
 corpus/basic/04_format_basic_for_version.pm
+corpus/json/01_format_basic.pm
+corpus/json/02_format_inherit_array.pm
+corpus/json/03_format_inherit_multi.pm
 dist.ini
 lib/MetaPOD.pm
 lib/MetaPOD/Assembler.pm
 lib/MetaPOD/Extractor.pm
+lib/MetaPOD/Format/JSON.pm
 lib/MetaPOD/JSON.pm
 lib/MetaPOD/Result.pm
 lib/MetaPOD/Role/Format.pm
@@ -25,6 +29,7 @@ t/01-extractor/01-basic.t
 t/02-role-formatter/01-supported.t
 t/03-result/01-basic.t
 t/04-assembler/01-basic.t
+t/05-format-json/01-basic.t
 weaver.ini
 xt/author/critic.t
 xt/release/cpan-changes.t

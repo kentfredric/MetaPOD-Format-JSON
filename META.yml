@@ -29,6 +29,9 @@ provides:
   MetaPOD::Extractor:
     file: lib/MetaPOD/Extractor.pm
     version: v0.1.0
+  MetaPOD::Format::JSON:
+    file: lib/MetaPOD/Format/JSON.pm
+    version: v0.1.0
   MetaPOD::JSON:
     file: lib/MetaPOD/JSON.pm
     version: v0.1.0
@@ -44,6 +47,7 @@ provides:
 requires:
   Carp: 0
   Data::Dump: 0
+  JSON: 0
   List::AllUtils: 0
   Module::Runtime: 0
   Moo: 0
@@ -67,6 +71,7 @@ x_BuiltWith:
     File::Find: 1.23
     File::Temp: 0.2301
     FindBin: 1.51
+    JSON: 2.57
     List::AllUtils: 0.03
     Module::Build: 0.4005
     Module::Runtime: 0.013
