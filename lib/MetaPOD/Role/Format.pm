@@ -17,27 +17,24 @@ use version 0.77;
 sub supported_versions { return qw( v1.0.0 ) }
 
 sub _supported_versions {
-    my $class = shift;
-    return map { version->parse($_) } $class->supported_versions;
+  my $class = shift;
+  return map { version->parse($_) } $class->supported_versions;
 }
 
 sub supports_version {
-    my ( $class, $version ) = @_;
-    if ( $version !~ /^v/msx ){
-        croak q{Version specification does not begin with a 'v'};
-    }
-    my $v = version->parse($version);
-    for my $supported ( $class->supported_versions ) {
-        return $supported if $supported == $v;
-    }
-    croak "Version $v not supported. Supported versions: " . join q{,}, $class->supported_versions ;
+  my ( $class, $version ) = @_;
+  if ( $version !~ /^v/msx ) {
+    croak q{Version specification does not begin with a 'v'};
+  }
+  my $v = version->parse($version);
+  for my $supported ( $class->supported_versions ) {
+    return $supported if $supported == $v;
+  }
+  croak "Version $v not supported. Supported versions: " . join q{,}, $class->supported_versions;
 }
 
 requires 'new_collector';
 requires 'add_segment';
-
-
-
 
 1;
 

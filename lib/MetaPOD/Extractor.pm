@@ -73,12 +73,15 @@ has segment_cache => (
   builder => sub { {} },
 );
 
+
 has segments => (
   is      => ro  =>,
   lazy    => 1,
   writer  => 'set_segments',
   builder => sub { [] },
 );
+
+
 
 has in_segment => (
   is      => ro  =>,
@@ -87,7 +90,6 @@ has in_segment => (
   clearer => 'unset_in_segment',
   builder => sub { undef },
 );
-
 
 
 sub begin_segment {
@@ -185,8 +187,8 @@ sub handle_for {
 
 
 sub handle_cut {
-    my ( $self, $element ) = @_;
-    return $self->handle_ignored( $element );
+  my ( $self, $element ) = @_;
+  return $self->handle_ignored($element);
 }
 
 
@@ -203,6 +205,7 @@ sub handle_ignored {
     croak 'Unexpected type ' . $element->{type} . ' inside segment ' . pp($element) . ' at line' . $element->{start_line};
   }
 }
+
 
 sub handle_event {
   my ( $self, $event ) = @_;
@@ -236,6 +239,18 @@ MetaPOD::Extractor - Extract MetaPOD declarations from a file.
 version 0.1.0
 
 =head1 METHODS
+
+=head2 set_segments
+
+    $extractor->set_segments([])
+
+=head2 set_in_segment 
+
+    $extractor->set_in_segment(1)
+
+=head2 unset_in_segment
+
+    $extractor->unset_in_segment()
 
 =head2 begin_segment
 
