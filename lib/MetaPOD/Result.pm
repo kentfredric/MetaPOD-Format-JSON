@@ -16,6 +16,8 @@ BEGIN {
 use Moo;
 use List::AllUtils qw( uniq );
 
+
+
 has namespace => (
   is       => ro            =>,
   required => 0,
@@ -34,16 +36,19 @@ has inherits => (
   reader   => _inherits     =>,
 );
 
+
 sub inherits {
   my $self = shift;
   return @{ $self->_inherits };
 }
+
 
 sub set_inherits {
   my ( $self, @inherits ) = @_;
   $self->_set_inherits( [ uniq @inherits ] );
   return $self;
 }
+
 
 sub add_inherits {
   my ( $self, @items ) = @_;
@@ -66,6 +71,24 @@ MetaPOD::Result - Compiled aggregate result object for MetaPOD
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 set_namespace
+
+    $result->set_namespace( $namespace )
+
+=head2 inherits
+
+    my @inherits = $result->inherits;
+
+=head2 set_inherits
+
+    $result->set_inherits( @inherits )
+
+=head2 add_inherits
+
+    $result->add_inherits( @inherits );
 
 =begin MetaPOD::JSON v1.0.0
 

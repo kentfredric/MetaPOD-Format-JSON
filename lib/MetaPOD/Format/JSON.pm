@@ -16,7 +16,7 @@ use Moo;
 use Carp qw( croak );
 use version 0.77;
 
-with "MetaPOD::Role::Format";
+with 'MetaPOD::Role::Format';
 
 my $dispatch_table = [
   {
