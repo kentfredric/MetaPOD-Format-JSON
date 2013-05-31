@@ -69,7 +69,7 @@ version 0.1.0
 
 =begin MetaPOD::JSON v1.0.0
 
-{ 
+{
     "namespace": "MetaPOD::Result",
     "inherits" : "Moo::Object",
 }
