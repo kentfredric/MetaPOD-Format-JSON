@@ -52,7 +52,7 @@ has regexp_for_with_version => (
   builder => sub {
     my $formatter_regexp = $_[0]->formatter_regexp;
     my $version_regexp   = $_[0]->version_regexp;
-    qr/^${formatter_regexp}\s+${version_regexp}\s+(.*$)/sm;
+    qr{ ^ ${formatter_regexp} \s+ ${version_regexp} \s+ (.*$) }smx;
   },
 );
 
@@ -61,7 +61,7 @@ has regexp_for => (
   lazy    => 1,
   builder => sub {
     my $formatter_regexp = $_[0]->formatter_regexp;
-    qr{^${formatter_regexp}\s+(.*$)$}sm;
+    qr{ ^ ${formatter_regexp} \s+ (.*$) $ }smx;
   },
 );
 
