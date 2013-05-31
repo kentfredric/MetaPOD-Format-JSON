@@ -105,7 +105,7 @@ This is mostly a practical consideration, as without this consideration, all dec
 
 =head3 namespace
 
-All C<MetaPOD::JSON> containing documents B<SHOULD> contain at least one namespace declaration.
+All C<MetaPOD::JSON> containing documents B<SHOULD> contain at least one C<namespace> declaration.
 
 Example:
 
@@ -122,7 +122,7 @@ C<inherits> can be in one of 2 forms.
     { "inherits" : $string }
     { "inherits" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is de-duplciated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
 
 So that
 
@@ -149,7 +149,7 @@ C<does> can be in one of 2 forms.
     { "does" : $string }
     { "does" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplciated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
 
 So that
 
