@@ -125,15 +125,15 @@ version 0.1.0
 
 =head2 assemble_handle
 
-Wraps L<Pod::Eventual/assemble_handle> and returns a L<MetaPOD::Result> for each passed filehandle
+Wraps L<Pod::Eventual/assemble_handle> and returns a C<MetaPOD::Result> for each passed filehandle
 
 =head2 assemble_file
 
-Wraps L<Pod::Eventual/assemble_file> and returns a L<MetaPOD::Result> for each passed file
+Wraps L<Pod::Eventual/assemble_file> and returns a C<MetaPOD::Result> for each passed file
 
 =head2 assemble_string
 
-Wraps L<Pod::Eventual/assemble_string> and returns a L<MetaPOD::Result> for each passed string
+Wraps L<Pod::Eventual/assemble_string> and returns a C<MetaPOD::Result> for each passed string
 
 =head2 get_class_for_format
 
@@ -143,10 +143,10 @@ Gets the class to load for the specified format from the internal map, L</format
 
     $assembler->handle_segment( $segment_hash )
 
-This is the callback point of entry that dispatches calls from the L<MetaPOD::Extractor>,
+This is the callback point of entry that dispatches calls from the C<MetaPOD::Extractor>,
 loads and calls the relevant C<Format> ( via L</get_class_for_format>, validates
 that version specifications are supported ( via C<< Format->supports_version($v) >> )
-and then asks the given formatter to modify the current L<MetaPOD::Result> object
+and then asks the given formatter to modify the current C<MetaPOD::Result> object
 by parsing the given C<$segment_hash>
 
 =head1 ATTRIBUTES
