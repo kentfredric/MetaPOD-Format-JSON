@@ -29,7 +29,7 @@ sub supported_versions {
   return qw( v1.0.0 );
 }
 
-sub do_for_key {
+sub _do_for_key {
   my ( $stash, $key, $code ) = @_;
   return unless exists $stash->{$key};
   my $copy = delete $stash->{$key};
@@ -57,17 +57,13 @@ sub add_segment_v1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
   my $data_decoded = JSON->new->decode($data);
-  do_for_key(
-    $data_decoded,
-    'namespace',
-    sub {
+  _do_for_key(
+    $data_decoded => 'namespace' => sub {
       $self->add_namespace_v1( $_, $result );
     }
   );
-  do_for_key(
-    $data_decoded,
-    'inherits',
-    sub {
+  _do_for_key(
+    $data_decoded => 'inherits' => sub {
       $self->add_inherits_v1( $_, $result );
     }
   );
