@@ -25,6 +25,7 @@ my $dispatch_table = [
   }
 ];
 
+
 sub supported_versions {
   return qw( v1.0.0 );
 }
@@ -74,6 +75,7 @@ sub _add_segment_v1 {
   return $result;
 }
 
+
 sub add_segment {
   my ( $self, $segment, $result ) = @_;
   my $segver = $self->supports_version( $segment->{version} );
@@ -100,6 +102,22 @@ MetaPOD::Format::JSON - Reference implementation of a JSON based MetaPOD Format
 =head1 VERSION
 
 version 0.1.0
+
+=head1 SYNOPSIS
+
+This is the reference implementation of L<< C<MetaPOD::JSON>|MetaPOD::JSON >>
+
+=head1 METHODS
+
+=head2 supported_versions
+
+The versions this module supports
+
+    returns qw( v1.0.0 )
+
+=head2 add_segment
+
+See L<< C<::Role::Format>|MetaPOD::Role::Format >> for the specification of the C<add_segment> method.
 
 =begin MetaPOD::JSON v1.0.0
 
