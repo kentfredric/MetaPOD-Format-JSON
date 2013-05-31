@@ -67,6 +67,7 @@ has regexp_for => (
   },
 );
 
+
 has segment_cache => (
   is      => ro  =>,
   lazy    => 1,
@@ -240,6 +241,10 @@ MetaPOD::Extractor - Extract MetaPOD declarations from a file.
 version 0.1.0
 
 =head1 METHODS
+
+=head2 set_segment_cache
+
+    $extactor->set_segment_cache({})
 
 =head2 set_segments
 
