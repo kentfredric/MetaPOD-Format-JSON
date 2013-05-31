@@ -35,7 +35,7 @@ version 0.1.1
 
 =end MetaPOD::JSON
 
-=head1 SPECIFIYING METAPOD
+=head1 Specifying MetaPOD
 
 =head2 FORMATS
 
