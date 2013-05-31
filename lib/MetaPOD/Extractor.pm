@@ -131,7 +131,7 @@ sub add_segment {
 sub handle_begin {
   my ( $self, $event ) = @_;
   if ( $self->in_segment ) {
-    croak "=begin MetaPOD:: cannot occur inside =begin MetaPOD:: at line " . $event->{start_line};
+    croak '=begin MetaPOD:: cannot occur inside =begin MetaPOD:: at line ' . $event->{start_line};
   }
   if ( $event->{content} =~ $self->regexp_begin_with_version ) {
     return $self->begin_segment( $1, $2, $event->{start_line} );
@@ -145,7 +145,7 @@ sub handle_begin {
 sub handle_end {
   my ( $self, $event ) = @_;
   chomp $event->{content};
-  my $statement = '=' . $event->{command} . ' ' . $event->{content};
+  my $statement = q{=} . $event->{command} . q{ } . $event->{content};
 
   if ( not $self->in_segment and not $event->{content} =~ $self->regexp_begin ) {
     return $self->handle_ignored($event);
