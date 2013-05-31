@@ -28,6 +28,7 @@ sub _supported_versions {
 
 sub supports_version {
   my ( $class, $version ) = @_;
+  return [ $class->supported_versions ]->[-1] if not defined $version;
   if ( $version !~ /^v/msx ) {
     croak q{Version specification does not begin with a 'v'};
   }
@@ -38,7 +39,6 @@ sub supports_version {
   croak "Version $v not supported. Supported versions: " . join q{,}, $class->supported_versions;
 }
 
-requires 'new_collector';
 requires 'add_segment';
 
 1;

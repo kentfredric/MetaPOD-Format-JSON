@@ -67,6 +67,14 @@ has regexp_for => (
   },
 );
 
+has end_segment_callback => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    sub { }
+  },
+);
+
 
 has segment_cache => (
   is      => ro  =>,
@@ -110,9 +118,12 @@ sub begin_segment {
 
 sub end_segment {
   my ($self) = @_;
-  push @{ $self->segments }, $self->segment_cache;
+  my $segment = $self->segment_cache;
+  push @{ $self->segments }, $segment;
   $self->set_segment_cache( {} );
   $self->unset_in_segment();
+  my $cb = $self->end_segment_callback;
+  $cb->($segment);
   return $self;
 }
 

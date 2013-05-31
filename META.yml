@@ -23,11 +23,17 @@ provides:
   MetaPOD:
     file: lib/MetaPOD.pm
     version: v0.1.0
+  MetaPOD::Assembler:
+    file: lib/MetaPOD/Assembler.pm
+    version: v0.1.0
   MetaPOD::Extractor:
     file: lib/MetaPOD/Extractor.pm
     version: v0.1.0
   MetaPOD::JSON:
     file: lib/MetaPOD/JSON.pm
+    version: v0.1.0
+  MetaPOD::Result:
+    file: lib/MetaPOD/Result.pm
     version: v0.1.0
   MetaPOD::Role::Format:
     file: lib/MetaPOD/Role/Format.pm
@@ -38,6 +44,8 @@ provides:
 requires:
   Carp: 0
   Data::Dump: 0
+  List::AllUtils: 0
+  Module::Runtime: 0
   Moo: 0
   Moo::Role: 0
   Pod::Eventual: 0
@@ -59,7 +67,9 @@ x_BuiltWith:
     File::Find: 1.23
     File::Temp: 0.2301
     FindBin: 1.51
+    List::AllUtils: 0.03
     Module::Build: 0.4005
+    Module::Runtime: 0.013
     Moo: 1.002
     Moo::Role: NA(undef)
     Path::Tiny: 0.021
