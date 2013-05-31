@@ -20,6 +20,13 @@ package MetaPOD::Result;
 use Moo;
 use List::AllUtils qw( uniq );
 
+=method set_namespace
+
+    $result->set_namespace( $namespace )
+
+=cut
+
+
 has namespace => (
   is       => ro            =>,
   required => 0,
@@ -38,16 +45,34 @@ has inherits => (
   reader   => _inherits     =>,
 );
 
+=method inherits
+
+    my @inherits = $result->inherits;
+
+=cut
+
 sub inherits {
   my $self = shift;
   return @{ $self->_inherits };
 }
+
+=method set_inherits
+
+    $result->set_inherits( @inherits )
+
+=cut
 
 sub set_inherits {
   my ( $self, @inherits ) = @_;
   $self->_set_inherits( [ uniq @inherits ] );
   return $self;
 }
+
+=method add_inherits
+
+    $result->add_inherits( @inherits );
+
+=cut
 
 sub add_inherits {
   my ( $self, @items ) = @_;

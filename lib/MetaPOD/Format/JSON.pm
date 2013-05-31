@@ -14,13 +14,17 @@ package MetaPOD::Format::JSON;
 
 =end MetaPOD::JSON
 
+=head1 SYNOPSIS
+
+This is the reference implementation of L<< C<MetaPOD::JSON>|MetaPOD::JSON >>
+
 =cut
 
 use Moo;
 use Carp qw( croak );
 use version 0.77;
 
-with "MetaPOD::Role::Format";
+with 'MetaPOD::Role::Format';
 
 my $dispatch_table = [
   {
@@ -29,11 +33,19 @@ my $dispatch_table = [
   }
 ];
 
+=method supported_versions
+
+The versions this module supports
+
+    returns qw( v1.0.0 )
+
+=cut
+
 sub supported_versions {
   return qw( v1.0.0 );
 }
 
-sub do_for_key {
+sub _do_for_key {
   my ( $stash, $key, $code ) = @_;
   return unless exists $stash->{$key};
   my $copy = delete $stash->{$key};
@@ -41,12 +53,13 @@ sub do_for_key {
   return $code->($_);
 }
 
-sub add_namespace_v1 {
+
+sub _add_namespace_v1 {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);
 }
 
-sub add_inherits_v1 {
+sub _add_inherits_v1 {
   my ( $self, $inherits, $result ) = @_;
   if ( defined $inherits and not ref $inherits ) {
     return $result->add_inherits($inherits);
@@ -57,22 +70,18 @@ sub add_inherits_v1 {
   croak 'Unsupported reftype ' . ref $inherits;
 }
 
-sub add_segment_v1 {
+sub _add_segment_v1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
   my $data_decoded = JSON->new->decode($data);
-  do_for_key(
-    $data_decoded,
-    'namespace',
-    sub {
-      $self->add_namespace_v1( $_, $result );
+  _do_for_key(
+    $data_decoded => 'namespace' => sub {
+      $self->_add_namespace_v1( $_, $result );
     }
   );
-  do_for_key(
-    $data_decoded,
-    'inherits',
-    sub {
-      $self->add_inherits_v1( $_, $result );
+  _do_for_key(
+    $data_decoded => 'inherits' => sub {
+      $self->_add_inherits_v1( $_, $result );
     }
   );
   if ( keys %{$data_decoded} ) {
@@ -81,12 +90,18 @@ sub add_segment_v1 {
   return $result;
 }
 
+=method add_segment
+
+See L<< C<::Role::Format>|MetaPOD::Role::Format >> for the specification of the C<add_segment> method.
+
+=cut
+
 sub add_segment {
   my ( $self, $segment, $result ) = @_;
   my $segver = $self->supports_version( $segment->{version} );
   for my $v ( @{$dispatch_table} ) {
     next unless $v->{version} == $segver;
-    my $method = $self->can( 'add_segment_' . $v->{method} );
+    my $method = $self->can( '_add_segment_' . $v->{method} );
     return $method->( $self, $segment->{data}, $result );
   }
   croak "No implementation found for version $segver";
