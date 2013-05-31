@@ -36,7 +36,7 @@ This is mostly a documentation stub, documenting the JSON Formatted version of M
 
 The Actual Implementation is stored in L<< C<::Format::JSON>|MetaPOD::Format::JSON >>
 
-=for POD::Coverage implementation_class
+=for Pod::Coverage implementation_class
 
 =head1 Using MetaPOD::JSON in your documentation
 
