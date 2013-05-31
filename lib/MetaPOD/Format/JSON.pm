@@ -9,7 +9,7 @@ BEGIN {
   $MetaPOD::Format::JSON::VERSION = '0.1.1';
 }
 
-# ABSTRACT: Reference implementation of a JSON based MetaPOD Format
+# ABSTRACT: Reference implementation of a C<JSON> based MetaPOD Format
 
 
 use Moo;
@@ -113,7 +113,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON - Reference implementation of a JSON based MetaPOD Format
+MetaPOD::Format::JSON - Reference implementation of a C<JSON> based MetaPOD Format
 
 =head1 VERSION
 
