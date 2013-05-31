@@ -6,6 +6,10 @@ MetaPOD - An evolution of POD
 
 version 0.1.0
 
+{ "namespace":"MetaPOD" }
+
+
+
 # AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>

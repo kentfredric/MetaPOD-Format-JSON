@@ -3,6 +3,5 @@ use warnings;
 
 =for MetaPOD::Test::Basic Test Data
 
-=end
-
+=cut
 

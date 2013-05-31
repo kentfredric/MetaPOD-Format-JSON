@@ -5,7 +5,17 @@ use warnings;
 
 package MetaPOD::JSON;
 
-sub implementation_class { 'MetaPod::Format::JSON' }
+=begin MetaPOD::JSON v1.0.0
+
+{ "namespace":"MetaPOD::JSON" }
+
+=end MetaPOD::JSON
+
+=for Pod::Coverage implementation_class
+
+=cut
+
+sub implementation_class { return 'MetaPod::Format::JSON' }
 
 1;
 
@@ -25,7 +35,7 @@ The Actual Implementation is stored in L<< C<::Format::JSON>|MetaPOD::Format::JS
 
     =end
 
-or 
+or
 
     =for MetaPOD::JSON { valid_json_data }
 
@@ -55,11 +65,11 @@ ie:
 
     =for MetaPOD::JSON v1.0.0 { "c":"d" }
 
-this should be the same  as if one had done 
+this should be the same  as if one had done
 
     =begin MetaPOD::JSON v1.0.0
 
-    { 
+    {
         "a" : "b"
         "c" : "d"
     }
@@ -103,7 +113,7 @@ So that
     { "inherits" : [ $a ]}
     { "inherits" : [ $b ]}
 
-And 
+And
 
     { "inherits" : $a }
     { "inherits" : $b }
