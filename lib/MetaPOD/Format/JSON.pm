@@ -37,12 +37,13 @@ sub _do_for_key {
   return $code->($_);
 }
 
-sub add_namespace_v1 {
+
+sub _add_namespace_v1 {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);
 }
 
-sub add_inherits_v1 {
+sub _add_inherits_v1 {
   my ( $self, $inherits, $result ) = @_;
   if ( defined $inherits and not ref $inherits ) {
     return $result->add_inherits($inherits);
@@ -53,18 +54,18 @@ sub add_inherits_v1 {
   croak 'Unsupported reftype ' . ref $inherits;
 }
 
-sub add_segment_v1 {
+sub _add_segment_v1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
   my $data_decoded = JSON->new->decode($data);
   _do_for_key(
     $data_decoded => 'namespace' => sub {
-      $self->add_namespace_v1( $_, $result );
+      $self->_add_namespace_v1( $_, $result );
     }
   );
   _do_for_key(
     $data_decoded => 'inherits' => sub {
-      $self->add_inherits_v1( $_, $result );
+      $self->_add_inherits_v1( $_, $result );
     }
   );
   if ( keys %{$data_decoded} ) {
@@ -78,7 +79,7 @@ sub add_segment {
   my $segver = $self->supports_version( $segment->{version} );
   for my $v ( @{$dispatch_table} ) {
     next unless $v->{version} == $segver;
-    my $method = $self->can( 'add_segment_' . $v->{method} );
+    my $method = $self->can( '_add_segment_' . $v->{method} );
     return $method->( $self, $segment->{data}, $result );
   }
   croak "No implementation found for version $segver";
