@@ -11,8 +11,6 @@ BEGIN {
 
 # ABSTRACT: An evolution of POD
 
-1;
-
 __END__
 
 =pod
@@ -26,6 +24,15 @@ MetaPOD - An evolution of POD
 =head1 VERSION
 
 version 0.1.0
+
+=begin MetaPOD::JSON v1.0.0
+
+{ "namespace":"MetaPOD" }
+
+
+=end MetaPOD::JSON
+
+1;
 
 =head1 AUTHOR
 

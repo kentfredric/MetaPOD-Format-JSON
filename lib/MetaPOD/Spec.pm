@@ -11,6 +11,7 @@ BEGIN {
 
 # ABSTRACT: The Specification of the MetaPOD format
 
+
 1;
 
 __END__
@@ -26,6 +27,13 @@ MetaPOD::Spec - The Specification of the MetaPOD format
 =head1 VERSION
 
 version 0.1.0
+
+=begin MetaPOD::JSON v1.0.0
+
+{ "namespace":"MetaPOD::Spec" }
+
+
+=end MetaPOD::JSON
 
 =head1 SPECIFIYING METAPOD
 

@@ -81,6 +81,15 @@ C<version> B<MUST> be preceeded with a C<v> and B<MUST> be in dotted decimal for
 
 Default implementation compares values given verses the results from C<< $class->_supported_versions >>
 
+=begin MetaPOD::JSON v1.0.0
+
+{ 
+    "namespace": "MetaPOD::Role::Format",
+}
+
+
+=end MetaPOD::JSON
+
 =pmethod _supported_versions
 
 Returns a list of C<version> objects that represent an enumeration of all supported versions
