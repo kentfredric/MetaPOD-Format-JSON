@@ -16,7 +16,7 @@ What is MetaPOD
     code, code which has documentation, but how the documentation is related
     to other documentation requires you to normally understand the
     meta-level information within the code works, so, this system aims to
-    make the "metalevel" more visible from the surface, so the meta-level
+    make the "meta level" more visible from the surface, so the meta-level
     information can be more easily used to
 
     *   Aggregate multiple documents to a single document in line with how
@@ -26,18 +26,18 @@ What is MetaPOD
         each other
 
 People who are writing MetaPOD
-    Eventually, the goal is to have the MetaPOD itself generateable via
-    tools during development, so that the meta-layer information is cemented
-    into the POD itself, before, or during release.
+    Eventually, the goal is to have the MetaPOD itself able to be generated
+    via tools during development, so that the meta-layer information is
+    cemented into the POD itself, before, or during release.
 
-    In that vein, I hope to make a "Dist::Zilla" plugin that does this for
+    In that vein, I hope to make a "Dist::Zilla" plug-in that does this for
     you.
 
     In the mean time, the documents you want to be reading are
 
     *   "MetaPOD::Spec" - The general specification for all forms of MetaPOD
 
-    *   "MetaPOD::JSON" - Information specific to the JSON based
+    *   "MetaPOD::JSON" - Information specific to the "JSON" based
         implementation of MetaPOD
 
 People who are wanting to read MetaPOD

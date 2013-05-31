@@ -44,7 +44,7 @@ MetaPOD is a system intended to express the relationships between different docu
 
 =head2 2. Documentation about Meta
 
-MetaPOD also is a system by which one can express relationships about code, code which has documentation, but how the documentation is related to other documentation requires you to normally understand the meta-level information within the code works, so, this system aims to make the "metalevel" more visible from the surface, so the meta-level information can be more easily used to
+MetaPOD also is a system by which one can express relationships about code, code which has documentation, but how the documentation is related to other documentation requires you to normally understand the meta-level information within the code works, so, this system aims to make the "meta level" more visible from the surface, so the meta-level information can be more easily used to
 
 =over 4
 
@@ -56,9 +56,9 @@ MetaPOD also is a system by which one can express relationships about code, code
 
 =head1 People who are writing MetaPOD
 
-Eventually, the goal is to have the MetaPOD itself generateable via tools during development, so that the meta-layer information is cemented into the POD itself, before, or during release.
+Eventually, the goal is to have the MetaPOD itself able to be generated via tools during development, so that the meta-layer information is cemented into the POD itself, before, or during release.
 
-In that vein, I hope to make a C<Dist::Zilla> plugin that does this for you.
+In that vein, I hope to make a C<Dist::Zilla> plug-in that does this for you.
 
 In the mean time, the documents you want to be reading are
 
@@ -66,7 +66,7 @@ In the mean time, the documents you want to be reading are
 
 =item * L<< C<MetaPOD::Spec>|MetaPOD::Spec >> - The general specification for all forms of MetaPOD
 
-=item * L<< C<MetaPOD::JSON>|MetaPOD::JSON >> - Information specific to the JSON based implementation of MetaPOD
+=item * L<< C<MetaPOD::JSON>|MetaPOD::JSON >> - Information specific to the C<JSON> based implementation of MetaPOD
 
 =back
 
