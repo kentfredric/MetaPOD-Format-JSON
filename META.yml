@@ -25,6 +25,9 @@ provides:
   MetaPOD::Extractor:
     file: lib/MetaPOD/Extractor.pm
     version: v0.1.0
+  MetaPOD::JSON:
+    file: lib/MetaPOD/JSON.pm
+    version: v0.1.0
   MetaPOD::Spec:
     file: lib/MetaPOD/Spec.pm
     version: v0.1.0

@@ -13,6 +13,7 @@ corpus/basic/04_format_basic_for_version.pm
 dist.ini
 lib/MetaPOD.pm
 lib/MetaPOD/Extractor.pm
+lib/MetaPOD/JSON.pm
 lib/MetaPOD/Spec.pm
 perlcritic.rc
 t/00-compile.t
