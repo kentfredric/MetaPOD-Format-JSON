@@ -19,9 +19,9 @@ while ( my $file = $it->() ) {
   $rpath =~ s/.pm//;
   $rpath =~ s{/}{::}g;
   my $result;
-  
+
   subtest "$rpath" => sub {
-      is(exception { 
+      is(exception {
           $result = $assembler->assemble_file($file);
       }, undef, 'Can assemble ' . path($file)->relative($root));
       isa_ok( $result, 'MetaPOD::Result');
