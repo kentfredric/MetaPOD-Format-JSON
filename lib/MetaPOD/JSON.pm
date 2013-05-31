@@ -1,7 +1,7 @@
 use strict;
 use warnings;
 
-# ABSTRACT: The JSON Formatted MetaPOD Spec
+# ABSTRACT: The C<JSON> Formatted MetaPOD Spec
 
 package MetaPOD::JSON;
 
@@ -21,7 +21,7 @@ sub implementation_class { return 'MetaPod::Format::JSON' }
 
 =head1 SYNOPSIS
 
-This is mostly a documentation stub, documenting the JSON Formatted version of MetaPOD
+This is mostly a documentation stub, documenting the C<JSON> Formatted version of MetaPOD
 
 The Actual Implementation is stored in L<< C<::Format::JSON>|MetaPOD::Format::JSON >>
 
@@ -41,7 +41,7 @@ or
 
     =cut
 
-You can also declare a version for which semantics to embue into the declaration.
+You can also declare a version for which semantics to imbue into the declaration.
 
     =begin MetaPOD::JSON v1.0.0
 
@@ -57,9 +57,9 @@ It is B<ENCOURAGED> that wherever possible to support the B<WIDEST> variety of v
 
 =head2 Data collection
 
-Spec version 1.0.0 is such that mutliple declarations should be merged to form an aggregate,
+Spec version 1.0.0 is such that multiple declarations should be merged to form an aggregate,
 
-ie:
+e.g.:
 
     =for MetaPOD::JSON v1.0.0 { "a":"b" }
 
@@ -76,26 +76,26 @@ this should be the same  as if one had done
 
     =end MetaPOD::JSON
 
-With the observation that latter keys may clobber preceeding keys.
+With the observation that latter keys may clobber preceding keys.
 
 =head2 Scope
 
-Because of the Data Collection design, it is not supported to declare multiple namespaces
+Because of the Data Collection design, it is not supported to declare multiple name-spaces
 within the same file at present.
 
 This is mostly a practical consideration, as without this consideration, all declarations of class members would require re-stating the class, and that would quickly become tiresome.
 
 =head2 KEYS
 
-=head3 namespace
+=head3 C<namespace>
 
-All C<MetaPOD::JSON> containing documents B<SHOULD> contain at least one namespace declaration.
+All C<MetaPOD::JSON> containing documents B<SHOULD> contain at least one C<namespace> declaration.
 
 Example:
 
     { "namespace": "My::Library" }
 
-=head3 inherits
+=head3 C<inherits>
 
 Any C<MetaPOD::JSON> containing document that is known to inherit from another class, B<SHOULD> document their inheritance as such:
 
@@ -106,7 +106,7 @@ C<inherits> can be in one of 2 forms.
     { "inherits" : $string }
     { "inherits" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplciated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
 
 So that
 
@@ -124,7 +124,7 @@ Have the same effect, the result being the same as if you had specified
 
 
 
-=head3 does
+=head3 C<does>
 
 Any C<MetaPOD::JSON> containing document that is known to "do" another role, B<SHOULD> document their inheritance as such:
 
@@ -135,7 +135,7 @@ C<does> can be in one of 2 forms.
     { "does" : $string }
     { "does" : [ $string, $string, $string ] }
 
-Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplciated.
+Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
 
 So that
 

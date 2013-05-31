@@ -15,7 +15,7 @@ package MetaPOD::Spec;
 
 1;
 
-=head1 SPECIFIYING METAPOD
+=head1 Specifying MetaPOD
 
 =head2 FORMATS
 
@@ -27,7 +27,7 @@ Segments will be parsed looking for
 
 Where C<$1> is the name of the MetaPOD C<FORMAT>
 
-ie:
+e.g:
 
     =begin MetaPOD::JSON
 
@@ -43,13 +43,13 @@ And it may be that a C<MetaPOD::JSON> declaration loads MetaPOD::Format::JSON
 
 =head2 VERSIONS
 
-A VERSION as part of a Segment declaration B<must> come after the format declaration, preceeded only by whitespace.
+A VERSION as part of a Segment declaration B<must> come after the format declaration, preceded only by white-space.
 
 A VERSION declaration B<must> start with a C<v>
 
 ALL VERSIONS will be assumed to be dotted-decimal, and parsed with the 'v' included.
 
-These versions however do not nessecarily have to map to a CPAN Version, and is instead supposed to be an indicatiion of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions.
+These versions however do not necessarily have to map to a C<CPAN> Version, and is instead supposed to be an indication of the I<specification> version, a specification that may be provided by multiple C<CPAN> packages/versions.
 
 What this means to the I<specification> is at the whim of the format, and it is the formats job to respond to a version declaration.
 
@@ -57,17 +57,17 @@ C<FORMATS> may either
 
 =over 4
 
-=item * reject a version as being "too new" and thus not supported by a backend
+=item * reject a version as being "too new" and thus not supported by a back end
 
 =item * change behaviour based on the value of this version
 
-=item * reject a version as being "too old" to be supported by the backend
+=item * reject a version as being "too old" to be supported by the back end
 
 =back
 
 =head2 Segment Declaration
 
-A MetaPod specification can be added to a POD document via one of the following forms
+A MetaPOD specification can be added to a POD document via one of the following forms
 
 =head3 Block Segments
 
@@ -85,7 +85,7 @@ And
 
     =end MetaPOD::FORMAT
 
-=head3 OneLine Segments
+=head3 One Line Segments
 
     =for MetaPOD::FORMAT FORMATDATA
 

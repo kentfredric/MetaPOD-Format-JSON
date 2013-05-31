@@ -3,7 +3,7 @@ use warnings;
 
 package MetaPOD::Format::JSON;
 
-# ABSTRACT: Reference implementation of a JSON based MetaPOD Format
+# ABSTRACT: Reference implementation of a C<JSON> based MetaPOD Format
 
 =begin MetaPOD::JSON v1.0.0
 
