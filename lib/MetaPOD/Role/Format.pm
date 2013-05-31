@@ -73,7 +73,7 @@ By default, returns
 
 =head2 supports_version
 
-Determine if the class supports the given version or not 
+Determine if the class supports the given version or not
 
     $class->supports_version('v1.0.0');
 
@@ -83,7 +83,7 @@ Default implementation compares values given verses the results from C<< $class-
 
 =begin MetaPOD::JSON v1.0.0
 
-{ 
+{
     "namespace": "MetaPOD::Role::Format",
 }
 
