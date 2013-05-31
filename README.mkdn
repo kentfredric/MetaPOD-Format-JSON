@@ -10,6 +10,34 @@ version 0.1.0
 
 
 
+# What is MetaPOD
+
+## 1\. Documentation About Documentation
+
+MetaPOD is a system intended to express the relationships between different documents, and express the importance and context of other things within the documents, and express how the documents as a whole fit together
+
+## 2\. Documentation about Meta
+
+MetaPOD also is a system by which one can express relationships about code, code which has documentation, but how the documentation is related to other documentation requires you to normally understand the meta-level information within the code works, so, this system aims to make the "metalevel" more visible from the surface, so the meta-level information can be more easily used to
+
+- Aggregate multiple documents to a single document in line with how the Meta layer works
+- Show pretty graphs and things showing how classes are related to each other
+
+# People who are writing MetaPOD
+
+Eventually, the goal is to have the MetaPOD itself generateable via tools during development, so that the meta-layer information is cemented into the POD itself, before, or during release.
+
+In that vein, I hope to make a `Dist::Zilla` plugin that does this for you.
+
+In the mean time, the documents you want to be reading are
+
+- [`MetaPOD::Spec`](http://search.cpan.org/perldoc?MetaPOD::Spec) - The general specification for all forms of MetaPOD
+- [`MetaPOD::JSON`](http://search.cpan.org/perldoc?MetaPOD::JSON) - Information specific to the JSON based implementation of MetaPOD
+
+# People who are wanting to read MetaPOD
+
+- [`MetaPOD::Assembler`](http://search.cpan.org/perldoc?MetaPOD::Assembler) - The tool that translates documents containing `MetaPOD` into [`MetaPOD::Result` Objects](http://search.cpan.org/perldoc?MetaPOD::Result)
+
 # AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>
