@@ -37,6 +37,7 @@ provides:
     version: v0.1.0
 requires:
   Carp: 0
+  Data::Dump: 0
   Moo: 0
   Moo::Role: 0
   Pod::Eventual: 0
@@ -52,6 +53,7 @@ version: 0.1.0
 x_BuiltWith:
   modules:
     Carp: 1.29
+    Data::Dump: 1.22
     Dist::Zilla::PluginBundle::Author::KENTNL: 1.7.3
     Dist::Zilla::PluginBundle::Author::KENTNL::Lite: 'NA(possibly not installed)'
     File::Find: 1.23

@@ -14,6 +14,67 @@ use Moo;
 extends 'Pod::Eventual';
 
 
+use Data::Dump qw(pp);
+use Carp qw(croak);
+
+has formatter_regexp => (
+  is      => ro  =>,
+  lazy    => 1,
+  builder => sub { qr/MetaPOD::([^[:space:]]+)/sxm },
+);
+
+has version_regexp => (
+  is      => ro  =>,
+  lazy    => 1,
+  builder => sub { qr/(v[[:digit:].]+)/sxm },
+);
+
+has regexp_begin_with_version => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    my $version_regexp   = $_[0]->version_regexp;
+    qr{ ^ ${formatter_regexp} \s+ ${version_regexp} \s* $ }smx;
+  },
+);
+
+has regexp_begin => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    qr{ ^ ${formatter_regexp} \s* $ }smx;
+  },
+);
+
+has regexp_for_with_version => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    my $version_regexp   = $_[0]->version_regexp;
+    qr{ ^ ${formatter_regexp} \s+ ${version_regexp} \s+ ( .*$ ) }smx;
+  },
+);
+
+has regexp_for => (
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    my $formatter_regexp = $_[0]->formatter_regexp;
+    qr{ ^ ${formatter_regexp} \s+ ( .* $ ) $ }smx;
+  },
+);
+
+has segment_cache => (
+  is      => ro  =>,
+  lazy    => 1,
+  writer  => 'set_segment_cache',
+  builder => sub { {} },
+);
+
+
 has segments => (
   is      => ro  =>,
   lazy    => 1,
@@ -245,66 +306,6 @@ version 0.1.0
 
 
 =end MetaPOD::JSON
-
-use Data::Dump qw(pp);
-use Carp qw(croak);
-
-has formatter_regexp => (
-  is      => ro  =>,
-  lazy    => 1,
-  builder => sub { qr/MetaPOD::([^[:space:]]+)/sxm },
-);
-
-has version_regexp => (
-  is      => ro  =>,
-  lazy    => 1,
-  builder => sub { qr/(v[[:digit:].]+)/sxm },
-);
-
-has regexp_begin_with_version => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    my $formatter_regexp = $_[0]->formatter_regexp;
-    my $version_regexp   = $_[0]->version_regexp;
-    qr{ ^ ${formatter_regexp} \s+ ${version_regexp} \s* $ }smx;
-  },
-);
-
-has regexp_begin => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    my $formatter_regexp = $_[0]->formatter_regexp;
-    qr{ ^ ${formatter_regexp} \s* $ }smx;
-  },
-);
-
-has regexp_for_with_version => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    my $formatter_regexp = $_[0]->formatter_regexp;
-    my $version_regexp   = $_[0]->version_regexp;
-    qr{ ^ ${formatter_regexp} \s+ ${version_regexp} \s+ ( .*$ ) }smx;
-  },
-);
-
-has regexp_for => (
-  is      => ro =>,
-  lazy    => 1,
-  builder => sub {
-    my $formatter_regexp = $_[0]->formatter_regexp;
-    qr{ ^ ${formatter_regexp} \s+ ( .* $ ) $ }smx;
-  },
-);
-
-has segment_cache => (
-  is      => ro  =>,
-  lazy    => 1,
-  writer  => 'set_segment_cache',
-  builder => sub { {} },
-);
 
 =head1 AUTHOR
 
