@@ -186,7 +186,7 @@ sub handle_text {
 sub handle_ignored {
   my ( $self, $element ) = @_;
   if ( $self->in_segment ) {
-    die "Unexpected type " . $element->{type} . " inside segment " . pp($element) . " at line" . $element->{start_line};
+    croak 'Unexpected type ' . $element->{type} . ' inside segment ' . pp($element) . ' at line' . $element->{start_line};
   }
 }
 
