@@ -30,7 +30,7 @@ sub supports_version {
     for my $supported ( $class->supported_versions ) {
         return $supported if $supported == $v;
     }
-    croak "Version $v not supported. Supported versions: " . join(q{,}, $class->supported_versions) ;
+    croak "Version $v not supported. Supported versions: " . join q{,}, $class->supported_versions ;
 }
 
 requires 'new_collector';
