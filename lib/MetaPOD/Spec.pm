@@ -68,7 +68,7 @@ A VERSION declaration B<must> start with a C<v>
 
 ALL VERSIONS will be assumed to be dotted-decimal, and parsed with the 'v' included.
 
-These versions however do not neccesarily have to map to a CPAN Version, and is instead supposed to be an indicatiion of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions.
+These versions however do not necessarily have to map to a C<CPAN> Version, and is instead supposed to be an indication of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions.
 
 What this means to the I<specification> is at the whim of the format, and it is the formats job to respond to a version declaration.
 
@@ -76,7 +76,7 @@ C<FORMATS> may either
 
 =over 4
 
-=item * reject a version as being "too new" and thus not supported by a backend
+=item * reject a version as being "too new" and thus not supported by a back end
 
 =item * change behaviour based on the value of this version
 
@@ -86,7 +86,7 @@ C<FORMATS> may either
 
 =head2 Segment Declaration
 
-A MetaPod specification can be added to a POD document via one of the following forms
+A MetaPOD specification can be added to a POD document via one of the following forms
 
 =head3 Block Segments
 
@@ -104,7 +104,7 @@ And
 
     =end MetaPOD::FORMAT
 
-=head3 OneLine Segments
+=head3 One Line Segments
 
     =for MetaPOD::FORMAT FORMATDATA
 
