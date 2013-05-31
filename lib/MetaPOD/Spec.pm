@@ -47,7 +47,7 @@ Segments will be parsed looking for
 
 Where C<$1> is the name of the MetaPOD C<FORMAT>
 
-ie:
+e.g:
 
     =begin MetaPOD::JSON
 
@@ -62,13 +62,13 @@ And it may be that a C<MetaPOD::JSON> declaration loads MetaPOD::Format::JSON
 
 =head2 VERSIONS
 
-A VERSION as part of a Segment declaration B<must> come after the format declaration, preceeded only by whitespace.
+A VERSION as part of a Segment declaration B<must> come after the format declaration, preceded only by white-space.
 
 A VERSION declaration B<must> start with a C<v>
 
 ALL VERSIONS will be assumed to be dotted-decimal, and parsed with the 'v' included.
 
-These versions however do not nessecarily have to map to a CPAN Version, and is instead supposed to be an indicatiion of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions.
+These versions however do not neccesarily have to map to a CPAN Version, and is instead supposed to be an indicatiion of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions.
 
 What this means to the I<specification> is at the whim of the format, and it is the formats job to respond to a version declaration.
 
