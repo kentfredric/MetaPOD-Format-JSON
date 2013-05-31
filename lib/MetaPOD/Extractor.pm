@@ -88,6 +88,8 @@ has in_segment => (
   builder => sub { undef },
 );
 
+
+
 sub begin_segment {
   my ( $self, $format, $version, $start_line ) = @_;
   $self->set_segment_cache(
@@ -101,6 +103,7 @@ sub begin_segment {
   return $self;
 }
 
+
 sub end_segment {
   my ($self) = @_;
   push @{ $self->segments }, $self->segment_cache;
@@ -109,12 +112,14 @@ sub end_segment {
   return $self;
 }
 
+
 sub append_segment_data {
   my ( $self, $data ) = @_;
   $self->segment_cache->{data} ||= q{};
   $self->segment_cache->{data} .= $data;
   return $self;
 }
+
 
 sub add_segment {
   my ( $self, $format, $version, $data, $start_line ) = @_;
@@ -127,6 +132,7 @@ sub add_segment {
   push @{ $self->segments }, $segment;
   return $self;
 }
+
 
 sub handle_begin {
   my ( $self, $event ) = @_;
@@ -141,6 +147,7 @@ sub handle_begin {
   }
   return $self->handle_ignored($event);
 }
+
 
 sub handle_end {
   my ( $self, $event ) = @_;
@@ -164,6 +171,7 @@ sub handle_end {
   return $self->handle_ignored($event);
 }
 
+
 sub handle_for {
   my ( $self, $event ) = @_;
   if ( $event->{content} =~ $self->regexp_for_with_version ) {
@@ -175,13 +183,19 @@ sub handle_for {
   return $self->handle_ignored($event);
 }
 
-sub handle_cut { }
+
+sub handle_cut {
+    my ( $self, $element ) = @_;
+    $self->handle_ignored( $element );
+}
+
 
 sub handle_text {
   my ( $self, $element ) = @_;
   return $self->handle_ignored($element) unless $self->in_segment;
   return $self->append_segment_data( $element->{content} );
 }
+
 
 sub handle_ignored {
   my ( $self, $element ) = @_;
@@ -220,6 +234,52 @@ MetaPOD::Extractor - Extract MetaPOD declarations from a file.
 =head1 VERSION
 
 version 0.1.0
+
+=head1 METHODS
+
+=head2 begin_segment
+
+    $extractor->begin_segment( $format, $version, $start_line );
+
+=head2 end_segment
+
+    $extractor->end_segment();
+
+=head2 append_segment_data
+
+    $extractor->append_segment_data( $string_data )
+
+=head2 add_segment
+
+    $extractor->add_segment( $format, $version, $data, $start_line );
+
+=head2 handle_begin
+
+    $extractor->handle_begin( $POD_EVENT );
+
+=head2 handle_end
+
+    $extractor->handle_end( $POD_EVENT );
+
+=head2 handle_for
+
+    $extractor->handle_for( $POD_EVENT );
+
+=head2 handle_cut
+
+    $extractor->handle_cut( $POD_EVENT );
+
+=head2 handle_text
+
+    $extractor->handle_text( $POD_EVENT );
+
+=head2 handle_ignored
+
+    $extractor->handle_ignored( $POD_EVENT );
+
+=head2 handle_event
+
+    $extractor->handle_event( $POD_EVENT );
 
 =head1 AUTHOR
 
