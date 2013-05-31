@@ -6,6 +6,7 @@ Release history for MetaPOD
 
  [Documentation]
  - Improve surface docs on MetaPOD::Assembler
+ - Various spelling mistakes
 
  [Tests]
  - Automatic self-validation test
