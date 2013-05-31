@@ -1,0 +1,18 @@
+digraph test {
+	ratio="fill";
+	MetaPOD [label="MetaPOD"];
+	node1 [label="MetaPOD::Assembler"];
+	node2 [label="Moo::Object"];
+	node3 [label="MetaPOD::Extractor"];
+	node4 [label="Pod::Eventual"];
+	node5 [label="MetaPOD::JSON"];
+	node6 [label="MetaPOD::Result"];
+	node7 [label="MetaPOD::Spec"];
+	node8 [label="MetaPOD::Format::JSON"];
+	node9 [label="MetaPOD::Role::Format"];
+	node1 -> node2 [label="inherits"];
+	node3 -> node4 [label="inherits"];
+	node8 -> node9 [label="does"];
+	node8 -> node2 [label="inherits"];
+	node6 -> node2 [label="inherits"];
+}
