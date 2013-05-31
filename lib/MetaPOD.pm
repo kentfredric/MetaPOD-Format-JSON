@@ -11,6 +11,10 @@ BEGIN {
 
 # ABSTRACT: An evolution of POD
 
+
+
+1;
+
 __END__
 
 =pod
@@ -73,8 +77,6 @@ In the mean time, the documents you want to be reading are
 =item * L<< C<MetaPOD::Assembler>|MetaPOD::Assembler >> - The tool that translates documents containing C<MetaPOD> into L<< C<MetaPOD::Result> Objects|MetaPOD::Result >>
 
 =back
-
-1;
 
 =head1 AUTHOR
 

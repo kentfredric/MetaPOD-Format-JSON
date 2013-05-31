@@ -44,8 +44,6 @@ People who are wanting to read MetaPOD
     *   "MetaPOD::Assembler" - The tool that translates documents containing
         "MetaPOD" into "MetaPOD::Result" Objects
 
-    1;
-
 AUTHOR
     Kent Fredric <kentfredric@gmail.com>
 
