@@ -44,8 +44,8 @@
       "runtime" : {
          "requires" : {
             "Data::Dump" : "0",
+            "Moo" : "0",
             "Pod::Eventual" : "0",
-            "parent" : "0",
             "perl" : "v5.10.0",
             "strict" : "0",
             "warnings" : "0"
@@ -97,6 +97,7 @@
          "File::Temp" : "0.2301",
          "FindBin" : "1.51",
          "Module::Build" : "0.4005",
+         "Moo" : "1.002",
          "Path::Tiny" : "0.021",
          "Pod::Coverage::TrustPod" : "0.100002",
          "Pod::Eventual" : "0.093330",
@@ -105,26 +106,22 @@
          "Test::More" : "0.98",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
-         "parent" : "0.225",
          "perl" : "NA(skipped: perl)",
          "strict" : "1.07",
          "version" : "0.9902",
          "warnings" : "1.18"
       },
       "perl" : {
-         "original" : "v5.17.11",
+         "original" : "v5.18.0",
          "qv" : 1,
          "version" : [
             5,
-            17,
-            11
+            18,
+            0
          ]
       },
       "perl-config" : {
          "gccversion" : "4.7.2",
-         "git_commit_date" : "2013-04-07 06:25:53 +1200",
-         "git_commit_id" : "7407006866c3e2c938b43f0bf5ca84431424d65c",
-         "git_describe" : "v5.17.10-54-g7407006",
          "myarchname" : "x86_64-linux",
          "osname" : "linux"
       },
@@ -133,7 +130,7 @@
    },
    "x_Dist_Zilla" : {
       "perl" : {
-         "version" : "5.017011"
+         "version" : "5.018000"
       },
       "plugins" : [
          {
@@ -236,7 +233,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Test::MinimumVersion",
             "name" : "@Author::KENTNL/Test::MinimumVersion",
-            "version" : "2.000004"
+            "version" : "2.000005"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Compile",
