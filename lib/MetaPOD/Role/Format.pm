@@ -22,7 +22,7 @@ sub _supported_versions {
 
 sub supports_version {
     my ( $class, $version ) = @_;
-    if ( $version !~ /^v/ ){ 
+    if ( $version !~ /^v/ ){
         die "Version specification does not begin with a 'v'";
     }
     my $v = version->parse($version);

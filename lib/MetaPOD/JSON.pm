@@ -43,7 +43,7 @@ The Actual Implementation is stored in L<< C<::Format::JSON>|MetaPOD::Format::JS
 
     =end
 
-or 
+or
 
     =for MetaPOD::JSON { valid_json_data }
 
@@ -71,11 +71,11 @@ ie:
 
     =for MetaPOD::JSON v1.0.0 { "c":"d" }
 
-this should be the same  as if one had done 
+this should be the same  as if one had done
 
     =begin MetaPOD::JSON v1.0.0
 
-    { 
+    {
         "a" : "b"
         "c" : "d"
     }
@@ -119,7 +119,7 @@ So that
     { "inherits" : [ $a ]}
     { "inherits" : [ $b ]}
 
-And 
+And
 
     { "inherits" : $a }
     { "inherits" : $b }

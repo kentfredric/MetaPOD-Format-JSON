@@ -60,11 +60,11 @@ A VERSION declaration B<must> start with a C<v>
 
 ALL VERSIONS will be assumed to be dotted-decimal, and parsed with the 'v' included.
 
-These versions however do not nessecarily have to map to a CPAN Version, and is instead supposed to be an indicatiion of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions. 
+These versions however do not nessecarily have to map to a CPAN Version, and is instead supposed to be an indicatiion of the I<specification> version, a specification that may be provided by multiple CPAN packages/versions.
 
 What this means to the I<specification> is at the whim of the format, and it is the formats job to respond to a version declaration.
 
-C<FORMATS> may either 
+C<FORMATS> may either
 
 =over 4
 
@@ -85,7 +85,7 @@ A MetaPod specification can be added to a POD document via one of the following 
     =begin MetaPOD::FORMAT
 
     FORMATDATA
-    
+
     =end MetaPOD::FORMAT
 
 And
@@ -100,13 +100,13 @@ And
 
     =for MetaPOD::FORMAT FORMATDATA
 
-and 
+and
 
     =for MetaPOD::FORMAT VERSION FORMATDATA
 
 =head2 Multiple Segment Declaration
 
-It is the design of this Spec to recommend that segment declarations B<Should> be permissible 
+It is the design of this Spec to recommend that segment declarations B<Should> be permissible
 to be declared multiple times, and it B<should> use this information to gather data progressively,
 merging data as it goes.
 
