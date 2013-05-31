@@ -25,9 +25,11 @@ my %module_build_args = (
   "requires" => {
     "Data::Dump" => 0,
     "Moo" => 0,
+    "Moo::Role" => 0,
     "Pod::Eventual" => 0,
     "perl" => "v5.10.0",
     "strict" => 0,
+    "version" => "0.77",
     "warnings" => 0
   },
   "script_files" => [],
@@ -36,6 +38,7 @@ my %module_build_args = (
     "File::Temp" => 0,
     "FindBin" => 0,
     "Path::Tiny" => 0,
+    "Test::Fatal" => 0,
     "Test::More" => "0.98"
   }
 );

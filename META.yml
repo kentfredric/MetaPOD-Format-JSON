@@ -8,6 +8,7 @@ build_requires:
   FindBin: 0
   Module::Build: 0.4005
   Path::Tiny: 0
+  Test::Fatal: 0
   Test::More: 0.98
 configure_requires:
   Module::Build: 0.4005
@@ -28,15 +29,20 @@ provides:
   MetaPOD::JSON:
     file: lib/MetaPOD/JSON.pm
     version: v0.1.0
+  MetaPOD::Role::Format:
+    file: lib/MetaPOD/Role/Format.pm
+    version: v0.1.0
   MetaPOD::Spec:
     file: lib/MetaPOD/Spec.pm
     version: v0.1.0
 requires:
   Data::Dump: 0
   Moo: 0
+  Moo::Role: 0
   Pod::Eventual: 0
   perl: v5.10.0
   strict: 0
+  version: 0.77
   warnings: 0
 resources:
   bugtracker: https://github.com/kentfredric/MetaPOD/issues
@@ -53,11 +59,13 @@ x_BuiltWith:
     FindBin: 1.51
     Module::Build: 0.4005
     Moo: 1.002
+    Moo::Role: NA(undef)
     Path::Tiny: 0.021
     Pod::Coverage::TrustPod: 0.100002
     Pod::Eventual: 0.093330
     Test::CPAN::Changes: 0.20
     Test::CPAN::Meta: 0.23
+    Test::Fatal: 0.010
     Test::More: 0.98
     Test::Pod: 1.48
     Test::Pod::Coverage: 1.08
