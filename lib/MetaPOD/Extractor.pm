@@ -18,13 +18,13 @@ use Data::Dump qw(pp);
 has formatter_regexp => (
   is      => ro  =>,
   lazy    => 1,
-  builder => sub { qr/MetaPOD::([^\s]+)/ },
+  builder => sub { qr/MetaPOD::([^[:space:]]+)/sxm },
 );
 
 has version_regexp => (
   is      => ro  =>,
   lazy    => 1,
-  builder => sub { qr/(v[\d.]+)/ },
+  builder => sub { qr/(v[[:digit:].]+)/sxm },
 );
 
 has regexp_begin_with_version => (
