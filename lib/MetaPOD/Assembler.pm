@@ -131,7 +131,7 @@ version 0.1.1
         my $object = $assembler->assemble_file( $file );
     }
 
-This, should be enough for the majority of usecases.
+This, should be enough for the majority of use-cases.
 
 At present, C<MetaPOD::Assembler> only supports C<JSON> specification out-of-the-box,
 but you can extend it to support any other defined specifications by replacing the format map
@@ -145,7 +145,7 @@ but you can extend it to support any other defined specifications by replacing t
 
 =head2 assemble_handle
 
-Wraps L<Pod::Eventual/assemble_handle> and returns a C<MetaPOD::Result> for each passed filehandle
+Wraps L<Pod::Eventual/assemble_handle> and returns a C<MetaPOD::Result> for each passed file handle
 
 =head2 assemble_file
 
@@ -166,7 +166,7 @@ Gets the class to load for the specified format from the internal map, L</format
 This is the callback point of entry that dispatches calls from the C<MetaPOD::Extractor>,
 loads and calls the relevant C<Format> ( via L</get_class_for_format>, validates
 that version specifications are supported ( via C<< Format->supports_version($v) >> )
-and then asks the given formatter to modify the current C<MetaPOD::Result> object
+and then asks the given format to modify the current C<MetaPOD::Result> object
 by parsing the given C<$segment_hash>
 
 =head1 ATTRIBUTES
