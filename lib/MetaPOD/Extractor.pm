@@ -189,6 +189,9 @@ sub add_segment {
   $segment->{start_line} = $start_line if defined $start_line;
 
   push @{ $self->segments }, $segment;
+  my $cb = $self->end_segment_callback;
+  $cb->($segment);
+
   return $self;
 }
 
