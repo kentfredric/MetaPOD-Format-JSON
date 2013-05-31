@@ -11,7 +11,7 @@ BEGIN {
   $MetaPOD::JSON::VERSION = '0.1.0';
 }
 
-sub implementation_class { 'MetaPod::Format::JSON' }
+sub implementation_class { return 'MetaPod::Format::JSON' }
 
 1;
 

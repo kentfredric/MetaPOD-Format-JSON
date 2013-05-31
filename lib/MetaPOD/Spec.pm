@@ -11,6 +11,8 @@ BEGIN {
 
 # ABSTRACT: The Specification of the MetaPOD format
 
+1;
+
 __END__
 
 =pod
