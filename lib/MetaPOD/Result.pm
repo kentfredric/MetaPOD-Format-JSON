@@ -8,7 +8,7 @@ package MetaPOD::Result;
 
 =begin MetaPOD::JSON v1.0.0
 
-{ 
+{
     "namespace": "MetaPOD::Result",
     "inherits" : "Moo::Object",
 }

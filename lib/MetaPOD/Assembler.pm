@@ -20,6 +20,10 @@ use Moo;
 use Carp qw( croak );
 use Module::Runtime qw( use_module );
 
+=attr result
+
+=cut
+
 has 'result' => (
   is       => ro =>,
   required => 0,
@@ -30,6 +34,10 @@ has 'result' => (
   },
   clearer => 'clear_result',
 );
+
+=attr extractor
+
+=cut
 
 has extractor => (
   is       => ro =>,
@@ -47,6 +55,10 @@ has extractor => (
   },
 );
 
+=attr format_map
+
+=cut
+
 has format_map => (
   is       => ro =>,
   required => 1,
@@ -56,12 +68,24 @@ has format_map => (
   },
 );
 
+=method assemble_handle
+
+Wraps L<Pod::Eventual/assemble_handle> and returns a C<MetaPOD::Result> for each passed filehandle
+
+=cut
+
 sub assemble_handle {
   my ( $self, $handle ) = @_;
   $self->clear_result;
   $self->extractor->read_handle($handle);
   return $self->result;
 }
+
+=method assemble_file
+
+Wraps L<Pod::Eventual/assemble_file> and returns a C<MetaPOD::Result> for each passed file
+
+=cut
 
 sub assemble_file {
   my ( $self, $file ) = @_;
@@ -70,12 +94,24 @@ sub assemble_file {
   return $self->result;
 }
 
+=method assemble_string
+
+Wraps L<Pod::Eventual/assemble_string> and returns a C<MetaPOD::Result> for each passed string
+
+=cut
+
 sub assemble_string {
   my ( $self, $string ) = @_;
   $self->clear_result;
   $self->extractor->read_string($string);
   return $self->result;
 }
+
+=method get_class_for_format
+
+Gets the class to load for the specified format from the internal map, L</format_map>
+
+=cut
 
 sub get_class_for_format {
   my ( $self, $format ) = @_;
@@ -84,6 +120,18 @@ sub get_class_for_format {
   }
   return $self->format_map->{$format};
 }
+
+=method handle_segment
+
+    $assembler->handle_segment( $segment_hash )
+
+This is the callback point of entry that dispatches calls from the C<MetaPOD::Extractor>,
+loads and calls the relevant C<Format> ( via L</get_class_for_format>, validates
+that version specifications are supported ( via C<< Format->supports_version($v) >> )
+and then asks the given formatter to modify the current C<MetaPOD::Result> object
+by parsing the given C<$segment_hash>
+
+=cut
 
 sub handle_segment {
   my ( $self, $segment ) = @_;
@@ -98,6 +146,7 @@ sub handle_segment {
 
   $class->add_segment( $segment, $self->result );
 
+  return $self;
 }
 
 1;
