@@ -23,35 +23,35 @@ name: MetaPOD
 provides:
   MetaPOD:
     file: lib/MetaPOD.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::Assembler:
     file: lib/MetaPOD/Assembler.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::Extractor:
     file: lib/MetaPOD/Extractor.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::Format::JSON:
     file: lib/MetaPOD/Format/JSON.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::JSON:
     file: lib/MetaPOD/JSON.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::Result:
     file: lib/MetaPOD/Result.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::Role::Format:
     file: lib/MetaPOD/Role/Format.pm
-    version: v0.1.1
+    version: v0.1.2
   MetaPOD::Spec:
     file: lib/MetaPOD/Spec.pm
-    version: v0.1.1
+    version: v0.1.2
 requires:
   Carp: 0
   Data::Dump: 0
   JSON: 0
   List::AllUtils: 0
   Module::Runtime: 0
-  Moo: 0
+  Moo: 1.000008
   Moo::Role: 0
   Pod::Eventual: 0
   perl: v5.10.0
@@ -62,7 +62,7 @@ resources:
   bugtracker: https://github.com/kentfredric/MetaPOD/issues
   homepage: https://github.com/kentfredric/MetaPOD
   repository: https://github.com/kentfredric/MetaPOD.git
-version: 0.1.1
+version: 0.1.2
 x_BuiltWith:
   modules:
     Carp: 1.29
@@ -76,7 +76,7 @@ x_BuiltWith:
     List::AllUtils: 0.03
     Module::Build: 0.4005
     Module::Runtime: 0.013
-    Moo: 1.002
+    Moo: 1.000008
     Moo::Role: NA(undef)
     Path::Iterator::Rule: 1.005
     Path::Tiny: 0.021
