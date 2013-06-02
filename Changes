@@ -1,6 +1,11 @@
 Release history for MetaPOD
 
 {{$NEXT}}
+ [Bug Fix]
+ - Update Moo dep to solve bug caused by builder + 1.000007 Moo
+
+ [Dependencies::Changed / runtime requires]
+ - Moo 0 → 1.000008
 
 0.1.1 2013-05-31T16:02:34Z
  [Dependencies::Added / test requires]
