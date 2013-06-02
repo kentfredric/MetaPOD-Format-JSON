@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Role::Format::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Role::Format::VERSION = '0.1.2';
+  $MetaPOD::Role::Format::VERSION = '0.1.3';
 }
 
 # ABSTRACT: Base role for common format routines
@@ -55,7 +55,7 @@ MetaPOD::Role::Format - Base role for common format routines
 
 =head1 VERSION
 
-version 0.1.2
+version 0.1.3
 
 =head1 METHODS
 

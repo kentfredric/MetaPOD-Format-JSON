@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Result::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Result::VERSION = '0.1.2';
+  $MetaPOD::Result::VERSION = '0.1.3';
 }
 
 # ABSTRACT: Compiled aggregate result object for MetaPOD
@@ -97,7 +97,7 @@ MetaPOD::Result - Compiled aggregate result object for MetaPOD
 
 =head1 VERSION
 
-version 0.1.2
+version 0.1.3
 
 =head1 METHODS
 

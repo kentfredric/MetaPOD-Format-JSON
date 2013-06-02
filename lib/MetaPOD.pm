@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::VERSION = '0.1.2';
+  $MetaPOD::VERSION = '0.1.3';
 }
 
 # ABSTRACT: An evolution of POD
@@ -27,7 +27,7 @@ MetaPOD - An evolution of POD
 
 =head1 VERSION
 
-version 0.1.2
+version 0.1.3
 
 =begin MetaPOD::JSON v1.0.0
 
@@ -53,6 +53,18 @@ MetaPOD also is a system by which one can express relationships about code, code
 =item * Show pretty graphs and things showing how classes are related to each other
 
 =back
+
+=head1 What can MetaPOD do for me
+
+At present, there is not much built on top of the MetaPOD api, so it is marginally limited.
+
+And at present, there is not much on CPAN with MetaPOD annotations, so any such functionality is presently limited by that.
+
+However, for a taste of what we might see with widespread use of MetaPOD, here is what we can easily determine from the present API, with the existing annotations in within MetaPOD itself: http://kentfredric.github.io/MetaPOD/media/self_structure.png
+
+=for html <center><img src="http://kentfredric.github.io/MetaPOD/media/self_structure.png" width="549px" height="507px" /></center>
+
+=for markdown ![Graphviz Graph of MetaPOD](http://kentfredric.github.io/MetaPOD/media/self_structure.png)
 
 =head1 People who are writing MetaPOD
 

@@ -2,7 +2,7 @@ NAME
     MetaPOD - An evolution of POD
 
 VERSION
-    version 0.1.2
+    version 0.1.3
 
 What is MetaPOD
   1. Documentation About Documentation
@@ -24,6 +24,18 @@ What is MetaPOD
 
     *   Show pretty graphs and things showing how classes are related to
         each other
+
+What can MetaPOD do for me
+    At present, there is not much built on top of the MetaPOD api, so it is
+    marginally limited.
+
+    And at present, there is not much on CPAN with MetaPOD annotations, so
+    any such functionality is presently limited by that.
+
+    However, for a taste of what we might see with widespread use of
+    MetaPOD, here is what we can easily determine from the present API, with
+    the existing annotations in within MetaPOD itself:
+    http://kentfredric.github.io/MetaPOD/media/self_structure.png
 
 People who are writing MetaPOD
     Eventually, the goal is to have the MetaPOD itself able to be generated
