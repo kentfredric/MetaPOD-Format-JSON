@@ -1,5 +1,7 @@
 digraph test {
+	rankdir=LR;
 	ratio="fill";
+	node [shape="box"];
 	MetaPOD [label="MetaPOD"];
 	node1 [label="MetaPOD::Assembler"];
 	node2 [label="Moo::Object"];
@@ -10,9 +12,9 @@ digraph test {
 	node7 [label="MetaPOD::Spec"];
 	node8 [label="MetaPOD::Format::JSON"];
 	node9 [label="MetaPOD::Role::Format"];
-	node1 -> node2 [label="inherits"];
-	node3 -> node4 [label="inherits"];
-	node8 -> node9 [label="does"];
-	node8 -> node2 [label="inherits"];
-	node6 -> node2 [label="inherits"];
+	node1 -> node2 [color="red", dir="forward", label="inherits"];
+	node3 -> node4 [color="red", dir="forward", label="inherits"];
+	node8 -> node9 [color="blue", dir="forward", label="does"];
+	node8 -> node2 [color="red", dir="forward", label="inherits"];
+	node6 -> node2 [color="red", dir="forward", label="inherits"];
 }

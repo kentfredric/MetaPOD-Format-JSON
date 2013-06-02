@@ -21,11 +21,15 @@ while ( my $file = $it->() ) {
   my $result;
 
   subtest "$rpath" => sub {
-      is(exception {
-          $result = $assembler->assemble_file($file);
-      }, undef, 'Can assemble ' . path($file)->relative($root));
-      isa_ok( $result, 'MetaPOD::Result');
-      is( $result->namespace , $rpath , "MetaPOD.namespace == $rpath" );
+    is(
+      exception {
+        $result = $assembler->assemble_file($file);
+      },
+      undef,
+      'Can assemble ' . path($file)->relative($root)
+    );
+    isa_ok( $result, 'MetaPOD::Result' );
+    is( $result->namespace, $rpath, "MetaPOD.namespace == $rpath" );
   };
 }
 
