@@ -4,7 +4,7 @@
       "Kent Fredric <kentfredric@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.130880",
+   "generated_by" : "Dist::Zilla version 4.300034, CPAN::Meta::Converter version 2.131490",
    "license" : [
       "perl_5"
    ],
@@ -48,7 +48,7 @@
             "JSON" : "0",
             "List::AllUtils" : "0",
             "Module::Runtime" : "0",
-            "Moo" : "0",
+            "Moo" : "1.000008",
             "Moo::Role" : "0",
             "Pod::Eventual" : "0",
             "perl" : "v5.10.0",
@@ -72,35 +72,35 @@
    "provides" : {
       "MetaPOD" : {
          "file" : "lib/MetaPOD.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::Assembler" : {
          "file" : "lib/MetaPOD/Assembler.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::Extractor" : {
          "file" : "lib/MetaPOD/Extractor.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::Format::JSON" : {
          "file" : "lib/MetaPOD/Format/JSON.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::JSON" : {
          "file" : "lib/MetaPOD/JSON.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::Result" : {
          "file" : "lib/MetaPOD/Result.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::Role::Format" : {
          "file" : "lib/MetaPOD/Role/Format.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       },
       "MetaPOD::Spec" : {
          "file" : "lib/MetaPOD/Spec.pm",
-         "version" : "v0.1.1"
+         "version" : "v0.1.2"
       }
    },
    "release_status" : "stable",
@@ -115,7 +115,7 @@
          "web" : "https://github.com/kentfredric/MetaPOD"
       }
    },
-   "version" : "0.1.1",
+   "version" : "0.1.2",
    "x_BuiltWith" : {
       "modules" : {
          "Carp" : "1.29",
@@ -125,14 +125,14 @@
          "File::Find" : "1.23",
          "File::Temp" : "0.2301",
          "FindBin" : "1.51",
-         "JSON" : "2.57",
+         "JSON" : "2.58",
          "List::AllUtils" : "0.03",
          "Module::Build" : "0.4005",
          "Module::Runtime" : "0.013",
          "Moo" : "1.002",
          "Moo::Role" : "NA(undef)",
          "Path::Iterator::Rule" : "1.005",
-         "Path::Tiny" : "0.021",
+         "Path::Tiny" : "0.022",
          "Pod::Coverage::TrustPod" : "0.100002",
          "Pod::Eventual" : "0.093330",
          "Test::CPAN::Changes" : "0.20",
@@ -371,7 +371,7 @@
          {
             "class" : "Dist::Zilla::Plugin::ReadmeAnyFromPod",
             "name" : "@Author::KENTNL/ReadmeAnyFromPod",
-            "version" : "0.120120"
+            "version" : "0.131500"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::CPAN::Changes",
