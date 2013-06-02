@@ -26,10 +26,10 @@ What is MetaPOD
         each other
 
 What can MetaPOD do for me
-    At present, there is not much built on top of the MetaPOD api, so it is
-    marginally limited.
+    At present, there is not much built on top of the MetaPOD "API", so it
+    is marginally limited.
 
-    And at present, there is not much on CPAN with MetaPOD annotations, so
+    And at present, there is not much on "CPAN" with MetaPOD annotations, so
     any such functionality is presently limited by that.
 
     However, for a taste of what we might see with widespread use of

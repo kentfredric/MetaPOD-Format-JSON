@@ -56,9 +56,9 @@ MetaPOD also is a system by which one can express relationships about code, code
 
 =head1 What can MetaPOD do for me
 
-At present, there is not much built on top of the MetaPOD api, so it is marginally limited.
+At present, there is not much built on top of the MetaPOD C<API>, so it is marginally limited.
 
-And at present, there is not much on CPAN with MetaPOD annotations, so any such functionality is presently limited by that.
+And at present, there is not much on C<CPAN> with MetaPOD annotations, so any such functionality is presently limited by that.
 
 However, for a taste of what we might see with widespread use of MetaPOD, here is what we can easily determine from the present API, with the existing annotations in within MetaPOD itself: http://kentfredric.github.io/MetaPOD/media/self_structure.png
 
