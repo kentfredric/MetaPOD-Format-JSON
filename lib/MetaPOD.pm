@@ -60,7 +60,7 @@ At present, there is not much built on top of the MetaPOD C<API>, so it is margi
 
 And at present, there is not much on C<CPAN> with MetaPOD annotations, so any such functionality is presently limited by that.
 
-However, for a taste of what we might see with widespread use of MetaPOD, here is what we can easily determine from the present API, with the existing annotations in within MetaPOD itself: http://kentfredric.github.io/MetaPOD/media/self_structure.png
+However, for a taste of what we might see with widespread use of MetaPOD, here is what we can easily determine from the present C<API>, with the existing annotations in within MetaPOD itself: http://kentfredric.github.io/MetaPOD/media/self_structure.png
 
 =for html <center><img src="http://kentfredric.github.io/MetaPOD/media/self_structure.png" width="549px" height="507px" /></center>
 
