@@ -64,7 +64,7 @@ However, for a taste of what we might see with widespread use of MetaPOD, here i
 
 =for html <center><img src="http://kentfredric.github.io/MetaPOD/media/self_structure.png" width="549px" height="507px" /></center>
 
-=for Pod::Markdown ![Graphviz Graph of MetaPOD](http://kentfredric.github.io/MetaPOD/media/self_structure.png)
+=for markdown ![Graphviz Graph of MetaPOD](http://kentfredric.github.io/MetaPOD/media/self_structure.png)
 
 =head1 People who are writing MetaPOD
 
