@@ -45,6 +45,12 @@ However, for a taste of what we might see with widespread use of MetaPOD, here i
 
 =end html
 
+=begin markdown
+
+![Graphviz Graph of MetaPOD](http://kentfredric.github.io/MetaPOD/media/self_structure.png)
+
+=end markdown
+
 =head1 People who are writing MetaPOD
 
 Eventually, the goal is to have the MetaPOD itself able to be generated via tools during development, so that the meta-layer information is cemented into the POD itself, before, or during release.
