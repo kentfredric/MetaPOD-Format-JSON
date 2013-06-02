@@ -31,6 +31,20 @@ MetaPOD also is a system by which one can express relationships about code, code
 
 =back
 
+=head1 What can MetaPOD do for me
+
+At present, there is not much built on top of the MetaPOD api, so it is marginally limited.
+
+And at present, there is not much on CPAN with MetaPOD annotations, so any such functionality is presently limited by that.
+
+However, for a taste of what we might see with widespread use of MetaPOD, here is what we can easily determine from the present API, with the existing annotations in within MetaPOD itself: http://kentfredric.github.io/MetaPOD/media/self_structure.png
+
+=begin html
+
+<center><img src="http://kentfredric.github.io/MetaPOD/media/self_structure.png" width="549px" height="507px" /></center>
+
+=end html
+
 =head1 People who are writing MetaPOD
 
 Eventually, the goal is to have the MetaPOD itself able to be generated via tools during development, so that the meta-layer information is cemented into the POD itself, before, or during release.
