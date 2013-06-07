@@ -14,6 +14,7 @@ BEGIN {
 
 use Carp qw(croak);
 
+
 sub add_v1 {
   my ( $self, $inherits, $result ) = @_;
   if ( defined $inherits and not ref $inherits ) {
@@ -40,6 +41,14 @@ MetaPOD::Format::JSON::inherits - Implementation of JSON/inherits format compone
 =head1 VERSION
 
 version 0.2.1
+
+=head1 METHODS
+
+=head2 add_v1
+
+Spec v1 C<inherits> Implementation
+
+    MetaPOD::Format::JSON::inherits->add_v1( $data->{inherits} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 
