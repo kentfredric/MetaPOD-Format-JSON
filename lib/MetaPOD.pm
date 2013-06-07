@@ -41,7 +41,7 @@ However, for a taste of what we might see with widespread use of MetaPOD, here i
 
 =begin html
 
-<center><img src="http://kentfredric.github.io/MetaPOD/media/self_structure.png" width="549px" height="507px" /></center>
+<center><img src="http://kentfredric.github.io/MetaPOD/media/self_structure.png" /></center>
 
 =end html
 
