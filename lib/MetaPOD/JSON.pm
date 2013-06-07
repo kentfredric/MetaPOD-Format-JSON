@@ -76,13 +76,13 @@ of that version, with the following additions.
 
 =head2 interface
 
-There are many ways for Perl Namespaces to behave, and this propert indicates what style of interfaces a given namespace supports.
+There are many ways for Perl Namespaces to behave, and this property indicates what style of interfaces a given name space supports.
 
 SPEC VERSION v1.1.0 Supports 6 interface types:
 
 =over 4
 
-=item * C<class> - Indicating the given namespace has a constructor of some kind, which returns a C<bless>'ed object.
+=item * C<class> - Indicating the given name space has a constructor of some kind, which returns a C<bless>'ed object.
 
 For instance, if your synopsis looks like this:
 
@@ -92,7 +92,7 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<class> in your L</interface> list.
 
-=item * C<role> - Indicating the given namespace is a "role" of some kind, and cannot be instantiated, only compsed into other C<class>es.
+=item * C<role> - Indicating the given namespace is a "role" of some kind, and cannot be instantiated, only composed into other C<class>es.
 
 For instance, if your synopsis looks like this:
 
@@ -154,7 +154,7 @@ Note: Some type libraries, notably L<< C<MooseX::Types>|MooseX::Types >> perform
 
 =back
 
-Namespaces that meet above definitions B<SHOULD> document such interfaces as such:
+Name spaces that meet above definitions B<SHOULD> document such interfaces as such:
 
     { "interface": [ "class", "exporter" ]}
 
