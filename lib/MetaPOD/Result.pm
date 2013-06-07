@@ -52,6 +52,15 @@ has does => (
   reader   => _does     =>,
 );
 
+has interface => (
+  is       => ro             =>,
+  required => 0,
+  lazy     => 1,
+  builder  => sub            { [] },
+  writer   => _set_interface =>,
+  reader   => _interface     =>,
+);
+
 =method inherits
 
     my @inherits = $result->inherits;
@@ -119,6 +128,41 @@ sub set_does {
 sub add_does {
   my ( $self, @items ) = @_;
   $self->_set_does( [ uniq @{ $self->_does }, @items ] );
+  return $self;
+}
+
+=method interface
+
+    my @interfaces = $result->interface;
+
+=cut
+
+sub interface {
+  my $self = shift;
+  return @{ $self->_interface };
+}
+
+=method set_interface
+
+    $result->set_interface( @interfaces )
+
+=cut
+
+sub set_interface {
+  my ( $self, @interfaces ) = @_;
+  $self->_set_interface( [ uniq @interfaces ] );
+  return $self;
+}
+
+=method add_interface
+
+    $result->add_interface( @interface );
+
+=cut
+
+sub add_interface {
+  my ( $self, @items ) = @_;
+  $self->_set_interface( [ uniq @{ $self->_interface }, @items ] );
   return $self;
 }
 
