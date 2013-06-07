@@ -72,35 +72,59 @@
    "provides" : {
       "MetaPOD" : {
          "file" : "lib/MetaPOD.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       },
       "MetaPOD::Assembler" : {
          "file" : "lib/MetaPOD/Assembler.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       },
       "MetaPOD::Extractor" : {
          "file" : "lib/MetaPOD/Extractor.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       },
       "MetaPOD::Format::JSON" : {
          "file" : "lib/MetaPOD/Format/JSON.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::Decoder" : {
+         "file" : "lib/MetaPOD/Format/JSON/Decoder.pm",
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::PostCheck" : {
+         "file" : "lib/MetaPOD/Format/JSON/PostCheck.pm",
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::does" : {
+         "file" : "lib/MetaPOD/Format/JSON/does.pm",
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::inherits" : {
+         "file" : "lib/MetaPOD/Format/JSON/inherits.pm",
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::interface" : {
+         "file" : "lib/MetaPOD/Format/JSON/interface.pm",
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::namespace" : {
+         "file" : "lib/MetaPOD/Format/JSON/namespace.pm",
+         "version" : "v0.2.1"
       },
       "MetaPOD::JSON" : {
          "file" : "lib/MetaPOD/JSON.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       },
       "MetaPOD::Result" : {
          "file" : "lib/MetaPOD/Result.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       },
       "MetaPOD::Role::Format" : {
          "file" : "lib/MetaPOD/Role/Format.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       },
       "MetaPOD::Spec" : {
          "file" : "lib/MetaPOD/Spec.pm",
-         "version" : "v0.2.0"
+         "version" : "v0.2.1"
       }
    },
    "release_status" : "stable",
@@ -115,7 +139,7 @@
          "web" : "https://github.com/kentfredric/MetaPOD"
       }
    },
-   "version" : "0.2.0",
+   "version" : "0.2.1",
    "x_BuiltWith" : {
       "modules" : {
          "Carp" : "1.29",
