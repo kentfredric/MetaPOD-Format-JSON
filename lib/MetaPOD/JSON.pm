@@ -60,13 +60,13 @@ of that version, with the following additions.
 
 =head2 interface
 
-There are many ways for Perl Namespaces to behave, and this propert indicates what style of interfaces a given namespace supports.
+There are many ways for Perl Name spaces to behave, and this property indicates what style of interfaces a given name space supports.
 
 SPEC VERSION v1.1.0 Supports 6 interface types:
 
 =over 4
 
-=item * C<class> - Indicating the given namespace has a constructor of some kind, which returns a C<bless>'ed object.
+=item * C<class> - Indicating the given name space has a constructor of some kind, which returns a C<bless>'ed object.
 
 For instance, if your synopsis looks like this:
 
@@ -76,7 +76,7 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<class> in your L</interface> list.
 
-=item * C<role> - Indicating the given namespace is a "role" of some kind, and cannot be instantiated, only compsed into other C<class>es.
+=item * C<role> - Indicating the given C<namespace> is a "role" of some kind, and cannot be instantiated, only composed into other C<class>es.
 
 For instance, if your synopsis looks like this:
 
@@ -86,7 +86,7 @@ For instance, if your synopsis looks like this:
 
 You should include C<role> in your L</interface> list.
 
-=item * C<exporter> - Indicating the given namespace C<exports> things into the caller
+=item * C<exporter> - Indicating the given C<namespace> C<exports> things into the caller
 
 For instance, if your synopsis looks like this:
 
@@ -96,9 +96,9 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<exporter> in your L</interface> list.
 
-This includes things like C<Moo> and C<Moose> which export functions like C<has> into the calling namespace.
+This includes things like C<Moo> and C<Moose> which export functions like C<has> into the calling C<namespace>.
 
-=item * C<functions> - Indicating a namespace which has functions intended to be called via fully qualified names.
+=item * C<functions> - Indicating a C<namespace> which has functions intended to be called via fully qualified names.
 
 For instance, if your synopsis looks like this:
 
@@ -107,7 +107,7 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<functions> in your L</interface> list.
 
-=item * C<single_class> - A Hybrid between C<functions> and C<class>, a namespace which has methods, but no constructor, and the namespace itself behaves much like a singleton.
+=item * C<single_class> - A Hybrid between C<functions> and C<class>, a C<namespace> which has methods, but no constructor, and the C<namespace> itself behaves much like a singleton.
 
 For instance, if your synopsis looks like this:
 
@@ -115,6 +115,11 @@ For instance, if your synopsis looks like this:
     Foo->set_thing( 1 );
 
 Then you should include C<singleclass> in your L</interface> list.
+
+These usages are also candidates for C<singleclass> L</interface>es.
+
+    Foo->copy( $a , $b ); # a and/or b is modified, but no object is returned
+    my $result = Foo->bar(); # $result is not an object
 
 However, this is not an example of the C<single_class> interface:
 
@@ -138,7 +143,7 @@ Note: Some type libraries, notably L<< C<MooseX::Types>|MooseX::Types >> perform
 
 =back
 
-Namespaces that meet above definitions B<SHOULD> document such interfaces as such:
+Name spaces that meet above definitions B<SHOULD> document such interfaces as such:
 
     { "interface": [ "class", "exporter" ]}
 

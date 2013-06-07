@@ -102,6 +102,7 @@ sub _check_interface_v1_1 {
       croak("interface type $if unsupported in v1.1.0");
     }
   }
+  return $self;
 }
 
 sub _add_interface_v1_1 {
@@ -134,6 +135,7 @@ sub _real_add_segment_v1 {
       $self->_add_does_v1( $_, $result );
     }
   );
+  return $result;
 }
 
 sub _real_add_segment_v1_1 {
@@ -144,6 +146,7 @@ sub _real_add_segment_v1_1 {
       $self->_add_interface_v1_1( $_, $result );
     }
   );
+  return $result;
 }
 
 sub _add_segment_v1 {
