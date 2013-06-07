@@ -9,7 +9,7 @@ BEGIN {
   $MetaPOD::Format::JSON::PostCheck::VERSION = '0.2.1';
 }
 
-# ABSTRACT: Handler for unrecognised tokens in JSON
+# ABSTRACT: Handler for unrecognised tokens in C<JSON>
 
 
 use Carp qw( croak );
@@ -33,7 +33,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::PostCheck - Handler for unrecognised tokens in JSON
+MetaPOD::Format::JSON::PostCheck - Handler for unrecognised tokens in C<JSON>
 
 =head1 VERSION
 

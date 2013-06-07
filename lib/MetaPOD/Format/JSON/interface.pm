@@ -22,7 +22,7 @@ sub supported_interfaces_v1_1 {
 
 sub check_interface_v1_1 {
   my ( $self, @ifs ) = @_;
-  my $supported = { map { $_, 1 } $self->supported_interfaces_v1_1 };
+  my $supported = { map { ( $_, 1 ) } $self->supported_interfaces_v1_1 };
   for my $if (@ifs) {
     if ( not exists $supported->{$if} ) {
       croak("interface type $if unsupported in v1.1.0");
