@@ -83,7 +83,7 @@ sub _add_segment_auto {
 sub _json_decode {
     my ( $self, $data, $spec ) = @_;
     my $namespace = 'MetaPOD::Format::JSON::Decoder';
-    my $method    = 'decode_' . $decode_table->{$spec}->{'Decoder'};
+    my $method    = 'decoder_' . $decode_table->{$spec}->{'Decoder'};
     return $namespace->$method( $data );
 }
 sub _postcheck {
