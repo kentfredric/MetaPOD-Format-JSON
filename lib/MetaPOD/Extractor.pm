@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Extractor::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Extractor::VERSION = '0.1.3';
+  $MetaPOD::Extractor::VERSION = '0.1.4';
 }
 
 # ABSTRACT: Extract MetaPOD declarations from a file.
@@ -252,7 +252,7 @@ MetaPOD::Extractor - Extract MetaPOD declarations from a file.
 
 =head1 VERSION
 
-version 0.1.3
+version 0.1.4
 
 =head1 METHODS
 
@@ -316,11 +316,12 @@ version 0.1.3
 
     $extractor->handle_event( $POD_EVENT );
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
     "namespace": "MetaPOD::Extractor",
-    "inherits" : "Pod::Eventual"
+    "inherits" : "Pod::Eventual",
+    "interface": "class"
 }
 
 

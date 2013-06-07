@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Role::Format::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Role::Format::VERSION = '0.1.3';
+  $MetaPOD::Role::Format::VERSION = '0.1.4';
 }
 
 # ABSTRACT: Base role for common format routines
@@ -55,7 +55,7 @@ MetaPOD::Role::Format - Base role for common format routines
 
 =head1 VERSION
 
-version 0.1.3
+version 0.1.4
 
 =head1 METHODS
 
@@ -91,10 +91,11 @@ The default implementation just wraps L</supported_versions> with C<< version->p
 
     my (@vobs) = $role->_supported_versions;
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace": "MetaPOD::Role::Format"
+    "namespace": "MetaPOD::Role::Format",
+    "interface": "role"
 }
 
 

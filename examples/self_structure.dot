@@ -3,18 +3,27 @@ digraph test {
 	ratio="fill";
 	node [shape="box"];
 	MetaPOD [label="MetaPOD"];
-	node1 [label="MetaPOD::Assembler"];
 	node2 [label="Moo::Object"];
-	node3 [label="MetaPOD::Extractor"];
 	node4 [label="Pod::Eventual"];
 	node5 [label="MetaPOD::JSON"];
-	node6 [label="MetaPOD::Result"];
 	node7 [label="MetaPOD::Spec"];
-	node8 [label="MetaPOD::Format::JSON"];
-	node9 [label="MetaPOD::Role::Format"];
 	node1 -> node2 [color="red", dir="forward", label="inherits"];
 	node3 -> node4 [color="red", dir="forward", label="inherits"];
 	node8 -> node9 [color="blue", dir="forward", label="does"];
 	node8 -> node2 [color="red", dir="forward", label="inherits"];
 	node6 -> node2 [color="red", dir="forward", label="inherits"];
+	subgraph cluster_class {
+		color="green"; label="class";
+		node1 [label="MetaPOD::Assembler"];
+		node3 [label="MetaPOD::Extractor"];
+		node6 [label="MetaPOD::Result"];
+	}
+	subgraph cluster_single_class {
+		color="green"; label="single_class";
+		node8 [label="MetaPOD::Format::JSON"];
+	}
+	subgraph cluster_role {
+		color="green"; label="role";
+		node9 [label="MetaPOD::Role::Format"];
+	}
 }

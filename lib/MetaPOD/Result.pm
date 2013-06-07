@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Result::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Result::VERSION = '0.1.3';
+  $MetaPOD::Result::VERSION = '0.1.4';
 }
 
 # ABSTRACT: Compiled aggregate result object for MetaPOD
@@ -34,6 +34,7 @@ has inherits => (
   writer   => _set_inherits =>,
   reader   => _inherits     =>,
 );
+
 has does => (
   is       => ro        =>,
   required => 0,
@@ -41,6 +42,15 @@ has does => (
   builder  => sub       { [] },
   writer   => _set_does =>,
   reader   => _does     =>,
+);
+
+has interface => (
+  is       => ro             =>,
+  required => 0,
+  lazy     => 1,
+  builder  => sub            { [] },
+  writer   => _set_interface =>,
+  reader   => _interface     =>,
 );
 
 
@@ -83,6 +93,26 @@ sub add_does {
   return $self;
 }
 
+
+sub interface {
+  my $self = shift;
+  return @{ $self->_interface };
+}
+
+
+sub set_interface {
+  my ( $self, @interfaces ) = @_;
+  $self->_set_interface( [ uniq @interfaces ] );
+  return $self;
+}
+
+
+sub add_interface {
+  my ( $self, @items ) = @_;
+  $self->_set_interface( [ uniq @{ $self->_interface }, @items ] );
+  return $self;
+}
+
 1;
 
 __END__
@@ -97,7 +127,7 @@ MetaPOD::Result - Compiled aggregate result object for MetaPOD
 
 =head1 VERSION
 
-version 0.1.3
+version 0.1.4
 
 =head1 METHODS
 
@@ -129,11 +159,24 @@ version 0.1.3
 
     $result->add_does( @does );
 
-=begin MetaPOD::JSON v1.0.0
+=head2 interface
+
+    my @interfaces = $result->interface;
+
+=head2 set_interface
+
+    $result->set_interface( @interfaces )
+
+=head2 add_interface
+
+    $result->add_interface( @interface );
+
+=begin MetaPOD::JSON v1.1.0
 
 {
     "namespace": "MetaPOD::Result",
-    "inherits" : "Moo::Object"
+    "inherits" : "Moo::Object",
+    "interface": "class"
 }
 
 
