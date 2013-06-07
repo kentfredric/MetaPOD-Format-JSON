@@ -76,7 +76,7 @@ of that version, with the following additions.
 
 =head2 interface
 
-There are many ways for Perl Namespaces to behave, and this property indicates what style of interfaces a given name space supports.
+There are many ways for Perl Name spaces to behave, and this property indicates what style of interfaces a given name space supports.
 
 SPEC VERSION v1.1.0 Supports 6 interface types:
 
@@ -92,7 +92,7 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<class> in your L</interface> list.
 
-=item * C<role> - Indicating the given namespace is a "role" of some kind, and cannot be instantiated, only composed into other C<class>es.
+=item * C<role> - Indicating the given C<namespace> is a "role" of some kind, and cannot be instantiated, only composed into other C<class>es.
 
 For instance, if your synopsis looks like this:
 
@@ -102,7 +102,7 @@ For instance, if your synopsis looks like this:
 
 You should include C<role> in your L</interface> list.
 
-=item * C<exporter> - Indicating the given namespace C<exports> things into the caller
+=item * C<exporter> - Indicating the given C<namespace> C<exports> things into the caller
 
 For instance, if your synopsis looks like this:
 
