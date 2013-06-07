@@ -3,7 +3,7 @@ use warnings;
 
 package MetaPOD::Format::JSON::Decoder;
 
-# ABSTRACT: JSON<->Structure translation layer
+# ABSTRACT: C<JSON> to Structure translation layer
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -13,6 +13,14 @@ package MetaPOD::Format::JSON::Decoder;
 }
 
 =end MetaPOD::JSON
+
+=cut
+
+=method decoder_v1
+
+Spec V1 C<JSON> Decoder
+
+    my $hash = MetaPOD::Format::JSON::Decoder->decoder_v1( $json_string );
 
 =cut
 

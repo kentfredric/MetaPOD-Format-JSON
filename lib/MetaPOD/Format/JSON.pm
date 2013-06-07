@@ -86,7 +86,7 @@ sub supported_versions {
 sub _add_segment_auto {
   my ( $self, $data_decoded, $vspec, $result ) = @_;
   my $features = $feature_table->{$vspec};
-  for my $feature ( keys %$features ) {
+  for my $feature ( keys %{$features} ) {
     my $impl      = $features->{$feature};
     my $namespace = 'MetaPOD::Format::JSON::' . $feature;
     my $method    = 'add_' . $impl;

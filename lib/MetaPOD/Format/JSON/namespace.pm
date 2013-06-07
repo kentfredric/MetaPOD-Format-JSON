@@ -17,6 +17,14 @@ package MetaPOD::Format::JSON::namespace;
 
 =cut
 
+=method add_v1
+
+Spec V1 C<namespace> Implementation
+
+    MetaPOD::Format::JSON::namespace->add_v1( $data->{namespace} , $metapod_result );
+
+=cut
+
 sub add_v1 {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);

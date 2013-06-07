@@ -3,7 +3,7 @@ use warnings;
 
 package MetaPOD::Format::JSON::PostCheck;
 
-# ABSTRACT: Handler for unrecognised tokens in JSON
+# ABSTRACT: Handler for unrecognised tokens in C<JSON>
 
 =begin MetaPOD::JSON v1.1.0
 
@@ -17,6 +17,14 @@ package MetaPOD::Format::JSON::PostCheck;
 =cut
 
 use Carp qw( croak );
+
+=method postcheck_v1
+
+Spec V1 Handling of unprocessed keys
+
+    MetaPOD::Format::JSON::PostCheck->postcheck_v1({ any_key_makes_it_go_bang => 1 }, $metapod_result );
+
+=cut
 
 sub postcheck_v1 {
   my ( $self, $data, $result ) = @_;
