@@ -9,7 +9,7 @@ BEGIN {
   $MetaPOD::Format::JSON::Decoder::VERSION = '0.2.1';
 }
 
-# ABSTRACT: JSON<->Structure translation layer
+# ABSTRACT: C<JSON> to Structure translation layer
 
 
 
@@ -29,7 +29,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::Decoder - JSON<->Structure translation layer
+MetaPOD::Format::JSON::Decoder - C<JSON> to Structure translation layer
 
 =head1 VERSION
 
@@ -39,7 +39,7 @@ version 0.2.1
 
 =head2 decoder_v1
 
-Spec V1 JSON Decoder
+Spec V1 C<JSON> Decoder
 
     my $hash = MetaPOD::Format::JSON::Decoder->decoder_v1( $json_string );
 
