@@ -53,6 +53,117 @@ It is B<ENCOURAGED> that wherever possible to support the B<WIDEST> variety of v
 
 =cut
 
+=head1 SPEC VERSION v1.1.0
+
+This version of the spec is mostly identical to L</SPEC VERSION v1.0.0>, and it B<MUST> support all features
+of that version, with the following additions.
+
+=head2 interface
+
+There are many ways for Perl Namespaces to behave, and this propert indicates what style of interfaces a given namespace supports.
+
+SPEC VERSION v1.1.0 Supports 6 interface types:
+
+=over 4
+
+=item * C<class> - Indicating the given namespace has a constructor of some kind, which returns a C<bless>'ed object.
+
+For instance, if your synopsis looks like this:
+
+    use Foo;
+    my $instance = Foo->new();
+    $instance->();
+
+Then you should include C<class> in your L</interface> list.
+
+=item * C<role> - Indicating the given namespace is a "role" of some kind, and cannot be instantiated, only compsed into other C<class>es.
+
+For instance, if your synopsis looks like this:
+
+    package Foo;
+    use Moo;
+    with "YourNameSpace";
+
+You should include C<role> in your L</interface> list.
+
+=item * C<exporter> - Indicating the given namespace C<exports> things into the caller
+
+For instance, if your synopsis looks like this:
+
+    use Foo qw( func );
+    use Foo;
+    bar(); # Exported by Foo
+
+Then you should include C<exporter> in your L</interface> list.
+
+This includes things like C<Moo> and C<Moose> which export functions like C<has> into the calling namespace.
+
+=item * C<functions> - Indicating a namespace which has functions intended to be called via fully qualified names.
+
+For instance, if your synopsis looks like this:
+
+    use Foo;
+    Foo::bar();
+
+Then you should include C<functions> in your L</interface> list.
+
+=item * C<single_class> - A Hybrid between C<functions> and C<class>, a namespace which has methods, but no constructor, and the namespace itself behaves much like a singleton.
+
+For instance, if your synopsis looks like this:
+
+    use Foo;
+    Foo->set_thing( 1 );
+
+Then you should include C<singleclass> in your L</interface> list.
+
+However, this is not an example of the C<single_class> interface:
+
+    use Foo;
+    my $instance = Foo->writer( $bar );
+    $instance->method();
+
+Because here, C<writer> doesn't modify the state of C<Foo>, and C<writer> could be seen as simply an alternative constructor.
+
+=item * C<type_library> - A Type Library of some kind.
+
+For instance, if your class uses C<Moose::Util::TypeConstraints> to create a named type of some kind, and that type is accessible via
+
+    has Foo => (
+        isa => 'TypeName'
+    );
+
+Then you want to include C<type_library> in your L</interface> list.
+
+Note: Some type libraries, notably L<< C<MooseX::Types>|MooseX::Types >> perform type creation in I<addition> to exporting, and for such libraries, you should include both C<type_library> and C<exporter>
+
+=back
+
+Namespaces that meet above definitions B<SHOULD> document such interfaces as such:
+
+    { "interface": [ "class", "exporter" ]}
+
+C<interface> can be in one of 2 forms.
+
+    { "interface" : $string }
+    { "interface" : [ $string, $string, $string ] }
+
+Both will perform logically appending either the string, or the list of elements, to an internal list which is deduplicated.
+
+So that
+
+    { "interface" : [ $a ]}
+    { "interface" : [ $b ]}
+
+And
+
+    { "interface" : $a }
+    { "interface" : $b }
+
+Have the same effect, the result being the same as if you had specified
+
+    { "interface" : [ $a, $b ] }
+
+
 =head1 SPEC VERSION v1.0.0
 
 =head2 Data collection
