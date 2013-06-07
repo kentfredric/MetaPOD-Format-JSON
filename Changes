@@ -1,6 +1,9 @@
 Release history for MetaPOD
 
 {{$NEXT}}
+ [!Noteworthy Changes]
+ - Adds MetaPOD::JSON v1.1 SPEC and Support
+ - Adds 'interface' tag.
 
 0.1.3 2013-06-02T08:27:59Z
  [Documentation]
