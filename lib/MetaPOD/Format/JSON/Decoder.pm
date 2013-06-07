@@ -12,6 +12,7 @@ BEGIN {
 # ABSTRACT: JSON<->Structure translation layer
 
 
+
 sub decoder_v1 {
   my ( $self, $data ) = @_;
   require JSON;
@@ -33,6 +34,14 @@ MetaPOD::Format::JSON::Decoder - JSON<->Structure translation layer
 =head1 VERSION
 
 version 0.2.1
+
+=head1 METHODS
+
+=head2 decoder_v1
+
+Spec V1 JSON Decoder
+
+    my $hash = MetaPOD::Format::JSON::Decoder->decoder_v1( $json_string );
 
 =begin MetaPOD::JSON v1.1.0
 

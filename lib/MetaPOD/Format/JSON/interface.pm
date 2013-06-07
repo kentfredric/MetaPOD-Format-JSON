@@ -14,9 +14,11 @@ BEGIN {
 
 use Carp qw(croak);
 
+
 sub supported_interfaces_v1_1 {
   return qw( class role type_library exporter single_class function );
 }
+
 
 sub check_interface_v1_1 {
   my ( $self, @ifs ) = @_;
@@ -28,6 +30,7 @@ sub check_interface_v1_1 {
   }
   return $self;
 }
+
 
 sub add_v1_1 {
   my ( $self, $interface, $result ) = @_;
@@ -55,6 +58,28 @@ MetaPOD::Format::JSON::interface - Implementation of JSON/interface format compo
 =head1 VERSION
 
 version 0.2.1
+
+=head1 METHODS
+
+=head2 supported_interfaces_v1_1
+
+Spec v1.1 C<interface> value list.
+
+    my @valid_interface_tokens = MetaPOD::Format::JSON::interface->supported_interfaces_v1_1
+
+=head2 check_interface_v1_1
+
+Spec v1.1 C<interface> Implementation key checking routine
+
+    MetaPOD::Format::JSON::interface->check_interface_v1_1( $interface, $interface, $interface );
+
+Simply goes C<bang> if C<$interface> is not in C<supported_interfaces_v1_1>
+
+=head2 add_v1_1
+
+Spec v1.1 C<interface> Implementation
+
+    MetaPOD::Format::JSON::interface->add_v1( $data->{interface} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 

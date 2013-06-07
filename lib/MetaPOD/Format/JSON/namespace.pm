@@ -13,6 +13,7 @@ BEGIN {
 # ABSTRACT: Implementation of JSON/namespace format component
 
 
+
 sub add_v1 {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);
@@ -33,6 +34,14 @@ MetaPOD::Format::JSON::namespace - Implementation of JSON/namespace format compo
 =head1 VERSION
 
 version 0.2.1
+
+=head1 METHODS
+
+=head2 add_v1
+
+Spec V1 C<namespace> Implementation
+
+    MetaPOD::Format::JSON::namespace->add_v1( $data->{namespace} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 

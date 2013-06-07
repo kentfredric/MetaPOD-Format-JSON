@@ -14,6 +14,7 @@ BEGIN {
 
 use Carp qw( croak );
 
+
 sub postcheck_v1 {
   my ( $self, $data, $result ) = @_;
 
@@ -37,6 +38,14 @@ MetaPOD::Format::JSON::PostCheck - Handler for unrecognised tokens in JSON
 =head1 VERSION
 
 version 0.2.1
+
+=head1 METHODS
+
+=head2 postcheck_v1
+
+Spec V1 Handling of unprocessed keys
+
+    MetaPOD::Format::JSON::PostCheck->postcheck_v1({ any_key_makes_it_go_bang => 1 }, $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 

@@ -14,6 +14,7 @@ BEGIN {
 
 use Carp qw(croak);
 
+
 sub add_v1 {
   my ( $self, $does, $result ) = @_;
   if ( defined $does and not ref $does ) {
@@ -40,6 +41,14 @@ MetaPOD::Format::JSON::does - Implementation of JSON/does format component
 =head1 VERSION
 
 version 0.2.1
+
+=head1 METHODS
+
+=head2 add_v1
+
+Spec V1 C<does> Implementation
+
+    MetaPOD::Format::JSON::does->add_v1( $data->{does} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 
