@@ -112,9 +112,9 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<exporter> in your L</interface> list.
 
-This includes things like C<Moo> and C<Moose> which export functions like C<has> into the calling namespace.
+This includes things like C<Moo> and C<Moose> which export functions like C<has> into the calling C<namespace>.
 
-=item * C<functions> - Indicating a namespace which has functions intended to be called via fully qualified names.
+=item * C<functions> - Indicating a C<namespace> which has functions intended to be called via fully qualified names.
 
 For instance, if your synopsis looks like this:
 
@@ -123,7 +123,7 @@ For instance, if your synopsis looks like this:
 
 Then you should include C<functions> in your L</interface> list.
 
-=item * C<single_class> - A Hybrid between C<functions> and C<class>, a namespace which has methods, but no constructor, and the namespace itself behaves much like a singleton.
+=item * C<single_class> - A Hybrid between C<functions> and C<class>, a C<namespace> which has methods, but no constructor, and the C<namespace> itself behaves much like a singleton.
 
 For instance, if your synopsis looks like this:
 
@@ -131,6 +131,11 @@ For instance, if your synopsis looks like this:
     Foo->set_thing( 1 );
 
 Then you should include C<singleclass> in your L</interface> list.
+
+These usages are also candidates for C<singleclass> L</interface>es.
+
+    Foo->copy( $a , $b ); # a and/or b is modified, but no object is returned
+    my $result = Foo->bar(); # $result is not an object
 
 However, this is not an example of the C<single_class> interface:
 
