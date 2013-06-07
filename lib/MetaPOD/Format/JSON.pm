@@ -82,7 +82,7 @@ sub _add_segment_v1_1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
   my $data_decoded = JSON->new->decode($data);
-  $self->_add_segment_auto( $data_decoded, 'v1', $result );
+  $self->_add_segment_auto( $data_decoded, 'v1_1', $result );
   if ( keys %{$data_decoded} ) {
     croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data_decoded} ) . '>';
   }
