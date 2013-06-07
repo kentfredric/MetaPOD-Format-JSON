@@ -46,7 +46,7 @@ my $decode_table = {
         Decoder => 'v1',
         PostCheck => 'v1',
     },
-}
+};
 
 my $feature_table = {
     'v1' => {
