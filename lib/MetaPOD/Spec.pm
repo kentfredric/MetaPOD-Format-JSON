@@ -5,7 +5,7 @@ package MetaPOD::Spec;
 
 # ABSTRACT: The Specification of the MetaPOD format
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 { "namespace":"MetaPOD::Spec" }
 

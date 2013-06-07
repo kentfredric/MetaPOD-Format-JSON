@@ -5,7 +5,7 @@ package MetaPOD;
 
 # ABSTRACT: An evolution of POD
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 { "namespace":"MetaPOD" }
 

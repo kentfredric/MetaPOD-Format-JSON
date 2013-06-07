@@ -10,10 +10,11 @@ use Moo::Role;
 use Carp qw( croak );
 use version 0.77;
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace": "MetaPOD::Role::Format"
+    "namespace": "MetaPOD::Role::Format",
+    "interface": "role"
 }
 
 =end MetaPOD::JSON

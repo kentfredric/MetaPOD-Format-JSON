@@ -25,11 +25,12 @@ but you can extend it to support any other defined specifications by replacing t
         YAML => 'MyProject::Format::YAML',
     });
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
     "namespace":"MetaPOD::Assembler",
-    "inherits":"Moo::Object"
+    "inherits":"Moo::Object",
+    "interface":"class"
 }
 
 =end MetaPOD::JSON

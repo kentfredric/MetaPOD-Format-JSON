@@ -5,12 +5,13 @@ package MetaPOD::Format::JSON;
 
 # ABSTRACT: Reference implementation of a C<JSON> based MetaPOD Format
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
     "namespace":"MetaPOD::Format::JSON",
     "inherits":"Moo::Object",
-    "does":"MetaPOD::Role::Format"
+    "does":"MetaPOD::Role::Format",
+    "interface": "single_class"
 }
 
 =end MetaPOD::JSON

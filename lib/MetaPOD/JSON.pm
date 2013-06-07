@@ -5,7 +5,7 @@ use warnings;
 
 package MetaPOD::JSON;
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 { "namespace":"MetaPOD::JSON" }
 

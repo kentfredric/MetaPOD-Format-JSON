@@ -6,11 +6,12 @@ package MetaPOD::Result;
 
 # ABSTRACT: Compiled aggregate result object for MetaPOD
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
     "namespace": "MetaPOD::Result",
-    "inherits" : "Moo::Object"
+    "inherits" : "Moo::Object",
+    "interface": "class"
 }
 
 =end MetaPOD::JSON
@@ -43,6 +44,7 @@ has inherits => (
   writer   => _set_inherits =>,
   reader   => _inherits     =>,
 );
+
 has does => (
   is       => ro        =>,
   required => 0,

@@ -7,11 +7,12 @@ package MetaPOD::Extractor;
 use Moo;
 extends 'Pod::Eventual';
 
-=begin MetaPOD::JSON v1.0.0
+=begin MetaPOD::JSON v1.1.0
 
 {
     "namespace": "MetaPOD::Extractor",
-    "inherits" : "Pod::Eventual"
+    "inherits" : "Pod::Eventual",
+    "interface": "class"
 }
 
 =end MetaPOD::JSON
