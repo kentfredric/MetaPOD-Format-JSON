@@ -11,14 +11,15 @@ BEGIN {
 
 # ABSTRACT: Handler for unrecognised tokens in JSON
 
+
 use Carp qw( croak );
 
 sub postcheck_v1 {
-    my ( $self, $data , $result ) = @_; 
-  
-    if ( keys %{$data} ) {
-        croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data} ) . '>';
-    }
+  my ( $self, $data, $result ) = @_;
+
+  if ( keys %{$data} ) {
+    croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data} ) . '>';
+  }
 }
 
 1;

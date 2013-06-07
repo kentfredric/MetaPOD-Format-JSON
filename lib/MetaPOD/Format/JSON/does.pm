@@ -15,14 +15,14 @@ BEGIN {
 use Carp qw(croak);
 
 sub add_v1 {
-    my ( $self, $does, $result ) = @_;
-    if ( defined $does and not ref $does ) {
-        return $result->add_does($does);
-    }
-    if ( defined $does and ref $does eq 'ARRAY' ) {
-        return $result->add_does( @{$does} );
-    }
-    croak 'Unsupported reftype ' . ref $does;
+  my ( $self, $does, $result ) = @_;
+  if ( defined $does and not ref $does ) {
+    return $result->add_does($does);
+  }
+  if ( defined $does and ref $does eq 'ARRAY' ) {
+    return $result->add_does( @{$does} );
+  }
+  croak 'Unsupported reftype ' . ref $does;
 }
 
 1;

@@ -1,7 +1,7 @@
 
 use strict;
 use warnings;
- 
+
 package MetaPOD::Format::JSON::namespace;
 BEGIN {
   $MetaPOD::Format::JSON::namespace::AUTHORITY = 'cpan:KENTNL';
@@ -14,8 +14,8 @@ BEGIN {
 
 
 sub add_v1 {
-    my ( $self, $namespace , $result ) = @_; 
-    return $result->set_namespace( $namespace );
+  my ( $self, $namespace, $result ) = @_;
+  return $result->set_namespace($namespace);
 }
 
 1;

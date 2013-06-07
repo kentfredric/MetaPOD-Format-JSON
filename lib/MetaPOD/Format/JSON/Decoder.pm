@@ -1,6 +1,6 @@
 use strict;
 use warnings;
- 
+
 package MetaPOD::Format::JSON::Decoder;
 BEGIN {
   $MetaPOD::Format::JSON::Decoder::AUTHORITY = 'cpan:KENTNL';
@@ -13,9 +13,9 @@ BEGIN {
 
 
 sub decoder_v1 {
-    my ( $self, $data ) = @_;
-    require JSON;
-    return JSON->new->decode( $data );
+  my ( $self, $data ) = @_;
+  require JSON;
+  return JSON->new->decode($data);
 }
 
 1;

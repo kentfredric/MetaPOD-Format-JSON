@@ -15,12 +15,12 @@ BEGIN {
 use Carp qw(croak);
 
 sub supported_interfaces_v1_1 {
-    return qw( class role type_library exporter single_class function );
+  return qw( class role type_library exporter single_class function );
 }
 
 sub check_interface_v1_1 {
   my ( $self, @ifs ) = @_;
-  my $supported = { map { $_ , 1 } $self->supported_interfaces_v1_1 };
+  my $supported = { map { $_, 1 } $self->supported_interfaces_v1_1 };
   for my $if (@ifs) {
     if ( not exists $supported->{$if} ) {
       croak("interface type $if unsupported in v1.1.0");
@@ -30,14 +30,14 @@ sub check_interface_v1_1 {
 }
 
 sub add_v1_1 {
-    my ( $self, $interface, $result ) = @_;
-    if ( defined $interface and not ref $interface ) {
-        return $result->add_interface($interface);
-    }
-    if ( defined $interface and ref $interface eq 'ARRAY' ) {
-        return $result->add_interface( @{$interface} );
-    }
-    croak 'Unsupported reftype ' . ref $interface;
+  my ( $self, $interface, $result ) = @_;
+  if ( defined $interface and not ref $interface ) {
+    return $result->add_interface($interface);
+  }
+  if ( defined $interface and ref $interface eq 'ARRAY' ) {
+    return $result->add_interface( @{$interface} );
+  }
+  croak 'Unsupported reftype ' . ref $interface;
 }
 
 1;

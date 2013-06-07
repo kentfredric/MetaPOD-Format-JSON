@@ -25,7 +25,6 @@ use MetaPOD::Format::JSON::interface;
 use MetaPOD::Format::JSON::Decoder;
 use MetaPOD::Format::JSON::PostCheck;
 
-
 my $dispatch_table = [
   {
     version => version->parse('v1.0.0'),
@@ -38,28 +37,28 @@ my $dispatch_table = [
 ];
 
 my $decode_table = {
-    'v1' => {
-        Decoder => 'v1',
-        PostCheck => 'v1',
-    },
-    'v1_1' => {
-        Decoder => 'v1',
-        PostCheck => 'v1',
-    },
+  'v1' => {
+    Decoder   => 'v1',
+    PostCheck => 'v1',
+  },
+  'v1_1' => {
+    Decoder   => 'v1',
+    PostCheck => 'v1',
+  },
 };
 
 my $feature_table = {
-    'v1' => {
-        namespace => 'v1',
-        inherits  => 'v1',
-        does      => 'v1',
-    },
-    'v1_1' => {
-        namespace => 'v1',
-        inherits  => 'v1',
-        does      => 'v1',
-        interface => 'v1_1',
-    },
+  'v1' => {
+    namespace => 'v1',
+    inherits  => 'v1',
+    does      => 'v1',
+  },
+  'v1_1' => {
+    namespace => 'v1',
+    inherits  => 'v1',
+    does      => 'v1',
+    interface => 'v1_1',
+  },
 };
 
 
@@ -68,29 +67,31 @@ sub supported_versions {
 }
 
 sub _add_segment_auto {
-    my ( $self, $data_decoded, $vspec, $result ) = @_;
-    my $features = $feature_table->{$vspec};
-    for my $feature ( keys %$features ) { 
-        my $impl = $features->{$feature};
-        my $namespace = 'MetaPOD::Format::JSON::' . $feature;
-        my $method    = 'add_' . $impl;
-        next unless exists $data_decoded->{$feature};
-        my $copy = delete $data_decoded->{$feature};
-        $namespace->$method( $copy, $result );
-    }
-    return $self;
+  my ( $self, $data_decoded, $vspec, $result ) = @_;
+  my $features = $feature_table->{$vspec};
+  for my $feature ( keys %$features ) {
+    my $impl      = $features->{$feature};
+    my $namespace = 'MetaPOD::Format::JSON::' . $feature;
+    my $method    = 'add_' . $impl;
+    next unless exists $data_decoded->{$feature};
+    my $copy = delete $data_decoded->{$feature};
+    $namespace->$method( $copy, $result );
+  }
+  return $self;
 }
+
 sub _json_decode {
-    my ( $self, $data, $spec ) = @_;
-    my $namespace = 'MetaPOD::Format::JSON::Decoder';
-    my $method    = 'decoder_' . $decode_table->{$spec}->{'Decoder'};
-    return $namespace->$method( $data );
+  my ( $self, $data, $spec ) = @_;
+  my $namespace = 'MetaPOD::Format::JSON::Decoder';
+  my $method    = 'decoder_' . $decode_table->{$spec}->{'Decoder'};
+  return $namespace->$method($data);
 }
+
 sub _postcheck {
-    my ( $self, $data, $spec ) = @_;
-    my $namespace = 'MetaPOD::Format::JSON::PostCheck';
-    my $method    = 'postcheck_' . $decode_table->{$spec}->{'PostCheck'};
-    return $namespace->$method( $data );
+  my ( $self, $data, $spec ) = @_;
+  my $namespace = 'MetaPOD::Format::JSON::PostCheck';
+  my $method    = 'postcheck_' . $decode_table->{$spec}->{'PostCheck'};
+  return $namespace->$method($data);
 }
 
 sub _add_segment_v1 {
