@@ -28,6 +28,13 @@ use version 0.77;
 
 with 'MetaPOD::Role::Format';
 
+use MetaPOD::Format::JSON::namespace;
+use MetaPOD::Format::JSON::inherits;
+use MetaPOD::Format::JSON::does;
+use MetaPOD::Format::JSON::interface;
+use MetaPOD::Format::JSON::Decoder;
+use MetaPOD::Format::JSON::PostCheck;
+
 my $dispatch_table = [
   {
     version => version->parse('v1.0.0'),
@@ -37,8 +44,32 @@ my $dispatch_table = [
     version => version->parse('v1.1.0'),
     method  => 'v1_1',
   }
-
 ];
+
+my $decode_table = {
+  'v1' => {
+    Decoder   => 'v1',
+    PostCheck => 'v1',
+  },
+  'v1_1' => {
+    Decoder   => 'v1',
+    PostCheck => 'v1',
+  },
+};
+
+my $feature_table = {
+  'v1' => {
+    namespace => 'v1',
+    inherits  => 'v1',
+    does      => 'v1',
+  },
+  'v1_1' => {
+    namespace => 'v1',
+    inherits  => 'v1',
+    does      => 'v1',
+    interface => 'v1_1',
+  },
+};
 
 =method supported_versions
 
@@ -52,108 +83,39 @@ sub supported_versions {
   return qw( v1.0.0 v1.1.0 );
 }
 
-sub _do_for_key {
-  my ( $stash, $key, $code ) = @_;
-  return unless exists $stash->{$key};
-  my $copy = delete $stash->{$key};
-  local $_ = $copy;
-  return $code->($_);
-}
-
-sub _add_namespace_v1 {
-  my ( $self, $namespace, $result ) = @_;
-  return $result->set_namespace($namespace);
-}
-
-sub _add_inherits_v1 {
-  my ( $self, $inherits, $result ) = @_;
-  if ( defined $inherits and not ref $inherits ) {
-    return $result->add_inherits($inherits);
-  }
-  if ( defined $inherits and ref $inherits eq 'ARRAY' ) {
-    return $result->add_inherits( @{$inherits} );
-  }
-  croak 'Unsupported reftype ' . ref $inherits;
-}
-
-sub _add_does_v1 {
-  my ( $self, $does, $result ) = @_;
-  if ( defined $does and not ref $does ) {
-    return $result->add_does($does);
-  }
-  if ( defined $does and ref $does eq 'ARRAY' ) {
-    return $result->add_does( @{$does} );
-  }
-  croak 'Unsupported reftype ' . ref $does;
-}
-
-sub _check_interface_v1_1 {
-  my ( $self, @ifs ) = @_;
-  my $supported = {
-    'class'        => 1,
-    'role'         => 1,
-    'type_library' => 1,
-    'exporter'     => 1,
-    'single_class' => 1,
-    'functions'    => 1,
-  };
-  for my $if (@ifs) {
-    if ( not exists $supported->{$if} ) {
-      croak("interface type $if unsupported in v1.1.0");
-    }
+sub _add_segment_auto {
+  my ( $self, $data_decoded, $vspec, $result ) = @_;
+  my $features = $feature_table->{$vspec};
+  for my $feature ( keys %$features ) {
+    my $impl      = $features->{$feature};
+    my $namespace = 'MetaPOD::Format::JSON::' . $feature;
+    my $method    = 'add_' . $impl;
+    next unless exists $data_decoded->{$feature};
+    my $copy = delete $data_decoded->{$feature};
+    $namespace->$method( $copy, $result );
   }
   return $self;
 }
 
-sub _add_interface_v1_1 {
-  my ( $self, $ifs, $result ) = @_;
-  if ( defined $ifs and not ref $ifs ) {
-    $self->_check_interface_v1_1($ifs);
-    return $result->add_interface($ifs);
-  }
-  if ( defined $ifs and ref $ifs eq 'ARRAY' ) {
-    $self->_check_interface_v1_1( @{$ifs} );
-    return $result->add_interface( @{$ifs} );
-  }
-  croak 'Unsupported reftype ' . ref $ifs;
+sub _json_decode {
+  my ( $self, $data, $spec ) = @_;
+  my $namespace = 'MetaPOD::Format::JSON::Decoder';
+  my $method    = 'decoder_' . $decode_table->{$spec}->{'Decoder'};
+  return $namespace->$method($data);
 }
 
-sub _real_add_segment_v1 {
-  my ( $self, $data_decoded, $result ) = @_;
-  _do_for_key(
-    $data_decoded => 'namespace' => sub {
-      $self->_add_namespace_v1( $_, $result );
-    }
-  );
-  _do_for_key(
-    $data_decoded => 'inherits' => sub {
-      $self->_add_inherits_v1( $_, $result );
-    }
-  );
-  _do_for_key(
-    $data_decoded => 'does' => sub {
-      $self->_add_does_v1( $_, $result );
-    }
-  );
-  return $result;
-}
-
-sub _real_add_segment_v1_1 {
-  my ( $self, $data_decoded, $result ) = @_;
-  $self->_real_add_segment_v1( $data_decoded, $result );
-  _do_for_key(
-    $data_decoded => 'interface' => sub {
-      $self->_add_interface_v1_1( $_, $result );
-    }
-  );
-  return $result;
+sub _postcheck {
+  my ( $self, $data, $spec ) = @_;
+  my $namespace = 'MetaPOD::Format::JSON::PostCheck';
+  my $method    = 'postcheck_' . $decode_table->{$spec}->{'PostCheck'};
+  return $namespace->$method($data);
 }
 
 sub _add_segment_v1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
   my $data_decoded = JSON->new->decode($data);
-  $self->_real_add_segment_v1( $data_decoded, $result );
+  $self->_add_segment_auto( $data_decoded, 'v1', $result );
   if ( keys %{$data_decoded} ) {
     croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data_decoded} ) . '>';
   }
@@ -164,7 +126,7 @@ sub _add_segment_v1_1 {
   my ( $self, $data, $result ) = @_;
   require JSON;
   my $data_decoded = JSON->new->decode($data);
-  $self->_real_add_segment_v1_1( $data_decoded, $result );
+  $self->_add_segment_auto( $data_decoded, 'v1_1', $result );
   if ( keys %{$data_decoded} ) {
     croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data_decoded} ) . '>';
   }
@@ -182,8 +144,10 @@ sub add_segment {
   my $segver = $self->supports_version( $segment->{version} );
   for my $v ( @{$dispatch_table} ) {
     next unless $v->{version} == $segver;
-    my $method = $self->can( '_add_segment_' . $v->{method} );
-    return $method->( $self, $segment->{data}, $result );
+    my $data = $self->_json_decode( $segment->{data}, $v->{method} );
+    $self->_add_segment_auto( $data, $v->{method}, $result );
+    $self->_postcheck( $data, $v->{method} );
+    return $result;
   }
   croak "No implementation found for version $segver";
 }

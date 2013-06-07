@@ -21,6 +21,12 @@ digraph test {
 	subgraph cluster_single_class {
 		color="green"; label="single_class";
 		node8 [label="MetaPOD::Format::JSON"];
+		node10 [label="MetaPOD::Format::JSON::Decoder"];
+		node11 [label="MetaPOD::Format::JSON::PostCheck"];
+		node12 [label="MetaPOD::Format::JSON::does"];
+		node13 [label="MetaPOD::Format::JSON::inherits"];
+		node14 [label="MetaPOD::Format::JSON::interface"];
+		node15 [label="MetaPOD::Format::JSON::namespace"];
 	}
 	subgraph cluster_role {
 		color="green"; label="role";
