@@ -22,6 +22,9 @@ use MetaPOD::Format::JSON::namespace;
 use MetaPOD::Format::JSON::inherits;
 use MetaPOD::Format::JSON::does;
 use MetaPOD::Format::JSON::interface;
+use MetaPOD::Format::JSON::Decoder;
+use MetaPOD::Format::JSON::PostCheck;
+
 
 my $dispatch_table = [
   {
@@ -33,6 +36,17 @@ my $dispatch_table = [
     method  => 'v1_1',
   }
 ];
+
+my $decode_table = {
+    'v1' => {
+        Decoder => 'v1',
+        PostCheck => 'v1',
+    },
+    'v1_1' => {
+        Decoder => 'v1',
+        PostCheck => 'v1',
+    },
+}
 
 my $feature_table = {
     'v1' => {
@@ -66,6 +80,18 @@ sub _add_segment_auto {
     }
     return $self;
 }
+sub _json_decode {
+    my ( $self, $data, $spec ) = @_;
+    my $namespace = 'MetaPOD::Format::JSON::Decoder';
+    my $method    = 'decode_' . $decode_table->{$spec}->{'Decoder'};
+    return $namespace->$method( $data );
+}
+sub _postcheck {
+    my ( $self, $data, $spec ) = @_;
+    my $namespace = 'MetaPOD::Format::JSON::PostCheck';
+    my $method    = 'postcheck_' . $decode_table->{$spec}->{'PostCheck'};
+    return $namespace->$method( $data );
+}
 
 sub _add_segment_v1 {
   my ( $self, $data, $result ) = @_;
@@ -95,8 +121,10 @@ sub add_segment {
   my $segver = $self->supports_version( $segment->{version} );
   for my $v ( @{$dispatch_table} ) {
     next unless $v->{version} == $segver;
-    my $method = $self->can( '_add_segment_' . $v->{method} );
-    return $method->( $self, $segment->{data}, $result );
+    my $data = $self->_json_decode( $segment->{data}, $v->{method} );
+    $self->_add_segment_auto( $data, $v->{method}, $result );
+    $self->_postcheck( $data, $v->{method} );
+    return $result;
   }
   croak "No implementation found for version $segver";
 }

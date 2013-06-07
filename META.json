@@ -86,6 +86,14 @@
          "file" : "lib/MetaPOD/Format/JSON.pm",
          "version" : "v0.2.1"
       },
+      "MetaPOD::Format::JSON::Decoder" : {
+         "file" : "lib/MetaPOD/Format/JSON/Decoder.pm",
+         "version" : "v0.2.1"
+      },
+      "MetaPOD::Format::JSON::PostCheck" : {
+         "file" : "lib/MetaPOD/Format/JSON/PostCheck.pm",
+         "version" : "v0.2.1"
+      },
       "MetaPOD::Format::JSON::does" : {
          "file" : "lib/MetaPOD/Format/JSON/does.pm",
          "version" : "v0.2.1"
