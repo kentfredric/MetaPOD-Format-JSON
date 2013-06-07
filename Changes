@@ -1,6 +1,8 @@
 Release history for MetaPOD
 
 {{$NEXT}}
+
+0.2.1 2013-06-07T15:41:59Z
  [Restructuring]
  - No noteworthy user-visible changes in this release.
  - Restructuring the reference JSON implementation to be easier to extend
