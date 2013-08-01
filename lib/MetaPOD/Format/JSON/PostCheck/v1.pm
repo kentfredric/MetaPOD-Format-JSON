@@ -1,21 +1,22 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::PostCheck;
+package MetaPOD::Format::JSON::PostCheck::v1;
 BEGIN {
-  $MetaPOD::Format::JSON::PostCheck::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Format::JSON::PostCheck::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::PostCheck::VERSION = '0.2.1';
+  $MetaPOD::Format::JSON::PostCheck::v1::VERSION = '0.2.2';
 }
 
 # ABSTRACT: Handler for unrecognised tokens in C<JSON>
 
 
+use Moo::Role;
 use Carp qw( croak );
 
 
-sub postcheck_v1 {
+sub postcheck {
   my ( $self, $data, $result ) = @_;
 
   if ( keys %{$data} ) {
@@ -33,25 +34,25 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::PostCheck - Handler for unrecognised tokens in C<JSON>
+MetaPOD::Format::JSON::PostCheck::v1 - Handler for unrecognised tokens in C<JSON>
 
 =head1 VERSION
 
-version 0.2.1
+version 0.2.2
 
 =head1 METHODS
 
-=head2 postcheck_v1
+=head2 postcheck
 
 Spec V1 Handling of unprocessed keys
 
-    MetaPOD::Format::JSON::PostCheck->postcheck_v1({ any_key_makes_it_go_bang => 1 }, $metapod_result );
+    __SOME_CLASS__->postcheck({ any_key_makes_it_go_bang => 1 }, $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::PostCheck",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::PostCheck::v1",
+    "interface":"role"
 }
 
 

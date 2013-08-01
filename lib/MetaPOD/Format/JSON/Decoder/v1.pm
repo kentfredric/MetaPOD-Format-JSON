@@ -1,19 +1,21 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::Decoder;
+package MetaPOD::Format::JSON::Decoder::v1;
 BEGIN {
-  $MetaPOD::Format::JSON::Decoder::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Format::JSON::Decoder::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::Decoder::VERSION = '0.2.1';
+  $MetaPOD::Format::JSON::Decoder::v1::VERSION = '0.2.2';
 }
 
 # ABSTRACT: C<JSON> to Structure translation layer
 
 
+use Moo::Role;
 
-sub decoder_v1 {
+
+sub decode {
   my ( $self, $data ) = @_;
   require JSON;
   return JSON->new->decode($data);
@@ -29,25 +31,25 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::Decoder - C<JSON> to Structure translation layer
+MetaPOD::Format::JSON::Decoder::v1 - C<JSON> to Structure translation layer
 
 =head1 VERSION
 
-version 0.2.1
+version 0.2.2
 
 =head1 METHODS
 
-=head2 decoder_v1
+=head2 decode
 
 Spec V1 C<JSON> Decoder
 
-    my $hash = MetaPOD::Format::JSON::Decoder->decoder_v1( $json_string );
+    my $hash = _SOME_CLASS_->decode( $json_string );
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::Decoder",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::Decoder::v1",
+    "interface":"role"
 }
 
 
