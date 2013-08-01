@@ -13,12 +13,24 @@ BEGIN {
 
 
 use Moo::Role;
+use Try::Tiny qw( try catch );
 
 
 sub decode {
   my ( $self, $data ) = @_;
   require JSON;
-  return JSON->new->decode($data);
+  my $return;
+  try {
+      $return = JSON->new->decode($data);
+  } catch {
+        require MetaPOD::Exception::Decode::Data;
+        MetaPOD::Exception::Decode::Data->throw({
+            internal_message => $_,
+            data => $data,
+            previous_exception => $_,
+        });
+  };
+  return $return;
 }
 
 1;
