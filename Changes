@@ -1,6 +1,30 @@
 Release history for MetaPOD
 
 {{$NEXT}}
+ [Dependencies::Added / runtime requires]
+ - Throwable::Error
+ - Try::Tiny
+
+ [Dependencies::Added / test requires]
+ - Capture::Tiny
+ - blib
+
+ [Dependencies::Changed / build requires]
+ - Module::Build 0.4005 → 0.4007
+
+ [Dependencies::Changed / configure requires]
+ - Module::Build 0.4005 → 0.4007
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.3 → v1.7.5
+
+ [Dependencies::Removed / test requires]
+ - File::Find
+ - File::Temp
+
+ [Restructuring]
+ - Internals now decomponentized and implemented as roles, which leads to
+   better class composition overall.
 
 0.2.1 2013-06-07T15:41:59Z
  [Restructuring]
