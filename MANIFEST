@@ -17,8 +17,6 @@ dist.ini
 examples/self_structure.dot
 examples/self_structure.pl
 examples/self_structure.png
-layout/self_structure.dot
-layout/self_structure.png
 lib/MetaPOD.pm
 lib/MetaPOD/Assembler.pm
 lib/MetaPOD/Exception.pm

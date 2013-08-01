@@ -1,6 +1,6 @@
 use strict;
 use warnings;
- 
+
 package MetaPOD::Exception;
 BEGIN {
   $MetaPOD::Exception::AUTHORITY = 'cpan:KENTNL';
