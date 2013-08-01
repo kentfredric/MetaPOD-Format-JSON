@@ -1,32 +1,33 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::does;
+package MetaPOD::Format::JSON::does::v1;
 
 # ABSTRACT: Implementation of JSON/does format component
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::does",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::does::v1",
+    "interface":"role"
 }
 
 =end MetaPOD::JSON
 
 =cut
 
+use Moo::Role;
 use Carp qw(croak);
 
-=method add_v1
+=method add_does
 
 Spec V1 C<does> Implementation
 
-    MetaPOD::Format::JSON::does->add_v1( $data->{does} , $metapod_result );
+    __SOME_CLASS__->add_does( $data->{does} , $metapod_result );
 
 =cut
 
-sub add_v1 {
+sub add_does {
   my ( $self, $does, $result ) = @_;
   if ( defined $does and not ref $does ) {
     return $result->add_does($does);
