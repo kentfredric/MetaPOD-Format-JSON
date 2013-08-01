@@ -30,9 +30,6 @@ provides:
   MetaPOD::Exception:
     file: lib/MetaPOD/Exception.pm
     version: v0.2.2
-  MetaPOD::Exception::Decode:
-    file: lib/MetaPOD/Exception/Decode.pm
-    version: v0.2.2
   MetaPOD::Exception::Decode::Data:
     file: lib/MetaPOD/Exception/Decode/Data.pm
     version: v0.2.2

@@ -13,7 +13,6 @@ my @module_files = qw(
 MetaPOD.pm
 MetaPOD/Assembler.pm
 MetaPOD/Exception.pm
-MetaPOD/Exception/Decode.pm
 MetaPOD/Exception/Decode/Data.pm
 MetaPOD/Extractor.pm
 MetaPOD/Format/JSON.pm

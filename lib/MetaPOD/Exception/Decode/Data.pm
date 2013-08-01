@@ -10,7 +10,10 @@ BEGIN {
   $MetaPOD::Exception::Decode::Data::VERSION = '0.2.2';
 }
 
+# ABSTRACT: Failures with decoding source data
+
 use Moo;
+
 
 
 extends 'MetaPOD::Exception';
@@ -37,7 +40,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Exception::Decode::Data
+MetaPOD::Exception::Decode::Data - Failures with decoding source data
 
 =head1 VERSION
 

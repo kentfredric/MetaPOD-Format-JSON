@@ -11,6 +11,8 @@ BEGIN {
 
 use Moo;
 
+# ABSTRACT: Base class for C<MetaPOD> exceptions.
+
 
 extends 'Throwable::Error';
 
@@ -26,7 +28,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Exception
+MetaPOD::Exception - Base class for C<MetaPOD> exceptions.
 
 =head1 VERSION
 
