@@ -13,7 +13,7 @@ use Moo;
 
 extends 'Throwable::Error';
 
-no Moo
+no Moo;
 
 1;
 
