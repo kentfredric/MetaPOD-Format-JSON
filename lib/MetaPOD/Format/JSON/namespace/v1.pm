@@ -2,22 +2,24 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::namespace;
+package MetaPOD::Format::JSON::namespace::v1;
 
 # ABSTRACT: Implementation of JSON/namespace format component
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::namespace",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::namespace::v1",
+    "interface":"role"
 }
 
 =end MetaPOD::JSON
 
 =cut
 
-=method add_v1
+use Moo::Role;
+
+=method add_namespace
 
 Spec V1 C<namespace> Implementation
 
@@ -25,7 +27,7 @@ Spec V1 C<namespace> Implementation
 
 =cut
 
-sub add_v1 {
+sub add_namespace {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);
 }
