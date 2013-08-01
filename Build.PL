@@ -7,17 +7,17 @@ use Module::Build 0.3601;
 
 my %module_build_args = (
   "build_requires" => {
-    "Module::Build" => "0.4005"
+    "Module::Build" => "0.4007"
   },
   "configure_requires" => {
-    "Module::Build" => "0.4005"
+    "Module::Build" => "0.4007"
   },
   "dist_abstract" => "An evolution of POD",
   "dist_author" => [
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "MetaPOD",
-  "dist_version" => "0.2.1",
+  "dist_version" => "0.2.2",
   "license" => "perl",
   "module_name" => "MetaPOD",
   "recommends" => {},
@@ -31,6 +31,8 @@ my %module_build_args = (
     "Moo" => "1.000008",
     "Moo::Role" => 0,
     "Pod::Eventual" => 0,
+    "Throwable::Error" => 0,
+    "Try::Tiny" => 0,
     "perl" => "v5.10.0",
     "strict" => 0,
     "version" => "0.77",
@@ -38,13 +40,13 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "File::Find" => 0,
-    "File::Temp" => 0,
+    "Capture::Tiny" => 0,
     "FindBin" => 0,
     "Path::Iterator::Rule" => 0,
     "Path::Tiny" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.98"
+    "Test::More" => "0.98",
+    "blib" => 0
   }
 );
 

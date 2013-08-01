@@ -4,7 +4,7 @@
       "Kent Fredric <kentfredric@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131490",
+   "generated_by" : "Dist::Zilla version 4.300035, CPAN::Meta::Converter version 2.131560",
    "license" : [
       "perl_5"
    ],
@@ -16,12 +16,12 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "Module::Build" : "0.4005"
+            "Module::Build" : "0.4007"
          }
       },
       "configure" : {
          "requires" : {
-            "Module::Build" : "0.4005"
+            "Module::Build" : "0.4007"
          }
       },
       "develop" : {
@@ -38,7 +38,7 @@
             "version" : "0.9901"
          },
          "suggests" : {
-            "Dist::Zilla::PluginBundle::Author::KENTNL" : "v1.7.3"
+            "Dist::Zilla::PluginBundle::Author::KENTNL" : "v1.7.5"
          }
       },
       "runtime" : {
@@ -51,6 +51,8 @@
             "Moo" : "1.000008",
             "Moo::Role" : "0",
             "Pod::Eventual" : "0",
+            "Throwable::Error" : "0",
+            "Try::Tiny" : "0",
             "perl" : "v5.10.0",
             "strict" : "0",
             "version" : "0.77",
@@ -59,72 +61,88 @@
       },
       "test" : {
          "requires" : {
-            "File::Find" : "0",
-            "File::Temp" : "0",
+            "Capture::Tiny" : "0",
             "FindBin" : "0",
             "Path::Iterator::Rule" : "0",
             "Path::Tiny" : "0",
             "Test::Fatal" : "0",
-            "Test::More" : "0.98"
+            "Test::More" : "0.98",
+            "blib" : "0"
          }
       }
    },
    "provides" : {
       "MetaPOD" : {
          "file" : "lib/MetaPOD.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       },
       "MetaPOD::Assembler" : {
          "file" : "lib/MetaPOD/Assembler.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
+      },
+      "MetaPOD::Exception" : {
+         "file" : "lib/MetaPOD/Exception.pm",
+         "version" : "v0.2.2"
+      },
+      "MetaPOD::Exception::Decode::Data" : {
+         "file" : "lib/MetaPOD/Exception/Decode/Data.pm",
+         "version" : "v0.2.2"
       },
       "MetaPOD::Extractor" : {
          "file" : "lib/MetaPOD/Extractor.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       },
       "MetaPOD::Format::JSON" : {
          "file" : "lib/MetaPOD/Format/JSON.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       },
-      "MetaPOD::Format::JSON::Decoder" : {
-         "file" : "lib/MetaPOD/Format/JSON/Decoder.pm",
-         "version" : "v0.2.1"
+      "MetaPOD::Format::JSON::Decoder::v1" : {
+         "file" : "lib/MetaPOD/Format/JSON/Decoder/v1.pm",
+         "version" : "v0.2.2"
       },
-      "MetaPOD::Format::JSON::PostCheck" : {
-         "file" : "lib/MetaPOD/Format/JSON/PostCheck.pm",
-         "version" : "v0.2.1"
+      "MetaPOD::Format::JSON::PostCheck::v1" : {
+         "file" : "lib/MetaPOD/Format/JSON/PostCheck/v1.pm",
+         "version" : "v0.2.2"
       },
-      "MetaPOD::Format::JSON::does" : {
-         "file" : "lib/MetaPOD/Format/JSON/does.pm",
-         "version" : "v0.2.1"
+      "MetaPOD::Format::JSON::does::v1" : {
+         "file" : "lib/MetaPOD/Format/JSON/does/v1.pm",
+         "version" : "v0.2.2"
       },
-      "MetaPOD::Format::JSON::inherits" : {
-         "file" : "lib/MetaPOD/Format/JSON/inherits.pm",
-         "version" : "v0.2.1"
+      "MetaPOD::Format::JSON::inherits::v1" : {
+         "file" : "lib/MetaPOD/Format/JSON/inherits/v1.pm",
+         "version" : "v0.2.2"
       },
-      "MetaPOD::Format::JSON::interface" : {
-         "file" : "lib/MetaPOD/Format/JSON/interface.pm",
-         "version" : "v0.2.1"
+      "MetaPOD::Format::JSON::interface::v1_1" : {
+         "file" : "lib/MetaPOD/Format/JSON/interface/v1_1.pm",
+         "version" : "v0.2.2"
       },
-      "MetaPOD::Format::JSON::namespace" : {
-         "file" : "lib/MetaPOD/Format/JSON/namespace.pm",
-         "version" : "v0.2.1"
+      "MetaPOD::Format::JSON::namespace::v1" : {
+         "file" : "lib/MetaPOD/Format/JSON/namespace/v1.pm",
+         "version" : "v0.2.2"
+      },
+      "MetaPOD::Format::JSON::v1" : {
+         "file" : "lib/MetaPOD/Format/JSON/v1.pm",
+         "version" : "v0.2.2"
+      },
+      "MetaPOD::Format::JSON::v1_1" : {
+         "file" : "lib/MetaPOD/Format/JSON/v1_1.pm",
+         "version" : "v0.2.2"
       },
       "MetaPOD::JSON" : {
          "file" : "lib/MetaPOD/JSON.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       },
       "MetaPOD::Result" : {
          "file" : "lib/MetaPOD/Result.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       },
       "MetaPOD::Role::Format" : {
          "file" : "lib/MetaPOD/Role/Format.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       },
       "MetaPOD::Spec" : {
          "file" : "lib/MetaPOD/Spec.pm",
-         "version" : "v0.2.1"
+         "version" : "v0.2.2"
       }
    },
    "release_status" : "stable",
@@ -139,24 +157,23 @@
          "web" : "https://github.com/kentfredric/MetaPOD"
       }
    },
-   "version" : "0.2.1",
+   "version" : "0.2.2",
    "x_BuiltWith" : {
       "modules" : {
+         "Capture::Tiny" : "0.22",
          "Carp" : "1.29",
          "Data::Dump" : "1.22",
-         "Dist::Zilla::PluginBundle::Author::KENTNL" : "1.7.3",
+         "Dist::Zilla::PluginBundle::Author::KENTNL" : "1.7.5",
          "Dist::Zilla::PluginBundle::Author::KENTNL::Lite" : "NA(possibly not installed)",
-         "File::Find" : "1.23",
-         "File::Temp" : "0.2301",
          "FindBin" : "1.51",
-         "JSON" : "2.58",
+         "JSON" : "2.59",
          "List::AllUtils" : "0.03",
-         "Module::Build" : "0.4005",
+         "Module::Build" : "0.4007",
          "Module::Runtime" : "0.013",
-         "Moo" : "1.002",
+         "Moo" : "1.003",
          "Moo::Role" : "NA(undef)",
          "Path::Iterator::Rule" : "1.005",
-         "Path::Tiny" : "0.022",
+         "Path::Tiny" : "0.027",
          "Pod::Coverage::TrustPod" : "0.100002",
          "Pod::Eventual" : "0.093330",
          "Test::CPAN::Changes" : "0.20",
@@ -165,6 +182,9 @@
          "Test::More" : "0.98",
          "Test::Pod" : "1.48",
          "Test::Pod::Coverage" : "1.08",
+         "Throwable::Error" : "0.200008",
+         "Try::Tiny" : "0.16",
+         "blib" : "1.06",
          "perl" : "NA(skipped: perl)",
          "strict" : "1.07",
          "version" : "0.9902",
@@ -185,7 +205,7 @@
          "osname" : "linux"
       },
       "platform" : "linux",
-      "uname" : "Linux 3.9.0-gentoo x86_64 GenuineIntel GNU/Linux"
+      "uname" : "Linux 3.10.0-gentoo x86_64 GenuineIntel GNU/Linux"
    },
    "x_Dist_Zilla" : {
       "perl" : {
@@ -195,7 +215,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::NextVersion",
             "name" : "@Author::KENTNL/Git::NextVersion",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaConfig",
@@ -205,12 +225,12 @@
          {
             "class" : "Dist::Zilla::Plugin::GithubMeta",
             "name" : "@Author::KENTNL/GithubMeta",
-            "version" : "0.28"
+            "version" : "0.30"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaProvides::Package",
             "name" : "@Author::KENTNL/MetaProvides::Package",
-            "version" : "1.14000002"
+            "version" : "1.14000003"
          },
          {
             "class" : "Dist::Zilla::Plugin::MetaData::BuiltWith",
@@ -237,7 +257,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::GatherDir",
             "name" : "@Author::KENTNL/Git::GatherDir",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::License",
@@ -277,7 +297,7 @@
          {
             "class" : "Dist::Zilla::Plugin::ReportVersions::Tiny",
             "name" : "@Author::KENTNL/ReportVersions::Tiny",
-            "version" : "1.08"
+            "version" : "1.09"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Kwalitee",
@@ -296,8 +316,18 @@
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Compile",
+            "config" : {
+               "Dist::Zilla::Plugin::Test::Compile" : {
+                  "module_finder" : [
+                     ":InstallModules"
+                  ],
+                  "script_finder" : [
+                     ":ExecFiles"
+                  ]
+               }
+            },
             "name" : "@Author::KENTNL/Test::Compile",
-            "version" : "2.002"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::Test::Perl::Critic",
@@ -322,7 +352,7 @@
          {
             "class" : "Dist::Zilla::Plugin::PodWeaver",
             "name" : "@Author::KENTNL/PodWeaver",
-            "version" : "3.101641"
+            "version" : "3.101642"
          },
          {
             "class" : "Dist::Zilla::Plugin::NextRelease",
@@ -370,12 +400,7 @@
          {
             "class" : "Dist::Zilla::Plugin::Author::KENTNL::MinimumPerl",
             "name" : "@Author::KENTNL/Author::KENTNL::MinimumPerl",
-            "version" : "1.7.3"
-         },
-         {
-            "class" : "Dist::Zilla::Plugin::Author::KENTNL::Prereqs::Latest::Selective",
-            "name" : "@Author::KENTNL/Author::KENTNL::Prereqs::Latest::Selective",
-            "version" : "0.1.0"
+            "version" : "1.7.5"
          },
          {
             "class" : "Dist::Zilla::Plugin::Authority",
@@ -420,27 +445,27 @@
          {
             "class" : "Dist::Zilla::Plugin::Git::Check",
             "name" : "@Author::KENTNL/Git::Check",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Author::KENTNL/Git::Tag/tag_master",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Commit",
             "name" : "@Author::KENTNL/Git::Commit",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::CommitBuild",
             "name" : "@Author::KENTNL/Git::CommitBuild",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::Git::Tag",
             "name" : "@Author::KENTNL/Git::Tag/tag_release",
-            "version" : "2.013"
+            "version" : "2.014"
          },
          {
             "class" : "Dist::Zilla::Plugin::UploadToCPAN",
@@ -450,7 +475,50 @@
          {
             "class" : "Dist::Zilla::Plugin::Twitter",
             "name" : "@Author::KENTNL/Twitter",
-            "version" : "0.020"
+            "version" : "0.021"
+         },
+         {
+            "class" : "Dist::Zilla::Plugin::Prereqs::MatchInstalled",
+            "config" : {
+               "Dist::Zilla::Plugin::Prereqs::MatchInstalled" : {
+                  "applyto" : [
+                     "build.requires",
+                     "build.recommends",
+                     "build.suggests",
+                     "test.requires",
+                     "test.recommends",
+                     "test.suggests",
+                     "runtime.requires",
+                     "runtime.recommends",
+                     "runtime.suggests",
+                     "configure.requires",
+                     "configure.recommends",
+                     "configure.suggests",
+                     "develop.requires",
+                     "develop.recommends",
+                     "develop.suggests"
+                  ],
+                  "applyto_phase" : [
+                     "build",
+                     "test",
+                     "runtime",
+                     "configure",
+                     "develop"
+                  ],
+                  "applyto_relation" : [
+                     "requires",
+                     "recommends",
+                     "suggests"
+                  ],
+                  "modules" : [
+                     "Module::Build",
+                     "Test::More",
+                     "Dist::Zilla::PluginBundle::Author::KENTNL"
+                  ]
+               }
+            },
+            "name" : "@Author::KENTNL/Prereqs::MatchInstalled",
+            "version" : "0.1.0"
          },
          {
             "class" : "Dist::Zilla::Plugin::Prereqs",

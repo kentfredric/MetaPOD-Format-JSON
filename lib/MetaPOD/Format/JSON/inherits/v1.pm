@@ -1,21 +1,22 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::inherits;
+package MetaPOD::Format::JSON::inherits::v1;
 BEGIN {
-  $MetaPOD::Format::JSON::inherits::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Format::JSON::inherits::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::inherits::VERSION = '0.2.1';
+  $MetaPOD::Format::JSON::inherits::v1::VERSION = '0.2.2';
 }
 
 # ABSTRACT: Implementation of JSON/inherits format component
 
 
+use Moo::Role;
 use Carp qw(croak);
 
 
-sub add_v1 {
+sub add_inherits {
   my ( $self, $inherits, $result ) = @_;
   if ( defined $inherits and not ref $inherits ) {
     return $result->add_inherits($inherits);
@@ -36,25 +37,25 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::inherits - Implementation of JSON/inherits format component
+MetaPOD::Format::JSON::inherits::v1 - Implementation of JSON/inherits format component
 
 =head1 VERSION
 
-version 0.2.1
+version 0.2.2
 
 =head1 METHODS
 
-=head2 add_v1
+=head2 C<add_inherits>
 
 Spec v1 C<inherits> Implementation
 
-    MetaPOD::Format::JSON::inherits->add_v1( $data->{inherits} , $metapod_result );
+    $impl->add_inherits( $data->{inherits} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::inherits",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::inherits::v1",
+    "interface":"role"
 }
 
 

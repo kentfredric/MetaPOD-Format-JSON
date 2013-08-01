@@ -1,21 +1,22 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::does;
+package MetaPOD::Format::JSON::does::v1;
 BEGIN {
-  $MetaPOD::Format::JSON::does::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Format::JSON::does::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::does::VERSION = '0.2.1';
+  $MetaPOD::Format::JSON::does::v1::VERSION = '0.2.2';
 }
 
 # ABSTRACT: Implementation of JSON/does format component
 
 
+use Moo::Role;
 use Carp qw(croak);
 
 
-sub add_v1 {
+sub add_does {
   my ( $self, $does, $result ) = @_;
   if ( defined $does and not ref $does ) {
     return $result->add_does($does);
@@ -36,25 +37,25 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::does - Implementation of JSON/does format component
+MetaPOD::Format::JSON::does::v1 - Implementation of JSON/does format component
 
 =head1 VERSION
 
-version 0.2.1
+version 0.2.2
 
 =head1 METHODS
 
-=head2 add_v1
+=head2 C<add_does>
 
 Spec V1 C<does> Implementation
 
-    MetaPOD::Format::JSON::does->add_v1( $data->{does} , $metapod_result );
+    __SOME_CLASS__->add_does( $data->{does} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::does",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::does::v1",
+    "interface":"role"
 }
 
 

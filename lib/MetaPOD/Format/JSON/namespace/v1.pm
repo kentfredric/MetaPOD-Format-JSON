@@ -2,19 +2,21 @@
 use strict;
 use warnings;
 
-package MetaPOD::Format::JSON::namespace;
+package MetaPOD::Format::JSON::namespace::v1;
 BEGIN {
-  $MetaPOD::Format::JSON::namespace::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Format::JSON::namespace::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::namespace::VERSION = '0.2.1';
+  $MetaPOD::Format::JSON::namespace::v1::VERSION = '0.2.2';
 }
 
 # ABSTRACT: Implementation of JSON/namespace format component
 
 
+use Moo::Role;
 
-sub add_v1 {
+
+sub add_namespace {
   my ( $self, $namespace, $result ) = @_;
   return $result->set_namespace($namespace);
 }
@@ -29,25 +31,25 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Format::JSON::namespace - Implementation of JSON/namespace format component
+MetaPOD::Format::JSON::namespace::v1 - Implementation of JSON/namespace format component
 
 =head1 VERSION
 
-version 0.2.1
+version 0.2.2
 
 =head1 METHODS
 
-=head2 add_v1
+=head2 C<add_namespace>
 
 Spec V1 C<namespace> Implementation
 
-    MetaPOD::Format::JSON::namespace->add_v1( $data->{namespace} , $metapod_result );
+    $impl->add_namespace( $data->{namespace} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Format::JSON::namespace",
-    "interface":"single_class"
+    "namespace":"MetaPOD::Format::JSON::namespace::v1",
+    "interface":"role"
 }
 
 
