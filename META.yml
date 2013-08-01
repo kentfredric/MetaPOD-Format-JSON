@@ -27,6 +27,15 @@ provides:
   MetaPOD::Assembler:
     file: lib/MetaPOD/Assembler.pm
     version: v0.2.2
+  MetaPOD::Exception:
+    file: lib/MetaPOD/Exception.pm
+    version: v0.2.2
+  MetaPOD::Exception::Decode:
+    file: lib/MetaPOD/Exception/Decode.pm
+    version: v0.2.2
+  MetaPOD::Exception::Decode::Data:
+    file: lib/MetaPOD/Exception/Decode/Data.pm
+    version: v0.2.2
   MetaPOD::Extractor:
     file: lib/MetaPOD/Extractor.pm
     version: v0.2.2
@@ -74,11 +83,11 @@ requires:
   Data::Dump: 0
   JSON: 0
   List::AllUtils: 0
-  MetaPOD::Exception::Decode::Data: 0
   Module::Runtime: 0
   Moo: 1.000008
   Moo::Role: 0
   Pod::Eventual: 0
+  Throwable::Error: 0
   Try::Tiny: 0
   perl: v5.10.0
   strict: 0
@@ -100,7 +109,6 @@ x_BuiltWith:
     FindBin: 1.51
     JSON: 2.59
     List::AllUtils: 0.03
-    MetaPOD::Exception::Decode::Data: 'NA(possibly not installed)'
     Module::Build: 0.4005
     Module::Runtime: 0.013
     Moo: 1.002
@@ -115,6 +123,7 @@ x_BuiltWith:
     Test::More: 0.98
     Test::Pod: 1.48
     Test::Pod::Coverage: 1.08
+    Throwable::Error: 0.200008
     Try::Tiny: 0.15
     perl: 'NA(skipped: perl)'
     strict: 1.07
