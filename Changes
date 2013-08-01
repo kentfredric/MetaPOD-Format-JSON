@@ -1,6 +1,6 @@
 Release history for MetaPOD
 
-0.2.2 2013-08-01T18:47:44Z
+0.2.2 2013-08-01T18:54:07Z
  [Dependencies::Added / runtime requires]
  - Throwable::Error
  - Try::Tiny

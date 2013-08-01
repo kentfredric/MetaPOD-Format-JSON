@@ -17,7 +17,9 @@ use Moo;
 
 extends 'MetaPOD::Exception';
 
+
 has 'data' => ( is => ro =>, required => 1, );
+
 
 has 'internal_message' => ( is => ro =>, required => 1, );
 
@@ -44,6 +46,16 @@ MetaPOD::Exception::Decode::Data - Failures with decoding source data
 =head1 VERSION
 
 version 0.2.2
+
+=head1 ATTRIBUTES
+
+=head2 C<data>
+
+The data that was being decoded when the exception occurred.
+
+=head2 C<internal_message>
+
+Messages given from decoder
 
 =begin MetaPOD::JSON v1.1.0
 
