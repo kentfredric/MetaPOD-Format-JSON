@@ -15,19 +15,18 @@ BEGIN {
 use Moo;
 
 
-
 extends 'MetaPOD::Exception';
 
-has 'data' => ( is => ro =>, required => 1 );
+has 'data' => ( is => ro =>, required => 1, );
 
-has 'internal_message' => ( is => ro =>, required => 1 );
+has 'internal_message' => ( is => ro =>, required => 1, );
 
 has '+message' => (
-    is      => ro =>,
-    lazy    => 1,
-    builder => sub {
-        return "While decoding:\n" . $_[0]->data . "\n Got: " . $_[0]->internal_message;
-    }
+  is      => ro =>,
+  lazy    => 1,
+  builder => sub {
+    return "While decoding:\n" . $_[0]->data . "\n Got: " . $_[0]->internal_message;
+  },
 );
 
 1;

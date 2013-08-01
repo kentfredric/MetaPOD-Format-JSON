@@ -22,6 +22,7 @@ sub postcheck {
   if ( keys %{$data} ) {
     croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data} ) . '>';
   }
+  return;
 }
 
 1;
