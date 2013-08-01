@@ -21,14 +21,17 @@ sub decode {
   require JSON;
   my $return;
   try {
-      $return = JSON->new->decode($data);
-  } catch {
-        require MetaPOD::Exception::Decode::Data;
-        MetaPOD::Exception::Decode::Data->throw({
-            internal_message => $_,
-            data => $data,
-            previous_exception => $_,
-        });
+    $return = JSON->new->decode($data);
+  }
+  catch {
+    require MetaPOD::Exception::Decode::Data;
+    MetaPOD::Exception::Decode::Data->throw(
+      {
+        internal_message   => $_,
+        data               => $data,
+        previous_exception => $_,
+      }
+    );
   };
   return $return;
 }
@@ -51,7 +54,7 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 decode
+=head2 C<decode>
 
 Spec V1 C<JSON> Decoder
 

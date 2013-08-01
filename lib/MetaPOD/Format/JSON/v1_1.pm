@@ -18,6 +18,7 @@ use Moo;
 extends 'MetaPOD::Format::JSON::v1';
 with 'MetaPOD::Format::JSON::interface::v1_1';
 
+
 sub features {
   return qw( does inherits namespace interface );
 }
@@ -37,6 +38,14 @@ MetaPOD::Format::JSON::v1_1 - MetaPOD::JSON v1 SPEC Implementation
 =head1 VERSION
 
 version 0.2.2
+
+=head1 METHODS
+
+=head2 C<features>
+
+The list of features this version supports.
+
+    does inherits namespace interface
 
 =begin MetaPOD::JSON v1.1.0
 

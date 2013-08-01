@@ -59,7 +59,7 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 supported_versions
+=head2 C<supported_versions>
 
 Returns a list of string versions supported by this class, or the consuming role.
 
@@ -71,7 +71,7 @@ By default, returns
 
     v1.0.0
 
-=head2 supports_version
+=head2 C<supports_version>
 
 Determine if the class supports the given version or not
 
@@ -83,7 +83,7 @@ Default implementation compares values given verses the results from C<< $class-
 
 =head1 PRIVATE METHODS
 
-=head2 _supported_versions
+=head2 C<_supported_versions>
 
 Returns a list of C<version> objects that represent an enumeration of all supported versions
 

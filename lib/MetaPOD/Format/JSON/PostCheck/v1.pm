@@ -43,7 +43,7 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 postcheck
+=head2 C<postcheck>
 
 Spec V1 Handling of unprocessed keys
 

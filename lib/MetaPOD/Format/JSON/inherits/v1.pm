@@ -45,11 +45,11 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 add_v1
+=head2 C<add_inherits>
 
 Spec v1 C<inherits> Implementation
 
-    MetaPOD::Format::JSON::inherits->add_v1( $data->{inherits} , $metapod_result );
+    $impl->add_inherits( $data->{inherits} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 

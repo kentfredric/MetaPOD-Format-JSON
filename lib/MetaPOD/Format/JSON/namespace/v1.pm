@@ -39,11 +39,11 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 add_namespace
+=head2 C<add_namespace>
 
 Spec V1 C<namespace> Implementation
 
-    MetaPOD::Format::JSON::namespace->add_v1( $data->{namespace} , $metapod_result );
+    $impl->add_namespace( $data->{namespace} , $metapod_result );
 
 =begin MetaPOD::JSON v1.1.0
 

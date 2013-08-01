@@ -45,7 +45,7 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 add_does
+=head2 C<add_does>
 
 Spec V1 C<does> Implementation
 

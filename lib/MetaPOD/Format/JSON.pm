@@ -71,13 +71,13 @@ This is the reference implementation of L<< C<MetaPOD::JSON>|MetaPOD::JSON >>
 
 =head1 METHODS
 
-=head2 supported_versions
+=head2 C<supported_versions>
 
 The versions this module supports
 
     returns qw( v1.0.0 v1.1.0 )
 
-=head2 add_segment
+=head2 C<add_segment>
 
 See L<< C<::Role::Format>|MetaPOD::Role::Format >> for the specification of the C<add_segment> method.
 

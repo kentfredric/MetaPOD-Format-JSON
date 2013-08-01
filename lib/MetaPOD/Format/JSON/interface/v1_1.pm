@@ -62,13 +62,17 @@ version 0.2.2
 
 =head1 METHODS
 
-=head2 supported_interfaces
+=head2 C<supported_interfaces>
 
 Spec v1.1 C<interface> value list.
 
     my @valid_interface_tokens = __SOME_CLASS__->supported_interfaces
 
-=head2 check_interface
+In this version, supported interfaces are:
+
+    class role type_library exporter single_class function
+
+=head2 C<check_interface>
 
 Spec v1.1 C<interface> Implementation key checking routine
 
@@ -76,7 +80,7 @@ Spec v1.1 C<interface> Implementation key checking routine
 
 Simply goes C<bang> if C<$interface> is not in C<supported_interfaces_v1_1>
 
-=head2 add_interface
+=head2 C<add_interface>
 
 Spec v1.1 C<interface> Implementation
 
