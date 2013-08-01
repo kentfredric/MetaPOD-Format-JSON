@@ -19,7 +19,7 @@ package MetaPOD::Format::JSON::does::v1;
 use Moo::Role;
 use Carp qw(croak);
 
-=method add_does
+=method C<add_does>
 
 Spec V1 C<does> Implementation
 

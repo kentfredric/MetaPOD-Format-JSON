@@ -19,11 +19,11 @@ package MetaPOD::Format::JSON::namespace::v1;
 
 use Moo::Role;
 
-=method add_namespace
+=method C<add_namespace>
 
 Spec V1 C<namespace> Implementation
 
-    MetaPOD::Format::JSON::namespace->add_v1( $data->{namespace} , $metapod_result );
+    $impl->add_namespace( $data->{namespace} , $metapod_result );
 
 =cut
 

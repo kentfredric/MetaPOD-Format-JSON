@@ -19,11 +19,11 @@ package MetaPOD::Format::JSON::inherits::v1;
 use Moo::Role;
 use Carp qw(croak);
 
-=method add_v1
+=method C<add_inherits>
 
 Spec v1 C<inherits> Implementation
 
-    MetaPOD::Format::JSON::inherits->add_v1( $data->{inherits} , $metapod_result );
+    $impl->add_inherits( $data->{inherits} , $metapod_result );
 
 =cut
 

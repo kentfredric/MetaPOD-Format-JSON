@@ -26,6 +26,14 @@ use Moo;
 extends 'MetaPOD::Format::JSON::v1';
 with 'MetaPOD::Format::JSON::interface::v1_1';
 
+=method C<features>
+
+The list of features this version supports.
+
+    does inherits namespace interface
+
+=cut
+
 sub features {
   return qw( does inherits namespace interface );
 }

@@ -42,7 +42,7 @@ my $dispatch_table = [
   }
 ];
 
-=method supported_versions
+=method C<supported_versions>
 
 The versions this module supports
 
@@ -54,7 +54,7 @@ sub supported_versions {
   return qw( v1.0.0 v1.1.0 );
 }
 
-=method add_segment
+=method C<add_segment>
 
 See L<< C<::Role::Format>|MetaPOD::Role::Format >> for the specification of the C<add_segment> method.
 

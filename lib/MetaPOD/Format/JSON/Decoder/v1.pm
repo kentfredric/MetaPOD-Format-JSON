@@ -19,7 +19,7 @@ package MetaPOD::Format::JSON::Decoder::v1;
 use Moo::Role;
 use Try::Tiny qw( try catch );
 
-=method decode
+=method C<decode>
 
 Spec V1 C<JSON> Decoder
 
@@ -32,14 +32,17 @@ sub decode {
   require JSON;
   my $return;
   try {
-      $return = JSON->new->decode($data);
-  } catch {
-        require MetaPOD::Exception::Decode::Data;
-        MetaPOD::Exception::Decode::Data->throw({
-            internal_message => $_,
-            data => $data,
-            previous_exception => $_,
-        });
+    $return = JSON->new->decode($data);
+  }
+  catch {
+    require MetaPOD::Exception::Decode::Data;
+    MetaPOD::Exception::Decode::Data->throw(
+      {
+        internal_message   => $_,
+        data               => $data,
+        previous_exception => $_,
+      }
+    );
   };
   return $return;
 }

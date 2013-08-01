@@ -19,7 +19,7 @@ package MetaPOD::Format::JSON::PostCheck::v1;
 use Moo::Role;
 use Carp qw( croak );
 
-=method postcheck
+=method C<postcheck>
 
 Spec V1 Handling of unprocessed keys
 
@@ -33,6 +33,7 @@ sub postcheck {
   if ( keys %{$data} ) {
     croak 'Keys found not supported in this version: <' . ( join q{,}, keys %{$data} ) . '>';
   }
+  return;
 }
 
 1;

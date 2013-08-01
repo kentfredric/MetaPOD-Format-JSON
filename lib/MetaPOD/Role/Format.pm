@@ -20,7 +20,7 @@ use version 0.77;
 =end MetaPOD::JSON
 
 
-=method supported_versions
+=method C<supported_versions>
 
 Returns a list of string versions supported by this class, or the consuming role.
 
@@ -37,7 +37,7 @@ By default, returns
 
 sub supported_versions { return qw( v1.0.0 ) }
 
-=p_method _supported_versions
+=p_method C<_supported_versions>
 
 Returns a list of C<version> objects that represent an enumeration of all supported versions
 
@@ -52,7 +52,7 @@ sub _supported_versions {
   return map { version->parse($_) } $class->supported_versions;
 }
 
-=method supports_version
+=method C<supports_version>
 
 Determine if the class supports the given version or not
 

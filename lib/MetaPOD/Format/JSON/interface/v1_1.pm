@@ -19,11 +19,15 @@ package MetaPOD::Format::JSON::interface::v1_1;
 use Moo::Role;
 use Carp qw(croak);
 
-=method supported_interfaces
+=method C<supported_interfaces>
 
 Spec v1.1 C<interface> value list.
 
     my @valid_interface_tokens = __SOME_CLASS__->supported_interfaces
+
+In this version, supported interfaces are:
+
+    class role type_library exporter single_class function
 
 =cut
 
@@ -31,7 +35,7 @@ sub supported_interfaces {
   return qw( class role type_library exporter single_class function );
 }
 
-=method check_interface
+=method C<check_interface>
 
 Spec v1.1 C<interface> Implementation key checking routine
 
@@ -52,7 +56,7 @@ sub check_interface {
   return $self;
 }
 
-=method add_interface
+=method C<add_interface>
 
 Spec v1.1 C<interface> Implementation
 
