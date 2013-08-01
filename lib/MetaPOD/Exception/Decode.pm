@@ -42,6 +42,17 @@ MetaPOD::Exception::Decode
 
 version 0.2.2
 
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"MetaPOD::Exception::Decode",
+    "interface":"class",
+    "inherits":"MetaPOD::Exception"
+}
+
+
+=end MetaPOD::JSON
+
 =head1 AUTHOR
 
 Kent Fredric <kentfredric@gmail.com>

@@ -11,6 +11,7 @@ BEGIN {
 
 use Moo;
 
+
 extends 'Throwable::Error';
 
 no Moo;
@@ -30,6 +31,17 @@ MetaPOD::Exception
 =head1 VERSION
 
 version 0.2.2
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"MetaPOD::Exception",
+    "interface":"class",
+    "inherits":"Throwable::Error"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 
