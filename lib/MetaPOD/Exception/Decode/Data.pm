@@ -12,6 +12,7 @@ BEGIN {
 
 use Moo;
 
+
 extends 'MetaPOD::Exception';
 
 has 'data' => ( is => ro =>, required => 1 );
@@ -41,6 +42,17 @@ MetaPOD::Exception::Decode::Data
 =head1 VERSION
 
 version 0.2.2
+
+=begin MetaPOD::JSON v1.1.0
+
+{
+    "namespace":"MetaPOD::Exception::Decode::Data",
+    "interface":"class",
+    "inherits":"MetaPOD::Exception"
+}
+
+
+=end MetaPOD::JSON
 
 =head1 AUTHOR
 
