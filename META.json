@@ -176,7 +176,7 @@
          "Path::Tiny" : "0.027",
          "Pod::Coverage::TrustPod" : "0.100002",
          "Pod::Eventual" : "0.093330",
-         "Test::CPAN::Changes" : "0.22",
+         "Test::CPAN::Changes" : "0.20",
          "Test::CPAN::Meta" : "0.23",
          "Test::Fatal" : "0.010",
          "Test::More" : "0.98",

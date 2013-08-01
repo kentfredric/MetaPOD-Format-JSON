@@ -19,8 +19,8 @@ my $it   = $rule->iter("$root");
 
 my $assembler = MetaPOD::Assembler->new();
 my $g         = GraphViz2->new(
-  graph => { 
-    rankdir => 'LR', 
+  graph => {
+    rankdir => 'LR',
     splines => 'spline',
     concentrate => 1,
     compound => 1,
@@ -45,7 +45,7 @@ my $shapes = {
     'single_class' => [ 'shape' => 'Mrecord', style => 'solid' , fontsize => 7, height => 0.1 , color => '#0343df'],
 
 };
-my ( @edgesame ) = ( 
+my ( @edgesame ) = (
     fontsize => 6, dir => 'forward', 'arrowhead' => 'open' , arrowsize =>  0.5 ,
     headclip => 1, tailclip => 1,
 );
@@ -58,39 +58,39 @@ my $edges = {
 my @assemblies;
 
 while ( my $file = $it->() ) {
-    push @assemblies, { file => $file, result => $assembler->assemble_file($file) }; 
+    push @assemblies, { file => $file, result => $assembler->assemble_file($file) };
 }
 
-my %namespaces; 
+my %namespaces;
 
-for my $asm ( @assemblies ) { 
-    my $ns = $asm->{result}->namespace; 
+for my $asm ( @assemblies ) {
+    my $ns = $asm->{result}->namespace;
     if ( not exists $namespaces{$ns} ) {
         $namespaces{$ns} = {};
     }
-    if ( not exists $namespaces{$ns}->{interfaces} ){ 
+    if ( not exists $namespaces{$ns}->{interfaces} ){
         $namespaces{$ns}->{interfaces} = {};
     }
     if ( not exists $namespaces{$ns}->{group} ){
         $namespaces{$ns}->{group} = '__TOP__';
     }
-    for my $interface ( $asm->{result}->interface ) { 
+    for my $interface ( $asm->{result}->interface ) {
         $namespaces{$ns}->{interfaces}->{$interface} = 1;
         $namespaces{$ns}->{extra} //= {};
         $namespaces{$ns}->{extra} = { %{  $namespaces{$ns}->{extra}  }, @{ $shapes->{$interface}} };
     }
-    for my $inherit ( $asm->{result}->inherits ) { 
+    for my $inherit ( $asm->{result}->inherits ) {
         $namespaces{$inherit} = {} unless exists $namespaces{$inherit};
     }
-    for my $does ( $asm->{result}->does ) { 
+    for my $does ( $asm->{result}->does ) {
         $namespaces{$does} = {} unless exists $namespaces{$does};
     }
 }
 for my $ns ( sort keys %namespaces ) {
-    if ( $ns =~ /^MetaPOD::/ ){ 
+    if ( $ns =~ /^MetaPOD::/ ){
         $namespaces{$ns}->{group} = 'MetaPOD';
     }
-    if ( $ns =~ /^MetaPOD::Format::JSON::/ ){ 
+    if ( $ns =~ /^MetaPOD::Format::JSON::/ ){
         $namespaces{$ns}->{group} = 'MetaPOD::Format::JSON';
     }
 }
@@ -109,11 +109,11 @@ sub record {
         return record( @{$_[0]} , $_[1] );
     }
     for my $element ( @{$_[0]} ) {
-        if ( ref $element eq 'ARRAY' ){ 
+        if ( ref $element eq 'ARRAY' ){
             push @pp , '{'. record($element, $_[1]) . '}';
             next;
         }
-        if ( not ref $element ){ 
+        if ( not ref $element ){
             my $port = ( ++$_[1] );
             push @pp, '<port' . $port . '> ' . $element;
         }
@@ -124,14 +124,14 @@ sub record {
 }
 
 for my $ns ( sort keys %namespaces ) {
-    my $sn = $ns; 
+    my $sn = $ns;
     my $base = $namespaces{$ns}->{group};
-    if ( $base ne '__TOP__' ){ 
+    if ( $base ne '__TOP__' ){
         #   $sn =~ s/^\Q$base\E:://;
     }
 
-    my @rec = ( $sn ); 
-    if( keys %{ $namespaces{$ns}->{interfaces} } ){ 
+    my @rec = ( $sn );
+    if( keys %{ $namespaces{$ns}->{interfaces} } ){
         unshift @rec, [ keys %{ $namespaces{$ns}->{interfaces} }  ];
     }
     $namespaces{$ns}->{label} = record(\@rec);
@@ -152,26 +152,26 @@ for my $ns ( sort keys %namespaces ) {
     }
 }
 my $cluster_id = 1;
-for my $group ( sort keys %groups ){ 
+for my $group ( sort keys %groups ){
     $g->push_subgraph(
-        name => 'cluster_' . $cluster_id, 
+        name => 'cluster_' . $cluster_id,
         global => { rank => 'max', recordshape => 'Mrecord' },
         graph => {  label => $group .  '::', rankdir => 'TD' }
     );
     $cluster_id++;
-    for my $ns ( sort keys %namespaces ) { 
+    for my $ns ( sort keys %namespaces ) {
         next unless $namespaces{$ns}->{group} eq $group;
         $g->add_node( name => $ns, label => $namespaces{$ns}->{label},  %{ $namespaces{$ns}->{extra}} );
     }
-    for my $nest ( sort keys %group_nests ){ 
+    for my $nest ( sort keys %group_nests ){
         if ( $group_nests{$nest} eq $group ) {
-            $g->push_subgraph( 
-                name => 'cluster_' . $cluster_id, 
+            $g->push_subgraph(
+                name => 'cluster_' . $cluster_id,
                 global => { rank => 'max', recordshape => 'Mrecord' },
                graph => {  label => $nest .  '::', rankdir => 'TD' }
             );
             $cluster_id++;
-            for my $ns ( sort keys %namespaces ) { 
+            for my $ns ( sort keys %namespaces ) {
                 next unless $namespaces{$ns}->{group} eq $nest;
                 $g->add_node( name => $ns, label => $namespaces{$ns}->{label}, %{ $namespaces{$ns}->{extra}}  );
             }
@@ -181,7 +181,7 @@ for my $group ( sort keys %groups ){
     }
     $g->pop_subgraph();
 }
-for my $asm ( @assemblies ) { 
+for my $asm ( @assemblies ) {
     my $ns = $asm->{result}->namespace;
     my $result = $asm->{result};
 

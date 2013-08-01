@@ -24,6 +24,8 @@ graph Perl {
 			"MetaPOD::Format::JSON::interface::v1_1" -- "MetaPOD::Format::JSON::v1_1" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", tailclip=1, weight=1];
 		}
 		"MetaPOD::Assembler" [label="{{<port1> class}|<port2> MetaPOD::Assembler}", shape=Mrecord, style=solid, color="#7e1e9c", fontsize=7, height="0.1"];
+		"MetaPOD::Exception" [label="{{<port1> class}|<port2> MetaPOD::Exception}", shape=Mrecord, style=solid, color="#7e1e9c", fontsize=7, height="0.1"];
+		"MetaPOD::Exception::Decode::Data" [label="{{<port1> class}|<port2> MetaPOD::Exception::Decode::Data}", shape=Mrecord, style=solid, color="#7e1e9c", fontsize=7, height="0.1"];
 		"MetaPOD::Extractor" [label="{{<port1> class}|<port2> MetaPOD::Extractor}", shape=Mrecord, style=solid, color="#7e1e9c", fontsize=7, height="0.1"];
 		"MetaPOD::Format::JSON" [label="{{<port1> single_class}|<port2> MetaPOD::Format::JSON}", shape=Mrecord, style=solid, color="#0343df", fontsize=7, height="0.1"];
 		"MetaPOD::JSON" [label="<port1> MetaPOD::JSON"];
@@ -31,6 +33,7 @@ graph Perl {
 		"MetaPOD::Role::Format" [label="{{<port1> role}|<port2> MetaPOD::Role::Format}", shape=Mrecord, style=solid, color="#15b01a", fontsize=7, height="0.1"];
 		"MetaPOD::Spec" [label="<port1> MetaPOD::Spec"];
 		"MetaPOD::Role::Format" -- "MetaPOD::Format::JSON" [arrowhead=open, arrowsize="0.5", color="#653700", dir=forward, fontsize=6, headclip=1, label="consumed by", tailclip=1, weight=1];
+		"MetaPOD::Exception" -- "MetaPOD::Exception::Decode::Data" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", tailclip=1, weight=100];
 	}
 	subgraph cluster_3 {
 		graph [rankdir=TD,
@@ -39,7 +42,9 @@ graph Perl {
 	MetaPOD [label="<port1> MetaPOD"];
 	"Moo::Object" [label="<port1> Moo::Object"];
 	"Pod::Eventual" [label="<port1> Pod::Eventual"];
+	"Throwable::Error" [label="<port1> Throwable::Error"];
 	"Moo::Object" -- "MetaPOD::Assembler" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", tailclip=1, weight=100];
+	"Throwable::Error" -- "MetaPOD::Exception" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", tailclip=1, weight=100];
 	"Pod::Eventual" -- "MetaPOD::Extractor" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", tailclip=1, weight=100];
 	"Moo::Object" -- "MetaPOD::Result" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", tailclip=1, weight=100];
 	"Moo::Object" -- "MetaPOD::Format::JSON" [arrowhead=open, arrowsize="0.5", color="#ff81c0", dir=forward, fontsize=6, headclip=1, label="inherited by", tailclip=1, weight=100];
