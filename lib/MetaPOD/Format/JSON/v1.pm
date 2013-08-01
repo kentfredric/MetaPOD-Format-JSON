@@ -44,6 +44,7 @@ sub add_segment {
   my $data = $self->decode( $segment->{data} );
   $self->dispatch_keys( $data, $result );
   $self->postcheck($data);
+  return $self;
 }
 
 1;
