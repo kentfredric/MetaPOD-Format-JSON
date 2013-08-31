@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Format::JSON::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::VERSION = '0.2.2';
+  $MetaPOD::Format::JSON::VERSION = '0.2.3';
 }
 
 # ABSTRACT: Reference implementation of a C<JSON> based MetaPOD Format
@@ -63,7 +63,7 @@ MetaPOD::Format::JSON - Reference implementation of a C<JSON> based MetaPOD Form
 
 =head1 VERSION
 
-version 0.2.2
+version 0.2.3
 
 =head1 SYNOPSIS
 

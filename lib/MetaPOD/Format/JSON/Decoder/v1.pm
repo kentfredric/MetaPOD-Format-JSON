@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Format::JSON::Decoder::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::Decoder::v1::VERSION = '0.2.2';
+  $MetaPOD::Format::JSON::Decoder::v1::VERSION = '0.2.3';
 }
 
 # ABSTRACT: C<JSON> to Structure translation layer
@@ -50,7 +50,7 @@ MetaPOD::Format::JSON::Decoder::v1 - C<JSON> to Structure translation layer
 
 =head1 VERSION
 
-version 0.2.2
+version 0.2.3
 
 =head1 METHODS
 

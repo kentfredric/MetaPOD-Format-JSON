@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "MetaPOD",
-  "dist_version" => "0.2.2",
+  "dist_version" => "0.2.3",
   "license" => "perl",
   "module_name" => "MetaPOD",
   "recommends" => {},
@@ -40,13 +40,13 @@ my %module_build_args = (
   },
   "script_files" => [],
   "test_requires" => {
-    "Capture::Tiny" => 0,
     "FindBin" => 0,
+    "IO::Handle" => 0,
+    "IPC::Open3" => 0,
     "Path::Iterator::Rule" => 0,
     "Path::Tiny" => 0,
     "Test::Fatal" => 0,
-    "Test::More" => "0.98",
-    "blib" => 0
+    "Test::More" => "0.98"
   }
 );
 
