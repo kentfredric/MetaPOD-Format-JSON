@@ -1,6 +1,8 @@
 Release history for MetaPOD
 
 {{$NEXT}}
+
+0.2.3 2013-08-31T03:01:20Z
  [!Minor]
  - Bump to excise old Test::Compile test.
 
