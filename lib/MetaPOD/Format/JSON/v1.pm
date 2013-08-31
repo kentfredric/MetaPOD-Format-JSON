@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Format::JSON::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::v1::VERSION = '0.2.2';
+  $MetaPOD::Format::JSON::v1::VERSION = '0.2.3';
 }
 
 # ABSTRACT: MetaPOD::JSON v1 SPEC Implementation
@@ -61,7 +61,7 @@ MetaPOD::Format::JSON::v1 - MetaPOD::JSON v1 SPEC Implementation
 
 =head1 VERSION
 
-version 0.2.2
+version 0.2.3
 
 =head1 METHODS
 

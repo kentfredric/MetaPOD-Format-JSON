@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Format::JSON::PostCheck::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::PostCheck::v1::VERSION = '0.2.2';
+  $MetaPOD::Format::JSON::PostCheck::v1::VERSION = '0.2.3';
 }
 
 # ABSTRACT: Handler for unrecognised tokens in C<JSON>
@@ -39,7 +39,7 @@ MetaPOD::Format::JSON::PostCheck::v1 - Handler for unrecognised tokens in C<JSON
 
 =head1 VERSION
 
-version 0.2.2
+version 0.2.3
 
 =head1 METHODS
 
