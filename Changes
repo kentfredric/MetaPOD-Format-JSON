@@ -1,6 +1,22 @@
 Release history for MetaPOD
 
-0.2.3 2013-08-31T02:57:10Z
+0.2.3 2013-08-31T03:01:20Z
+ [!Minor]
+ - Bump to excise old Test::Compile test.
+
+ [Dependencies::Added / develop requires]
+ - Test::Kwalitee 1.08
+
+ [Dependencies::Added / test requires]
+ - IO::Handle
+ - IPC::Open3
+
+ [Dependencies::Changed / develop suggests]
+ - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.5 → v1.8.3
+
+ [Dependencies::Removed / test requires]
+ - Capture::Tiny
+ - blib
 
 0.2.2 2013-08-01T19:06:05Z
  [Dependencies::Added / runtime requires]
