@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Extractor::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Extractor::VERSION = '0.2.3';
+  $MetaPOD::Extractor::VERSION = '0.2.4';
 }
 
 # ABSTRACT: Extract MetaPOD declarations from a file.
@@ -252,7 +252,7 @@ MetaPOD::Extractor - Extract MetaPOD declarations from a file.
 
 =head1 VERSION
 
-version 0.2.3
+version 0.2.4
 
 =head1 METHODS
 

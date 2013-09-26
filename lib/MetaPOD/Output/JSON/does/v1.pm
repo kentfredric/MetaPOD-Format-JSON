@@ -1,22 +1,24 @@
 use strict;
 use warnings;
 
-package MetaPOD::Exception;
+package MetaPOD::Output::JSON::does::v1;
 BEGIN {
-  $MetaPOD::Exception::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Output::JSON::does::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Exception::VERSION = '0.2.4';
+  $MetaPOD::Output::JSON::does::v1::VERSION = '0.2.4';
 }
 
-use Moo;
-
-# ABSTRACT: Base class for C<MetaPOD> exceptions.
+use Moo::Role;
 
 
-extends 'Throwable::Error';
-
-no Moo;
+sub get_does {
+  my ( $self, $result ) = @_;
+  for my $do ( $result->does ) {
+    die "v1 cannot support does => [ REF ]" if ref $do;
+  }
+  return [ $result->does ];
+}
 
 1;
 
@@ -28,7 +30,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Exception - Base class for C<MetaPOD> exceptions.
+MetaPOD::Output::JSON::does::v1
 
 =head1 VERSION
 
@@ -37,9 +39,8 @@ version 0.2.4
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace":"MetaPOD::Exception",
-    "interface":"class",
-    "inherits":"Throwable::Error"
+    "namespace":"MetaPOD::Output::JSON::does::v1",
+    "interface":"role"
 }
 
 

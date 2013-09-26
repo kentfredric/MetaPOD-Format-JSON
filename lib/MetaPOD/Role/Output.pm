@@ -2,15 +2,15 @@
 use strict;
 use warnings;
 
-package MetaPOD::Role::Format;
+package MetaPOD::Role::Output;
 BEGIN {
-  $MetaPOD::Role::Format::AUTHORITY = 'cpan:KENTNL';
+  $MetaPOD::Role::Output::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Role::Format::VERSION = '0.2.4';
+  $MetaPOD::Role::Output::VERSION = '0.2.4';
 }
 
-# ABSTRACT: Base role for common format routines
+# ABSTRACT: Base role for common output routines
 
 use Moo::Role;
 use Carp qw( croak );
@@ -39,7 +39,7 @@ sub supports_version {
   croak "Version $v not supported. Supported versions: " . join q{,}, $class->supported_versions;
 }
 
-requires 'add_segment';
+requires 'output_metapod';
 
 1;
 
@@ -51,7 +51,7 @@ __END__
 
 =head1 NAME
 
-MetaPOD::Role::Format - Base role for common format routines
+MetaPOD::Role::Output - Base role for common output routines
 
 =head1 VERSION
 
@@ -94,7 +94,7 @@ The default implementation just wraps L</supported_versions> with C<< version->p
 =begin MetaPOD::JSON v1.1.0
 
 {
-    "namespace": "MetaPOD::Role::Format",
+    "namespace": "MetaPOD::Role::Output",
     "interface": "role"
 }
 

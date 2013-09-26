@@ -33,8 +33,17 @@ lib/MetaPOD/Format/JSON/namespace/v1.pm
 lib/MetaPOD/Format/JSON/v1.pm
 lib/MetaPOD/Format/JSON/v1_1.pm
 lib/MetaPOD/JSON.pm
+lib/MetaPOD/Output/JSON.pm
+lib/MetaPOD/Output/JSON/Encoder/v1.pm
+lib/MetaPOD/Output/JSON/does/v1.pm
+lib/MetaPOD/Output/JSON/inherits/v1.pm
+lib/MetaPOD/Output/JSON/interface/v1_1.pm
+lib/MetaPOD/Output/JSON/namespace/v1.pm
+lib/MetaPOD/Output/JSON/v1.pm
+lib/MetaPOD/Output/JSON/v1_1.pm
 lib/MetaPOD/Result.pm
 lib/MetaPOD/Role/Format.pm
+lib/MetaPOD/Role/Output.pm
 lib/MetaPOD/Spec.pm
 perlcritic.rc
 t/00-compile.t
