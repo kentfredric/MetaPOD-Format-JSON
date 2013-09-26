@@ -97,6 +97,8 @@ resources:
   repository: https://github.com/kentfredric/MetaPOD.git
 version: 0.2.4
 x_BuiltWith:
+  failures:
+    Moo::Role: 'Module::MetaData could not parse a version from /home/kent/perl5/perlbrew/perls/perl-5.19.3/lib/site_perl/5.19.3/Moo/Role.pm'
   modules:
     Carp: 1.32
     Data::Dump: 1.22
@@ -110,8 +112,7 @@ x_BuiltWith:
     List::AllUtils: 0.05
     Module::Build: 0.4007
     Module::Runtime: 0.013
-    Moo: 1.003001
-    Moo::Role: 1.003001
+    Moo: 1.003000
     Path::Iterator::Rule: 1.005
     Path::Tiny: 0.037
     Pod::Coverage::TrustPod: 0.100002
