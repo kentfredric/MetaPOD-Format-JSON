@@ -36,6 +36,11 @@ lib/MetaPOD/JSON.pm
 lib/MetaPOD/Result.pm
 lib/MetaPOD/Role/Format.pm
 lib/MetaPOD/Spec.pm
+maint-travis-ci/README.mkdn
+maint-travis-ci/merge_travis_yml.pl
+maint-travis-ci/sterilize_env.pl
+maint-travis-ci/sync_tree.pl
+maint-travis-ci/yamls/sterile.yaml
 perlcritic.rc
 t/00-compile.t
 t/000-report-versions-tiny.t
