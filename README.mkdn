@@ -4,7 +4,7 @@ MetaPOD - An evolution of POD
 
 # VERSION
 
-version 0.2.3
+version 0.2.4
 
 { "namespace":"MetaPOD" }
 
