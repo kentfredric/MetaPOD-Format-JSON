@@ -3,7 +3,7 @@ use warnings;
 
 # this test was generated with Dist::Zilla::Plugin::Test::Compile 2.033
 
-use Test::More  tests => 27 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
+use Test::More  tests => 18 + ($ENV{AUTHOR_TESTING} ? 1 : 0);
 
 
 
@@ -23,17 +23,8 @@ my @module_files = (
     'MetaPOD/Format/JSON/v1.pm',
     'MetaPOD/Format/JSON/v1_1.pm',
     'MetaPOD/JSON.pm',
-    'MetaPOD/Output/JSON.pm',
-    'MetaPOD/Output/JSON/Encoder/v1.pm',
-    'MetaPOD/Output/JSON/does/v1.pm',
-    'MetaPOD/Output/JSON/inherits/v1.pm',
-    'MetaPOD/Output/JSON/interface/v1_1.pm',
-    'MetaPOD/Output/JSON/namespace/v1.pm',
-    'MetaPOD/Output/JSON/v1.pm',
-    'MetaPOD/Output/JSON/v1_1.pm',
     'MetaPOD/Result.pm',
     'MetaPOD/Role/Format.pm',
-    'MetaPOD/Role/Output.pm',
     'MetaPOD/Spec.pm'
 );
 

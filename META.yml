@@ -67,38 +67,11 @@ provides:
   MetaPOD::JSON:
     file: lib/MetaPOD/JSON.pm
     version: v0.2.4
-  MetaPOD::Output::JSON:
-    file: lib/MetaPOD/Output/JSON.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::Encoder::v1:
-    file: lib/MetaPOD/Output/JSON/Encoder/v1.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::does::v1:
-    file: lib/MetaPOD/Output/JSON/does/v1.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::inherits::v1:
-    file: lib/MetaPOD/Output/JSON/inherits/v1.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::interface::v1_1:
-    file: lib/MetaPOD/Output/JSON/interface/v1_1.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::namespace::v1:
-    file: lib/MetaPOD/Output/JSON/namespace/v1.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::v1:
-    file: lib/MetaPOD/Output/JSON/v1.pm
-    version: v0.2.4
-  MetaPOD::Output::JSON::v1_1:
-    file: lib/MetaPOD/Output/JSON/v1_1.pm
-    version: v0.2.4
   MetaPOD::Result:
     file: lib/MetaPOD/Result.pm
     version: v0.2.4
   MetaPOD::Role::Format:
     file: lib/MetaPOD/Role/Format.pm
-    version: v0.2.4
-  MetaPOD::Role::Output:
-    file: lib/MetaPOD/Role/Output.pm
     version: v0.2.4
   MetaPOD::Spec:
     file: lib/MetaPOD/Spec.pm
