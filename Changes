@@ -1,51 +1,47 @@
-Release history for MetaPOD
+Release history for MetaPOD-Format-JSON
+
+0.3.0 2013-11-23T06:56:45Z
+ [00 FORK]
+ - This release is the first release where MetaPOD::Format::JSON is
+   independent of MetaPOD
+
+ [Dependencies::Stats]
+ - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - build: ↑1
+ - configure: ↑1
+ - develop: +44 ↑1 -3
+ - runtime: +2 -5
+ - test: +3 ↑1 -3
 
 0.2.4 2013-09-26T06:34:05Z
  [00 Minor]
  - Bump to provide regenerated Test::Compile not known-broken on win32
 
- [Dependencies::Added / test requires]
- - File::Spec
+ [Dependencies::Stats]
+ - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - test: +1
 
 0.2.3 2013-08-31T03:01:20Z
  [!Minor]
  - Bump to excise old Test::Compile test.
 
- [Dependencies::Added / develop requires]
- - Test::Kwalitee 1.08
-
- [Dependencies::Added / test requires]
- - IO::Handle
- - IPC::Open3
-
- [Dependencies::Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.5 → v1.8.3
-
- [Dependencies::Removed / test requires]
- - Capture::Tiny
- - blib
+ [Dependencies::Stats]
+ - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - develop: +1 ↑1
+ - test: +2 -2
 
 0.2.2 2013-08-01T19:06:05Z
- [Dependencies::Added / runtime requires]
- - Throwable::Error
- - Try::Tiny
+ [Dependencies::Noteworthy]
+ - Needs Throwable::Error, Try::Tiny and Capture::Tiny
+ - Needs newer Module::Build
 
- [Dependencies::Added / test requires]
- - Capture::Tiny
- - blib
-
- [Dependencies::Changed / build requires]
- - Module::Build 0.4005 → 0.4007
-
- [Dependencies::Changed / configure requires]
- - Module::Build 0.4005 → 0.4007
-
- [Dependencies::Changed / develop suggests]
- - Dist::Zilla::PluginBundle::Author::KENTNL v1.7.3 → v1.7.5
-
- [Dependencies::Removed / test requires]
- - File::Find
- - File::Temp
+ [Dependencies::Stats]
+ - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - build: ↑1
+ - configure: ↑1
+ - develop: ↑1
+ - runtime: +2
+ - test: +2 -2
 
  [Restructuring]
  - Internals now decomponentized and implemented as roles, which leads to
@@ -69,14 +65,19 @@ Release history for MetaPOD
 
 0.1.2 2013-06-02T07:12:28Z
  [Bug Fix]
- - Update Moo dep to solve bug caused by builder + 1.000007 Moo
+ - Update Moo dep to 1.000008 to solve bug caused by builder + 1.000007 Moo
 
- [Dependencies::Changed / runtime requires]
- - Moo 0 → 1.000008
+ [Dependencies::Stats]
+ - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - runtime: ↑1
 
 0.1.1 2013-05-31T16:02:34Z
- [Dependencies::Added / test requires]
- - Path::Iterator::Rule
+ [Dependencies::Noteworthy]
+ - Use Path::Iterator::Rule
+
+ [Dependencies::Stats]
+ - Dependencies changed, see Changes.deps{,.all,.dev} for details
+ - test: +1
 
  [Documentation]
  - Improve surface docs on MetaPOD::Assembler

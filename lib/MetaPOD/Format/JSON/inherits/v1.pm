@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Format::JSON::inherits::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::inherits::v1::VERSION = '0.2.4';
+  $MetaPOD::Format::JSON::inherits::v1::VERSION = '0.3.0';
 }
 
 # ABSTRACT: Implementation of JSON/inherits format component
@@ -33,7 +33,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -41,7 +41,7 @@ MetaPOD::Format::JSON::inherits::v1 - Implementation of JSON/inherits format com
 
 =head1 VERSION
 
-version 0.2.4
+version 0.3.0
 
 =head1 METHODS
 

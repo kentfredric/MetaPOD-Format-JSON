@@ -6,7 +6,7 @@ BEGIN {
   $MetaPOD::Format::JSON::interface::v1_1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::interface::v1_1::VERSION = '0.2.4';
+  $MetaPOD::Format::JSON::interface::v1_1::VERSION = '0.3.0';
 }
 
 # ABSTRACT: Implementation of JSON/interface format component
@@ -50,7 +50,7 @@ __END__
 
 =pod
 
-=encoding utf-8
+=encoding UTF-8
 
 =head1 NAME
 
@@ -58,7 +58,7 @@ MetaPOD::Format::JSON::interface::v1_1 - Implementation of JSON/interface format
 
 =head1 VERSION
 
-version 0.2.4
+version 0.3.0
 
 =head1 METHODS
 
