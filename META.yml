@@ -24,31 +24,31 @@ name: MetaPOD-Format-JSON
 provides:
   MetaPOD::Format::JSON:
     file: lib/MetaPOD/Format/JSON.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::Decoder::v1:
     file: lib/MetaPOD/Format/JSON/Decoder/v1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::PostCheck::v1:
     file: lib/MetaPOD/Format/JSON/PostCheck/v1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::does::v1:
     file: lib/MetaPOD/Format/JSON/does/v1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::inherits::v1:
     file: lib/MetaPOD/Format/JSON/inherits/v1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::interface::v1_1:
     file: lib/MetaPOD/Format/JSON/interface/v1_1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::namespace::v1:
     file: lib/MetaPOD/Format/JSON/namespace/v1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::v1:
     file: lib/MetaPOD/Format/JSON/v1.pm
-    version: v0.2.5
+    version: v0.3.0
   MetaPOD::Format::JSON::v1_1:
     file: lib/MetaPOD/Format/JSON/v1_1.pm
-    version: v0.2.5
+    version: v0.3.0
 requires:
   Carp: 0
   JSON: 0
@@ -65,7 +65,7 @@ resources:
   bugtracker: https://github.com/kentfredric/MetaPOD-Format-JSON/issues
   homepage: https://github.com/kentfredric/MetaPOD-Format-JSON
   repository: https://github.com/kentfredric/MetaPOD-Format-JSON.git
-version: 0.2.5
+version: 0.3.0
 x_BuiltWith:
   modules:
     Carp: 1.32

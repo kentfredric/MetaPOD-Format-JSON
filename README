@@ -3,7 +3,7 @@ NAME
     MetaPOD Format
 
 VERSION
-    version 0.2.5
+    version 0.3.0
 
 SYNOPSIS
     This is the reference implementation of "MetaPOD::JSON"

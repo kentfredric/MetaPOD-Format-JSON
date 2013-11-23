@@ -7,7 +7,7 @@ BEGIN {
   $MetaPOD::Format::JSON::namespace::v1::AUTHORITY = 'cpan:KENTNL';
 }
 {
-  $MetaPOD::Format::JSON::namespace::v1::VERSION = '0.2.5';
+  $MetaPOD::Format::JSON::namespace::v1::VERSION = '0.3.0';
 }
 
 # ABSTRACT: Implementation of JSON/namespace format component
@@ -35,7 +35,7 @@ MetaPOD::Format::JSON::namespace::v1 - Implementation of JSON/namespace format c
 
 =head1 VERSION
 
-version 0.2.5
+version 0.3.0
 
 =head1 METHODS
 

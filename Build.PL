@@ -17,7 +17,7 @@ my %module_build_args = (
     "Kent Fredric <kentfredric\@gmail.com>"
   ],
   "dist_name" => "MetaPOD-Format-JSON",
-  "dist_version" => "0.2.5",
+  "dist_version" => "0.3.0",
   "license" => "perl",
   "module_name" => "MetaPOD::Format::JSON",
   "recommends" => {},
