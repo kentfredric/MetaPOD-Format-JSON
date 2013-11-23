@@ -1,6 +1,6 @@
 Release history for MetaPOD-Format-JSON
 
-0.3.0 2013-11-23T06:56:10Z
+0.3.0 2013-11-23T06:56:45Z
  [00 FORK]
  - This release is the first release where MetaPOD::Format::JSON is
    independent of MetaPOD
