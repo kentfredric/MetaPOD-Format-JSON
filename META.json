@@ -100,8 +100,6 @@
          "requires" : {
             "FindBin" : "0",
             "MetaPOD::Assembler" : "0",
-            "MetaPOD::Extractor" : "0",
-            "MetaPOD::Result" : "0",
             "Path::Iterator::Rule" : "0",
             "Path::Tiny" : "0",
             "Test::Fatal" : "0",
@@ -211,8 +209,6 @@
          "JSON" : "2.90",
          "MetaPOD::Assembler" : "0.2.4",
          "MetaPOD::Exception::Decode::Data" : "0.2.4",
-         "MetaPOD::Extractor" : "0.2.4",
-         "MetaPOD::Result" : "0.2.4",
          "MetaPOD::Role::Format" : "0.2.4",
          "Module::Build" : "0.4202",
          "Moo" : "1.003001",
