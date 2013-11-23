@@ -4,7 +4,7 @@ MetaPOD::Format::JSON - Reference implementation of a `JSON` based MetaPOD Forma
 
 # VERSION
 
-version 0.2.5
+version 0.3.0
 
 # SYNOPSIS
 
